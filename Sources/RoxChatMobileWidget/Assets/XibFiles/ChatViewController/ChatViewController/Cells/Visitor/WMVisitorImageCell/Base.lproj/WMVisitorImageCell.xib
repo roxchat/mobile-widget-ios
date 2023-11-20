@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" id="81h-Hs-njB" customClass="WMVisitorImageCell" customModule="WebimMobileWidget">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="240"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="81h-Hs-njB" id="87h-Ma-6uT">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="240"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="y2V-6M-6pU">
+                        <rect key="frame" x="340" y="211.5" width="20" height="20"/>
+                    </activityIndicatorView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&lt;?&gt;Time" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nve-Fq-HFd">
+                        <rect key="frame" x="285" y="211" width="52" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="mHh-pA-K6J"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <color key="textColor" red="0.36078431372549019" green="0.37254901960784315" blue="0.54117647058823526" alpha="0.40000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tby-LN-0bl">
+                        <rect key="frame" x="173" y="16" width="187" height="187"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ImagePlaceholder" translatesAutoresizingMaskIntoConstraints="NO" id="Auj-Ar-wVc" customClass="FLAnimatedImageView">
+                                <rect key="frame" x="0.0" y="0.0" width="187" height="187"/>
+                                <gestureRecognizers/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="12"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="clipsToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="axh-7I-bar" customClass="CircleProgressIndicator" customModule="WebimMobileWidget">
+                                <rect key="frame" x="68.5" y="68.5" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="axh-7I-bar" secondAttribute="height" multiplier="1:1" id="Kcx-7t-La8"/>
+                                    <constraint firstAttribute="width" constant="50" id="c7B-BH-LI3"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.9098039269" green="0.92156863209999995" blue="0.93725490570000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="300" id="7HI-V0-UNY"/>
+                            <constraint firstAttribute="trailing" secondItem="Auj-Ar-wVc" secondAttribute="trailing" id="EAY-H1-llQ"/>
+                            <constraint firstAttribute="width" priority="900" constant="179" id="Xp2-DE-xJC"/>
+                            <constraint firstItem="axh-7I-bar" firstAttribute="centerX" secondItem="Auj-Ar-wVc" secondAttribute="centerX" id="ctC-oV-7cH"/>
+                            <constraint firstItem="axh-7I-bar" firstAttribute="centerY" secondItem="Auj-Ar-wVc" secondAttribute="centerY" id="gD4-Np-257"/>
+                            <constraint firstAttribute="bottom" secondItem="Auj-Ar-wVc" secondAttribute="bottom" id="rsW-Di-L0d"/>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="60" id="t9L-a1-sUy"/>
+                            <constraint firstItem="Auj-Ar-wVc" firstAttribute="leading" secondItem="Tby-LN-0bl" secondAttribute="leading" id="ujZ-zU-Ryf"/>
+                            <constraint firstAttribute="width" secondItem="Tby-LN-0bl" secondAttribute="height" priority="950" id="yvs-0C-NSF"/>
+                            <constraint firstItem="Auj-Ar-wVc" firstAttribute="top" secondItem="Tby-LN-0bl" secondAttribute="top" id="ztX-BT-bhK"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="5"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Sent" translatesAutoresizingMaskIntoConstraints="NO" id="sKS-hC-NTJ">
+                        <rect key="frame" x="345" y="214" width="15" height="15"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="sKS-hC-NTJ" secondAttribute="height" multiplier="1:1" id="Lia-Vu-CQ4"/>
+                            <constraint firstAttribute="width" constant="15" id="atQ-bH-nKi"/>
+                            <constraint firstAttribute="height" constant="15" id="brQ-VV-Pfs"/>
+                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="15" id="jvV-eQ-xIn"/>
+                        </constraints>
+                    </imageView>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="Nve-Fq-HFd" secondAttribute="bottom" constant="8" id="ACy-1u-naO"/>
+                    <constraint firstItem="sKS-hC-NTJ" firstAttribute="centerY" secondItem="Nve-Fq-HFd" secondAttribute="centerY" id="Bks-1a-td7"/>
+                    <constraint firstItem="Nve-Fq-HFd" firstAttribute="trailing" secondItem="y2V-6M-6pU" secondAttribute="leading" constant="-3" id="H5d-JH-YBo"/>
+                    <constraint firstItem="Nve-Fq-HFd" firstAttribute="top" secondItem="Tby-LN-0bl" secondAttribute="bottom" constant="8" id="PJi-Ro-Ma6"/>
+                    <constraint firstAttribute="trailing" secondItem="sKS-hC-NTJ" secondAttribute="trailing" constant="15" id="YqM-r9-Sqf"/>
+                    <constraint firstItem="Nve-Fq-HFd" firstAttribute="trailing" secondItem="sKS-hC-NTJ" secondAttribute="leading" constant="-8" id="jiQ-qf-7ax"/>
+                    <constraint firstItem="Auj-Ar-wVc" firstAttribute="top" secondItem="87h-Ma-6uT" secondAttribute="top" constant="16" id="nYc-fg-cTE"/>
+                    <constraint firstItem="Tby-LN-0bl" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="87h-Ma-6uT" secondAttribute="leading" constant="20" id="o8g-0m-MfE"/>
+                    <constraint firstItem="y2V-6M-6pU" firstAttribute="centerY" secondItem="Nve-Fq-HFd" secondAttribute="centerY" id="ytN-3j-o5M"/>
+                    <constraint firstAttribute="trailing" secondItem="Tby-LN-0bl" secondAttribute="trailing" constant="15" id="zqV-gs-muG"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <connections>
+                <outlet property="activityIndicatorView" destination="y2V-6M-6pU" id="UK4-kL-tZr"/>
+                <outlet property="downloadProcessIndicator" destination="axh-7I-bar" id="46C-V0-J0n"/>
+                <outlet property="imageAspectConstraint" destination="yvs-0C-NSF" id="A47-Mr-rb2"/>
+                <outlet property="imagePreview" destination="Auj-Ar-wVc" id="cR5-dQ-N2E"/>
+                <outlet property="imageWidthConstraint" destination="Xp2-DE-xJC" id="dkS-Fl-c2x"/>
+                <outlet property="messageView" destination="Tby-LN-0bl" id="ct3-jo-xKb"/>
+                <outlet property="sendStatus" destination="sKS-hC-NTJ" id="F2Y-Qd-ncP"/>
+                <outlet property="time" destination="Nve-Fq-HFd" id="WiB-pH-Jpm"/>
+            </connections>
+            <point key="canvasLocation" x="6.5217391304347831" y="-53.571428571428569"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="ImagePlaceholder" width="150" height="150"/>
+        <image name="Sent" width="12" height="9"/>
+    </resources>
+</document>

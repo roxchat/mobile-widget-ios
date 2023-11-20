@@ -1,0 +1,6 @@
+framework module RoxchatClientLibrary {
+  umbrella header "RoxchatClientLibrary-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -1,0 +1,46 @@
+PODS:
+  - Cosmos (19.0.3)
+  - FLAnimatedImage (1.0.17)
+  - Nuke (10.7.1)
+  - RoxchatClientLibrary (3.0.3):
+    - SQLite.swift (= 0.13.3)
+  - RoxChatMobileWidget (1.0.0):
+    - Cosmos (~> 19.0.3)
+    - FLAnimatedImage (~> 1.0)
+    - Nuke (~> 10.7.1)
+    - SnapKit
+  - SnapKit (5.6.0)
+  - SQLite.swift (0.13.3):
+    - SQLite.swift/standard (= 0.13.3)
+  - SQLite.swift/standard (0.13.3)
+
+DEPENDENCIES:
+  - RoxchatClientLibrary (from `../../mobile-sdk-ios`)
+  - RoxChatMobileWidget (from `../`)
+
+SPEC REPOS:
+  trunk:
+    - Cosmos
+    - FLAnimatedImage
+    - Nuke
+    - SnapKit
+    - SQLite.swift
+
+EXTERNAL SOURCES:
+  RoxchatClientLibrary:
+    :path: "../../mobile-sdk-ios"
+  RoxChatMobileWidget:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  Cosmos: a6fb17284281fa12cf4c85c2efecd440a215ec44
+  FLAnimatedImage: bbf914596368867157cc71b38a8ec834b3eeb32b
+  Nuke: 279f17a599fd1c83cf51de5e0e1f2db143a287b0
+  RoxchatClientLibrary: e1d78358267c3ca1ba138ad04dfe1436d15b7553
+  RoxChatMobileWidget: 93626dc00243e4afea976ae99924fa660adfda34
+  SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
+  SQLite.swift: 903bfa3bc9ab06345fdfbb578e34f47cfcf417da
+
+PODFILE CHECKSUM: 43f0773b529fdcc93618f952a9c5a000c7ad844c
+
+COCOAPODS: 1.13.0

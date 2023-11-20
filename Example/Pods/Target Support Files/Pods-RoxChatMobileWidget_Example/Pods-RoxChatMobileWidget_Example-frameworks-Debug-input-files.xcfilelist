@@ -1,0 +1,8 @@
+${PODS_ROOT}/Target Support Files/Pods-RoxChatMobileWidget_Example/Pods-RoxChatMobileWidget_Example-frameworks.sh
+${BUILT_PRODUCTS_DIR}/Cosmos/Cosmos.framework
+${BUILT_PRODUCTS_DIR}/FLAnimatedImage/FLAnimatedImage.framework
+${BUILT_PRODUCTS_DIR}/Nuke/Nuke.framework
+${BUILT_PRODUCTS_DIR}/RoxChatMobileWidget/RoxChatMobileWidget.framework
+${BUILT_PRODUCTS_DIR}/RoxchatClientLibrary/RoxchatClientLibrary.framework
+${BUILT_PRODUCTS_DIR}/SQLite.swift/SQLite.framework
+${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework
