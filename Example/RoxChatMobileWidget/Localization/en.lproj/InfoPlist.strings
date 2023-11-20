@@ -1,0 +1,17 @@
+/* 
+  InfoPlist.strings
+  RoxchatClientLibrary
+
+  Created by Anna Frolova on 20.09.2022.
+  Copyright © 2022 Roxchat. All rights reserved.
+*/
+
+"NSPhotoLibraryAddUsageDescription" = "Rox.Chat needs permission to access your photo library so you can save images from chat.";
+
+"NSCameraUsageDescription" = "Rox.Chat needs permission to access your camera so you can send photos to chat.";
+
+"NSFileProviderDomainUsageDescription" = "Rox.Chat needs permission to access your documents folder so you can send files to chat.";
+
+"NSFileProviderPresenceUsageDescription" = "Rox.Chat needs permission to access your documents folder so you can send files to chat.";
+
+"NSPhotoLibraryUsageDescription" = "Rox.Chat needs permission to access your photo library so you can send images to chat.";
