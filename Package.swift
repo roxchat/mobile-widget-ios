@@ -14,7 +14,7 @@ let package = Package(
             targets: ["RoxChatMobileWidget"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/roxchat/mobile-sdk-ios.git", exact: "3.0.3"),
+        .package(url: "https://github.com/roxchat/mobile-sdk-ios.git", exact: "3.0.4"),
         .package(url: "https://github.com/kean/Nuke.git", from: "12.0.0"),
         .package(url: "https://github.com/evgenyneu/Cosmos.git", from: "20.0.0"),
         .package(url: "https://github.com/SnapKit/SnapKit.git", from: "5.0.0"),
@@ -25,7 +25,7 @@ let package = Package(
         .target(
             name: "RoxChatMobileWidget",
             dependencies: [
-                .product(name: "RoxchatClientLibrary", package: "roxchat-client-sdk-ios"),
+                .product(name: "RoxchatClientLibrary", package: "mobile-sdk-ios"),
                 .product(name: "Nuke", package: "Nuke"),
                 .product(name: "Cosmos", package: "Cosmos"),
                 .product(name: "SnapKit", package: "SnapKit"),
