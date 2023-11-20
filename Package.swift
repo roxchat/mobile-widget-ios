@@ -25,7 +25,7 @@ let package = Package(
         .target(
             name: "RoxChatMobileWidget",
             dependencies: [
-                .product(name: "RoxchatClientLibrary", package: "mobile-sdk-ios"),
+                .product(name: "RoxchatClientLibrary", package: "roxchat-client-sdk-ios"),
                 .product(name: "Nuke", package: "Nuke"),
                 .product(name: "Cosmos", package: "Cosmos"),
                 .product(name: "SnapKit", package: "SnapKit"),

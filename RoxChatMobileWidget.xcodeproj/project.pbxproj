@@ -187,7 +187,6 @@
 		90D502972B0AB38A00A14597 /* WMImageViewController.strings in Resources */ = {isa = PBXBuildFile; fileRef = 90D501E12B0AB38A00A14597 /* WMImageViewController.strings */; };
 		90D502982B0AB38A00A14597 /* WMImageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90D501E32B0AB38A00A14597 /* WMImageViewController.xib */; };
 		90D502992B0AB38A00A14597 /* WidgetImages.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 90D501E62B0AB38A00A14597 /* WidgetImages.xcassets */; };
-		90D502A32B0AC41200A14597 /* Package.resolved in Resources */ = {isa = PBXBuildFile; fileRef = 90D502A22B0AC41200A14597 /* Package.resolved */; };
 		BE435EF1297FD00C00B946A9 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = BE435D70297FD00B00B946A9 /* README.md */; };
 		BE435EF2297FD00C00B946A9 /* Cartfile in Resources */ = {isa = PBXBuildFile; fileRef = BE435D71297FD00B00B946A9 /* Cartfile */; };
 		BE435EFD297FD00C00B946A9 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE435D8C297FD00B00B946A9 /* Package.swift */; };
@@ -409,7 +408,6 @@
 		90D501E42B0AB38A00A14597 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/WMImageViewController.xib; sourceTree = "<group>"; };
 		90D501E52B0AB38A00A14597 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/WMImageViewController.strings; sourceTree = "<group>"; };
 		90D501E62B0AB38A00A14597 /* WidgetImages.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = WidgetImages.xcassets; sourceTree = "<group>"; };
-		90D502A22B0AC41200A14597 /* Package.resolved */ = {isa = PBXFileReference; lastKnownFileType = file; path = Package.resolved; sourceTree = SOURCE_ROOT; };
 		BE435D70297FD00B00B946A9 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		BE435D71297FD00B00B946A9 /* Cartfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Cartfile; sourceTree = "<group>"; };
 		BE435D8C297FD00B00B946A9 /* Package.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
@@ -431,7 +429,6 @@
 		90D500882B0AB38900A14597 /* RoxChatMobileWidget */ = {
 			isa = PBXGroup;
 			children = (
-				90D502A22B0AC41200A14597 /* Package.resolved */,
 				90D500892B0AB38900A14597 /* Classes */,
 				90D501252B0AB38A00A14597 /* Assets */,
 			);
@@ -1280,7 +1277,6 @@
 				90D5026E2B0AB38A00A14597 /* WMVisitorMessageTableViewCell.strings in Resources */,
 				90D5026D2B0AB38A00A14597 /* WMVisitorMessageCell.strings in Resources */,
 				90D502562B0AB38A00A14597 /* Localizable.strings in Resources */,
-				90D502A32B0AC41200A14597 /* Package.resolved in Resources */,
 				90D5026A2B0AB38A00A14597 /* WMVisitorImageCell.xib in Resources */,
 				90D502672B0AB38A00A14597 /* WMNilTableViewCell.strings in Resources */,
 				90D502792B0AB38A00A14597 /* WMOperatorFileCell.xib in Resources */,
