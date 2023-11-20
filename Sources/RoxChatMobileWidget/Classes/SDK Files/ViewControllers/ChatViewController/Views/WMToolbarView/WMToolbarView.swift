@@ -25,20 +25,29 @@
 
 import UIKit
 import RoxchatClientLibrary
+import SnapKit
 
 class WMToolbarView: UIView {
     
-    override var intrinsicContentSize: CGSize {
-        return .zero
-    }
+    lazy var quoteView = WMQuoteView.loadXibView()
+    lazy var messageView = WMNewMessageView.loadXibView()
     
-    var quoteView = WMQuoteView.loadXibView()
-    var messageView = WMNewMessageView.loadXibView()
-    
+    var config: WMToolbarConfig?
     var heightConstraint: NSLayoutConstraint?
     var quoteViewTopConstraint: NSLayoutConstraint?
-
-    var config: WMToolbarConfig?
+    private var quoteViewBottomConstraint: Constraint!
+    private var editButtonUIImage: UIImage = editButtonImage
+    private var sendButtonUIImage: UIImage = sendButtonImage
+    
+    private var quoteViewVisible: Bool = false {
+        didSet {
+            self.invalidateIntrinsicContentSize()
+        }
+    }
+    
+    override var intrinsicContentSize: CGSize {
+        recountIntrinsicContentSize()
+    }
 
     override func layoutSubviews() {
         var additionalHeight: CGFloat = 0.0
@@ -60,31 +69,44 @@ class WMToolbarView: UIView {
         super.layoutSubviews()
     }
 
-    func setup() {
+    override func loadXibViewSetup() {
+        self.autoresizingMask = .flexibleHeight
+        self.backgroundColor = .clear
+
         self.translatesAutoresizingMaskIntoConstraints = false
-        messageView.frame.size.width = self.frame.size.width
-        self.addSubview(messageView)
-        
-        self.bindWidthToSuperview()
-        self.bindHeightToSuperview()
-        
-        messageView.bindWidthToSuperview()
+        self.quoteView.quoteViewDelegate = self
 
-        let messageViewBottomConstraint = NSLayoutConstraint(item: self, attribute: NSLayoutConstraint.Attribute.bottom, relatedBy: NSLayoutConstraint.Relation.equal, toItem: messageView, attribute: NSLayoutConstraint.Attribute.bottom, multiplier: 1, constant: 0)
-        self.addConstraint(messageViewBottomConstraint)
+        self.setupViewHierarchy()
+        self.setupViewConstraints()
+    }
+    
+    private func setupViewHierarchy() {
+        addSubview(quoteView)
+        addSubview(messageView)
+    }
 
-        self.heightConstraint = NSLayoutConstraint(item: self, attribute: NSLayoutConstraint.Attribute.height, relatedBy: NSLayoutConstraint.Relation.equal, toItem: messageView, attribute: NSLayoutConstraint.Attribute.height, multiplier: 1, constant: 0)
-        self.addConstraint(heightConstraint!)
+    private func setupViewConstraints() {
+        messageView.snp.makeConstraints { make in
+            make.leading.trailing.bottom.equalToSuperview()
+        }
+
+        quoteView.snp.makeConstraints { make in
+            make.leading.trailing.equalToSuperview()
+            quoteViewBottomConstraint = make.bottom.equalTo(messageView.snp.top).inset(quoteView.bounds.height).constraint
+        }
     }
 
     func adjustConfig() {
-        if let sendButtonImage = config?.sendButtonImage {
-            messageView.sendButton.setImage(sendButtonImage, for: .normal)
-        }
+        sendButtonUIImage = config?.sendButtonImage ?? sendButtonImage
+        messageView.sendButton.setImage(sendButtonImage, for: .normal)
+        
+        let inactiveSendButtonImage = config?.inactiveSendButtonImage ?? sendInactiveButtonImage
+        messageView.sendButton.setImage(inactiveSendButtonImage, for: .disabled)
 
-        if let addAttachmentImage = config?.addAttachmentImage {
-            messageView.fileButton.setImage(addAttachmentImage, for: .normal)
-        }
+        let addAttachmentImage = config?.addAttachmentImage ?? addAttachmentImage
+        messageView.fileButton.setImage(addAttachmentImage, for: .normal)
+        
+        editButtonUIImage = config?.editButtonImage ?? editButtonImage
 
         if let placeholderText = config?.placeholderText {
             messageView.messagePlaceholder.text = placeholderText
@@ -114,54 +136,95 @@ class WMToolbarView: UIView {
         if let textViewMaxHeight = config?.textViewMaxHeight {
             WMNewMessageView.maxInputTextViewHeight = textViewMaxHeight
         }
-
+        
+        if let toolbarBackgroundColor = config?.toolbarBackgroundColor {
+            messageView.backgroundColor = toolbarBackgroundColor
+        }
+        
+        if let inputViewColor = config?.inputViewColor {
+            messageView.messageText.backgroundColor = inputViewColor
+        }
+        
+        if let placeholderColor = config?.placeholderColor {
+            messageView.placeholderTextColor = placeholderColor
+        }
+        
+        if let textViewTextColor = config?.textViewTextColor {
+            messageView.textViewTextColor = textViewTextColor
+        }
+        
         messageView.adjustConfig()
     }
     
-    func showHideTooltipsView() -> Bool {
-        return  UIDevice.current.orientation.isLandscape &&
-                UIDevice.current.userInterfaceIdiom == .phone &&
-                self.quoteView.superview != nil
+    func isQuoteViewVisible() -> Bool {
+        quoteViewVisible
     }
     
-    func addQuoteEditBarForMessage(_ message: Message?, delegate: WMDialogCellDelegate) {
-        if let message = message {
-            self.quoteView.addQuoteEditBarForMessage(message, delegate: delegate)
-            self.addSubview(quoteView)
-            
-            self.messageView.setMessageText(message.getText())
-
-            quoteView.bindWidthToSuperview()
-            
-            self.quoteViewTopConstraint = NSLayoutConstraint(item: self, attribute: NSLayoutConstraint.Attribute.top, relatedBy: NSLayoutConstraint.Relation.equal, toItem: quoteView, attribute: NSLayoutConstraint.Attribute.top, multiplier: 1, constant: 0)
-            self.addConstraint(self.quoteViewTopConstraint!)
-            self.setNeedsLayout()
-        } else {
-            self.quoteView.removeFromSuperview()
+    func setupSendButton(isEdit: Bool) {
+        let sendButtonImage = isEdit ? editButtonUIImage : sendButtonUIImage
+        messageView.sendButton.setImage(sendButtonImage, for: .normal)
+    }
+    
+    func addEditBarForMessage(_ message: Message?, delegate: WMDialogCellDelegate) {
+        guard let message = message else {
+            removeQuoteEditBar()
+            return
         }
+        setupSendButton(isEdit: true)
+        quoteView.addEditBarForMessage(message, delegate: delegate)
+        messageView.setMessageText(message.getText())
+        animateAddQuoteEditBar()
     }
-    
+
     func addQuoteBarForMessage(_ message: Message?, delegate: WMDialogCellDelegate) {
-        if let message = message {
-            self.quoteView.addQuoteBarForMessage(message, delegate: delegate)
-            self.addSubview(quoteView)
+        guard let message = message else {
+            removeQuoteEditBar()
+            return
+        }
 
-            quoteView.bindWidthToSuperview()
-            
-            self.quoteViewTopConstraint = NSLayoutConstraint(item: self, attribute: NSLayoutConstraint.Attribute.top, relatedBy: NSLayoutConstraint.Relation.equal, toItem: quoteView, attribute: NSLayoutConstraint.Attribute.top, multiplier: 1, constant: 0)
-            self.addConstraint(self.quoteViewTopConstraint!)
-            self.setNeedsLayout()
-        } else {
-            self.quoteView.removeFromSuperview()
+        quoteView.addQuoteBarForMessage(message, delegate: delegate)
+        animateAddQuoteEditBar()
+    }
+    
+    private func animateAddQuoteEditBar() {
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            self.quoteViewBottomConstraint.update(inset: 0)
+            UIView.animate(withDuration: 0.3) {
+                self.layoutIfNeeded()
+            }
+        }
+
+        DispatchQueue.main.async {
+            self.quoteViewVisible = true
         }
     }
     
-    func removeQuoteEditBar() {
-        self.quoteView.quoteViewWillRemove()
-        self.quoteView.removeFromSuperview()
+    private func recountIntrinsicContentSize() -> CGSize {
+        var resultSize = CGSize(width: bounds.width, height: 0)
+        resultSize.height += messageView.frame.height
+
+        if quoteViewVisible {
+            resultSize.height += quoteView.intrinsicContentSize.height
+        }
+
+        return resultSize
     }
-    
-    func quoteBarIsVisible() -> Bool {
-        return quoteView.superview != nil
+}
+
+extension WMToolbarView: WMQuoteViewDelegate {
+    func removeQuoteEditBar() {
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            self.quoteViewBottomConstraint.update(inset: self.quoteView.bounds.height)
+            UIView.animate(withDuration: 0.3) {
+                self.layoutIfNeeded()
+            }
+        }
+
+        DispatchQueue.main.async {
+            self.setupSendButton(isEdit: false)
+            self.quoteViewVisible = false
+        }
     }
 }

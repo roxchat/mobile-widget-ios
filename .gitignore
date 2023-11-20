@@ -5,6 +5,7 @@
 ## User settings
 xcuserdata/
 
+
 ## compatibility with Xcode 8 and earlier (ignoring not required starting Xcode 9)
 *.xcscmblueprint
 *.xccheckout
@@ -48,6 +49,8 @@ playground.xcworkspace
 
 .build/
 .swiftpm/
+**/Package.resolved
+*.resolved
 
 # CocoaPods
 #
@@ -92,3 +95,4 @@ fastlane/test_output
 
 iOSInjectionProject/
 .DS_Store
+**/.DS_Store

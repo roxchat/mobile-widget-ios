@@ -127,9 +127,14 @@ class FileMessage: WMMessageTableCell, WMDocumentDownloadTaskDelegate {
             resetFileStatus()
             break
         case .upload:
-            self.fileDescription?.text = "Sending".localized
+            let progress = attachment?.getDownloadProgress() ?? 0
+            let size = attachment?.getFileInfo().getSize() ?? 0
+            let partSize = size / 100 * progress
+            let partSizeWithUnit = ByteCountFormatter.string(fromByteCount: partSize, countStyle: .file)
+            let sizeWithUnit = ByteCountFormatter.string(fromByteCount: size, countStyle: .file)
+            self.fileDescription?.text = "\(String(describing: progress))% \(partSizeWithUnit) / \(sizeWithUnit)"
             self.fileStatus.setBackgroundImage(
-                downloadFileImage,
+                uploadFileImage,
                 for: .normal
             )
             self.fileStatus.isUserInteractionEnabled = false

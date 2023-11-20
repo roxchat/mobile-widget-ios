@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -66,7 +66,7 @@
                     </constraints>
                 </view>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="grouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="lRR-Me-JyR">
-                    <rect key="frame" x="0.0" y="120" width="320" height="699"/>
+                    <rect key="frame" x="0.0" y="100" width="320" height="719"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="100" id="skn-xV-rb2"/>
@@ -99,11 +99,11 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="-654.375" y="218.66197183098592"/>
         </view>
-        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AP4-gs-o69" customClass="WMFixedWidthView" customModule="WebimMobileWidget">
+        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AP4-gs-o69" customClass="WMFixedWidthView" customModule="RoxChatMobileWidget">
             <rect key="frame" x="0.0" y="0.0" width="320" height="180"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KEu-WE-ety">
-                    <rect key="frame" x="276" y="40" width="28" height="28"/>
+                    <rect key="frame" x="276" y="20" width="28" height="28"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="28" id="Jza-7o-REo"/>
                         <constraint firstAttribute="width" constant="28" id="tku-RD-ofM"/>
@@ -114,7 +114,7 @@
                     </connections>
                 </button>
                 <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oo2-FW-0Am" customClass="WMFixedContentSizeView" customModule="RoxChatMobileWidget" customModuleProvider="target">
-                    <rect key="frame" x="16" y="63" width="288" height="97"/>
+                    <rect key="frame" x="16" y="43" width="288" height="117"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="&lt;this text will be replaced&gt;" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Im-WM-AWK">
                             <rect key="frame" x="0.0" y="0.0" width="100" height="31"/>

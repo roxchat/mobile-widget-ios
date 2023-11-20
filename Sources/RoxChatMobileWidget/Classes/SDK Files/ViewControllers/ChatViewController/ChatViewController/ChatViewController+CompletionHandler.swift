@@ -59,11 +59,14 @@ extension ChatViewController: SendFileCompletionHandler,
                 message = "MaxFilesCountExceeded".localized
             case .fileSizeTooSmall:
                 message = "File is too small".localized
+            case .uploadCanceled:
+                message = "File upload request canceled".localized
+            case .maliciousFileDetected:
+                message = "File sending unknown error".localized
             }
             
             self.alertOnFailure(
                 with: message,
-                id: messageID,
                 title: "File sending failed".localized
             )
         }
@@ -122,21 +125,21 @@ extension ChatViewController: SendFileCompletionHandler,
     // ReacionCompletionHandler
     func onFailure(error: ReactionError) {
         DispatchQueue.main.async {
-            var message = "Неизвестная ошибка"
+            var message = "Delete message unknown error".localized
             switch error {
             case .unknown:
-                message = "Неизвестная ошибка"
+                message = "Delete message unknown error".localized
             case .notAllowed:
-                message = "Реакция на сообщения отключена на сервере"
+                message = "Deleting messages is turned off on the server".localized
             case .messageNotOwned:
-                message = "Сообщение не принадлежит оператору"
+                message = "Message not owned by visitor".localized
             case .messageNotFound:
-                message = "Сообщение не найдено"
+                message = "Message not found".localized
             }
             self.alertOnFailure(
                 with: message,
                 id: "",
-                title: "Ошибка"
+                title: "Error"
             )
         }
     }
@@ -182,17 +185,18 @@ extension ChatViewController: SendFileCompletionHandler,
         }
     }
     
-    func alertOnFailure(with message: String, id messageID: String, title: String) {
+    func alertOnFailure(with message: String, id messageID: String? = nil, title: String) {
         alertDialogHandler.showSendFailureDialog(
             withMessage: message,
             title: title,
             action: { [weak self] in
                 guard let self = self else { return }
-                DispatchQueue.main.async {
+                guard let messageID = messageID else { return }
+                self.chatMessagesQueue.async(flags: .barrier) {
                     for (index, message) in self.chatMessages.enumerated() {
                         if message.getID() == messageID {
                             self.chatMessages.remove(at: index)
-                            self.chatTableView?.reloadData()
+                            self.updateThreadListAndReloadTable()
                             return
                         }
                     }

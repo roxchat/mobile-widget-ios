@@ -38,26 +38,30 @@ class WMNewMessageView: UIView {
     static var maxInputTextViewHeight: CGFloat = 90
     static var initialInputTextViewHeight: CGFloat = 36
 
-    @IBOutlet var sendButton: UIButton!
-    @IBOutlet var fileButton: UIButton!
-    @IBOutlet var messagePlaceholder: UILabel!
-    @IBOutlet var messageText: UITextView!
-
+    @IBOutlet weak var sendButton: UIButton!
+    @IBOutlet weak var messageText: UITextView!
+    @IBOutlet weak var messagePlaceholder: UILabel!
+    @IBOutlet weak var fileButton: UIButton!
+    
     @IBOutlet private var inputTextFieldConstraint: NSLayoutConstraint!
-
+    @IBOutlet private var textViewBottomConstraint: NSLayoutConstraint!
+    @IBOutlet private var textViewTopConstraint: NSLayoutConstraint!
+    
     weak var delegate: WMNewMessageViewDelegate?
 
     var emptyTextViewStrokeColor = emptyBackgroundViewBorderColour
     var filledTextViewStrokeColor = filledBackgroundViewBorderColour
+    var placeholderTextColor = textInputViewPlaceholderLabelTextColour
+    var textViewTextColor = newMessageTextColor
 
     override func loadXibViewSetup() {
         messageText.layer.cornerRadius = 17
         messageText.layer.borderWidth = 1
         messageText.layer.borderColor = filledBackgroundViewBorderColour.cgColor
         messageText.isScrollEnabled = true
-        messageText.textColor = newMessageTextColor
-        messageText.textContainerInset.left = 10
-        messageText.textContainerInset.right = 45
+        let isRightOrientation = WMLocaleManager.isRightOrientationLocale()
+        messageText.textContainerInset.left = isRightOrientation ? 45 : 10
+        messageText.textContainerInset.right = isRightOrientation ? 10 : 45
         messageText.keyboardDismissMode = .none
         if #available(iOS 11.1, *) {
             messageText.showsVerticalScrollIndicator = true
@@ -75,16 +79,28 @@ class WMNewMessageView: UIView {
         recountViewHeight()
     }
 
-    @IBAction func sendMessage() {
+    @IBAction func sendMessage(_ sender: Any) {
         self.delegate?.sendMessage()
     }
 
+    override func safeAreaInsetsDidChange() {
+        invalidateContentSize()
+    }
+    
     @IBAction func sendFile(_ sender: UIButton) {
         self.delegate?.showSendFileMenu(sender)
     }
 
     func resignMessageViewFirstResponder() {
-        self.messageText.resignFirstResponder()
+        messageText.resignFirstResponder()
+    }
+    
+    func becomeMessageViewFirstResponder() {
+        messageText.becomeFirstResponder()
+    }
+    
+    func heightDelta() -> CGFloat {
+        inputTextFieldConstraint.constant - WMNewMessageView.initialInputTextViewHeight
     }
     
     func getMessage() -> String {
@@ -104,12 +120,22 @@ class WMNewMessageView: UIView {
     }
     
     func recountViewHeight() {
-        let size = messageText.sizeThatFits(CGSize(width: messageText.frame.width, height: CGFloat(MAXFLOAT)))
-        let height = inputTextFieldConstraint.constant.rounded(.up)
-        let maxInputTextViewHeight = UIDevice.current.orientation.isLandscape ? WMNewMessageView.initialInputTextViewHeight : WMNewMessageView.maxInputTextViewHeight
-        let newHeight = min(size.height,maxInputTextViewHeight).rounded(.up)
-        inputTextFieldConstraint.constant = newHeight
-        messageText.isScrollEnabled = size.height.rounded(.up) > maxInputTextViewHeight
+        let size = messageText.sizeThatFits(
+            CGSize(width: messageText.frame.width,
+                   height: CGFloat.greatestFiniteMagnitude)
+        )
+
+        let maxInputTextViewHeight = WMNewMessageView.maxInputTextViewHeight
+        let newHeight = min(size.height, maxInputTextViewHeight)
+        let oldHeight = inputTextFieldConstraint.constant
+        let isScrollEnabled = size.height > maxInputTextViewHeight
+
+        if isScrollEnabled != messageText.isScrollEnabled {
+            messageText.isScrollEnabled = isScrollEnabled
+        }
+
+        guard newHeight != oldHeight else { return }
+        animateViewHeightChanging(newHeight)
     }
     
     func insertText(_ text: String) {
@@ -128,6 +154,47 @@ class WMNewMessageView: UIView {
     func adjustConfig() {
         recountViewHeight()
         showHidePlaceholder(in: messageText)
+        messagePlaceholder.textColor = placeholderTextColor
+        messageText.textColor = textViewTextColor
+    }
+    
+    private func setupTopBorderLayer() {
+        let topBorder = CALayer()
+        let width = max(UIScreen.main.bounds.width, UIScreen.main.bounds.height)
+        topBorder.frame = CGRect(x: 0, y: 0, width: width, height: 1)
+        topBorder.backgroundColor = newMessageBorderColor.cgColor
+        layer.addSublayer(topBorder)
+    }
+    
+    private func setupMessageTextView() {
+        messageText.delegate = self
+        messageText.layer.borderWidth = 1
+        messageText.isScrollEnabled = true
+        messageText.layer.cornerRadius = 17
+        messageText.keyboardDismissMode = .none
+        messageText.textContainerInset.left = 10
+        messageText.textContainerInset.right = 10
+        messageText.autoresizingMask = .flexibleHeight
+        messageText.showsVerticalScrollIndicator = true
+        if #available(iOS 11.1, *) {
+            messageText.verticalScrollIndicatorInsets.right = sendButton.bounds.width + 10
+        } else {
+        }
+    }
+    
+    private func animateViewHeightChanging(_ newHeight: CGFloat) {
+        UIView.animate(withDuration: 0.3) {
+            self.inputTextFieldConstraint.constant = newHeight
+            self.updateConstraintsIfNeeded()
+        }
+    }
+    
+    private func invalidateContentSize() {
+        let delay: CGFloat = safeAreaInsets.bottom == 0 ? 0 : 0.5
+        DispatchQueue.main.asyncAfter(deadline: .now() + delay) {
+            self.invalidateIntrinsicContentSize()
+            self.setMessageText(self.messageText.text)
+        }
     }
 }
 
@@ -145,8 +212,9 @@ extension WMNewMessageView: UITextViewDelegate {
     
     func showHidePlaceholder(in textView: UITextView) {
         let check = textView.hasText && !textView.text.isEmpty
-        messageText.layer.borderColor = (check ? filledTextViewStrokeColor : emptyTextViewStrokeColor).cgColor
+        let checkButton = check && !textView.text.trimmingCharacters(in: .whitespaces).isEmpty
+        messageText.layer.borderColor = (checkButton ? filledTextViewStrokeColor : emptyTextViewStrokeColor).cgColor
         messagePlaceholder.isHidden = check
-        sendButton.isEnabled = check
+        sendButton.isEnabled = checkButton
     }
 }

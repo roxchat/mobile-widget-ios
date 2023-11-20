@@ -46,27 +46,26 @@ extension ChatViewController: WMDialogCellDelegate {
     }
     
     func quoteMessageTapped(message: Message?) {
-        scrollQueueManager.perform(kind: .scrollTableView(animated: false)) { [weak self] in
-            guard let self = self else { return }
-            guard let messageId = message?.getQuote()?.getMessageID() else { return }
-            guard let row = (self.chatMessages.firstIndex{ $0.getServerSideID() == messageId }) else { return }
-            let indexPath = IndexPath(row: row, section: 0)
-            self.chatTableView.scrollToRow(at: indexPath, at: .middle, animated: false)
-            UIView.animate(withDuration: 0.5, delay: 0.0, animations: {
-                self.chatTableView.cellForRow(at: indexPath)?.contentView.backgroundColor = quoteBodyLabelColourVisitor
-            }, completion: { _ in
-                UIView.animate(withDuration: 0.5, delay: 0.2, animations: {
-                    self.chatTableView.cellForRow(at: indexPath)?.contentView.backgroundColor = .clear
-                })
+        guard let messageId = message?.getQuote()?.getMessageID() else { return }
+        guard let row = (self.chatMessages.firstIndex{ $0.getServerSideID() == messageId }) else { return }
+        let indexPath = IndexPath(row: row, section: 0)
+        self.chatTableView.scrollToRowSafe(at: indexPath, at: .middle, animated: false)
+        UIView.animate(withDuration: 0.5, delay: 0.0, animations: {
+            self.chatTableView.cellForRow(at: indexPath)?.contentView.backgroundColor = quoteBodyLabelColourVisitor
+        }, completion: { _ in
+            UIView.animate(withDuration: 0.5, delay: 0.2, animations: {
+                self.chatTableView.cellForRow(at: indexPath)?.contentView.backgroundColor = .clear
             })
-        }
+        })
     }
     
     public func openFile(message: Message?, url: URL?) {
         let vc = WMFileViewController.loadViewControllerFromXib()
         vc.config = fileViewControllerConfig
         vc.fileDestinationURL = url
-        navigationController?.pushViewController(vc, animated: true)
+        if navigationController?.viewControllers.last?.isFileViewController != true {
+            navigationController?.pushViewController(vc, animated: true)
+        }
     }
     
     func cleanTextView() {
@@ -133,5 +132,29 @@ extension ChatViewController: WMDialogCellDelegate {
             }
         }
         return nil
+    }
+}
+
+extension ChatViewController {
+
+    func updateThreadListAndReloadTable(animatingDifferences: Bool = false, _ completionHandler: (() -> Void)? = nil) {
+        var snapshot = NSDiffableDataSourceSnapshot<Int, String>()
+        if snapshot.numberOfSections == 0 {
+            snapshot.appendSections([0])
+        }
+        
+        let messagesIdentifiers = messages().map{ $0.getID() }
+        var uniqueIdentifiers: [String] = []
+        for id in messagesIdentifiers {
+            if !uniqueIdentifiers.contains(id) {
+                uniqueIdentifiers.append(id)
+            }
+        }
+        guard !uniqueIdentifiers.isEmpty else {
+            return
+        }
+    
+        snapshot.appendItems(uniqueIdentifiers, toSection: 0)
+        dataSource.apply(snapshot, animatingDifferences: animatingDifferences, completion: completionHandler)
     }
 }

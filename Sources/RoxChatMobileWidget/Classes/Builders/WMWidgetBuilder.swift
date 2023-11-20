@@ -107,5 +107,19 @@ public class WMWidgetBuilder {
         chatViewController.fileViewControllerConfig = fileViewControllerConfig
         return self
     }
+    
+    /**
+     Sets agreement url.
+     - parameter processingPersonalDataUrl:
+     Processing personal data url.
+     - returns:
+     `WMWidgetBuilder` object with processing personal data url set.
+     - copyright:
+     2025 Roxchat
+     */
+    public func set(processingPersonalDataUrl: String?) -> Self {
+        chatViewController.processingPersonalDataUrl = processingPersonalDataUrl
+        return self
+    }
 
 }

@@ -32,12 +32,17 @@ protocol ChatTestViewDelegate: UIViewController {
     func showSearchResult(searcMessages: [Message]?)
     func toogleAutotest() -> Bool
     func clearHistory()
+    func sendResolution(answer: Int)
+    func getConfig() -> RoxchatServerSideSettingsManager?
 }
 
 class ChatTestView: UIView {
     @IBOutlet var autotestButton: UIButton!
     @IBOutlet var clearHistory: UIButton!
     @IBOutlet var operatorInfo: UIButton!
+    @IBOutlet var showConfig: UIButton!
+    @IBOutlet var stolotoRate: UIButton!
+    
     private weak var delegate: ChatTestViewDelegate!
     private var titleViewOperatorTitle: String?
     private var titleViewOperatorInfo: String?
@@ -102,6 +107,54 @@ class ChatTestView: UIView {
         alertDialogHandler.showOperatorInfo(
             withMessage: "\("Agent title".localized): \(operatorTitle.description) \n \("Additional information".localized): \(operatorInfo.description) "
         )
+    }
+    
+    @IBAction func showStolotoConfig(_ sender: Any) {
+        guard let config = delegate.getConfig() else {
+            return
+        }
+        
+        let configString = """
+        rate_form: \(config.getRateForm())
+        rated_entity: \(config.getRatedEntity())
+        visitor_segment: \(config.getVisitorSegment())
+        """
+        
+        let alert = UIAlertController(title: "Настройки конфига столото",
+                                      message: configString,
+                                      preferredStyle: .alert)
+        let cancelAction = UIAlertAction(
+            title: "Отменить",
+            style: .cancel
+        )
+        
+        let actions = [cancelAction]
+        actions.forEach({ alert.addAction($0) })
+        self.delegate.present(alert, animated: true)
+    }
+    
+    @IBAction func stolotoForm(_ sender: Any) {
+        let alert = UIAlertController(title: "Решен ли вопрос?",
+                                      message: "Ответ",
+                                      preferredStyle: .alert)
+        let okAction = UIAlertAction(
+            title: "Да",
+            style: .default,
+            handler: { _ in
+                self.delegate.sendResolution(answer: 1)
+            }
+        )
+        
+        let cancelAction = UIAlertAction(
+            title: "Нет",
+            style: .default,
+            handler: { _ in
+                self.delegate.sendResolution(answer: 0)
+            }
+        )
+        let actions = [okAction, cancelAction]
+        actions.forEach({ alert.addAction($0) })
+        self.delegate.present(alert, animated: true)
     }
     
 }

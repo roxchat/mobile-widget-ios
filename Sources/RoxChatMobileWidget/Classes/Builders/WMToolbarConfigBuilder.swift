@@ -59,6 +59,34 @@ public class WMToolbarConfigBuilder {
         toolbar.sendButtonImage = sendButtonImage
         return self
     }
+    
+    /**
+     Sets inactive send button image.
+     - parameter sendButtonImage:
+     Send button image.
+     - returns:
+     `WMToolbarConfigBuilder` object with send button image set.
+     - copyright:
+     2024 Roxchat
+     */
+    public func set(inactiveSendButtonImage: UIImage) -> WMToolbarConfigBuilder {
+        toolbar.inactiveSendButtonImage = inactiveSendButtonImage
+        return self
+    }
+    
+    /**
+     Sets edit button image.
+     - parameter editButtonImage:
+     Edit button image.
+     - returns:
+     `WMToolbarConfigBuilder` object with edit button image set.
+     - copyright:
+     2025 Roxchat
+     */
+    public func set(editButtonImage: UIImage) -> WMToolbarConfigBuilder {
+        toolbar.editButtonImage = editButtonImage
+        return self
+    }
 
     /**
      Sets attachment image.
@@ -87,6 +115,20 @@ public class WMToolbarConfigBuilder {
         toolbar.placeholderText = placeholderText
         return self
     }
+    
+    /**
+     Sets Toolbar View placeholder text color.
+     - parameter placeholderColor:
+     Placeholder text.
+     - returns:
+     `WMToolbarConfigBuilder` object with placeholder text color set.
+     - copyright:
+     2024 Roxchat
+     */
+    public func set(placeholderColor: UIColor) -> WMToolbarConfigBuilder {
+        toolbar.placeholderColor = placeholderColor
+        return self
+    }
 
     /**
      Sets text view font.
@@ -113,6 +155,20 @@ public class WMToolbarConfigBuilder {
      */
     public func set(textViewStrokeWidth: CGFloat) -> WMToolbarConfigBuilder {
         toolbar.textViewStrokeWidth = textViewStrokeWidth
+        return self
+    }
+    
+    /**
+     Sets Toolbar View text color.
+     - parameter textViewColor:
+     Text color.
+     - returns:
+     `WMToolbarConfigBuilder` object with text color.
+     - copyright:
+     2024 Roxchat
+     */
+    public func set(textViewTextColor: UIColor) -> WMToolbarConfigBuilder {
+        toolbar.textViewTextColor = textViewTextColor
         return self
     }
 
@@ -169,6 +225,34 @@ public class WMToolbarConfigBuilder {
      */
     public func set(textViewMaxHeight: CGFloat) -> WMToolbarConfigBuilder {
         toolbar.textViewMaxHeight = textViewMaxHeight
+        return self
+    }
+    
+    /**
+     Sets  toolbar background color.
+     - parameter toolbarBackgroundColor:
+     Text view max height.
+     - returns:
+     `WMToolbarConfigBuilder` object with toolbar background color set.
+     - copyright:
+     2024 Roxchat
+     */
+    public func set(toolbarBackgroundColor: UIColor) -> WMToolbarConfigBuilder {
+        toolbar.toolbarBackgroundColor = toolbarBackgroundColor
+        return self
+    }
+    
+    /**
+     Sets  input view color.
+     - parameter inputViewColor:
+     Text view max height.
+     - returns:
+     `WMToolbarConfigBuilder` object with  input view color set.
+     - copyright:
+     2024 Roxchat
+     */
+    public func set(inputViewColor: UIColor) -> WMToolbarConfigBuilder {
+        toolbar.inputViewColor = inputViewColor
         return self
     }
 }

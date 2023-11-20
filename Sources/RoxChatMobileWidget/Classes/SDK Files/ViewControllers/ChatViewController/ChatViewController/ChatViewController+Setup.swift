@@ -78,6 +78,15 @@ extension ChatViewController {
         return button
     }
     
+    static func createMessageDateFormatter() -> DateFormatter {
+        let dateFormatter = DateFormatter()
+        dateFormatter.formatterBehavior = .behavior10_4
+        dateFormatter.locale = .current
+        dateFormatter.timeStyle = .short
+        dateFormatter.dateStyle = .none
+        return dateFormatter
+    }
+    
     func setupNavigationBar() {
         navigationBarUpdater.set(navigationController: navigationController)
         navigationBarUpdater.set(delegate: self)
@@ -102,8 +111,7 @@ extension ChatViewController {
     
     func addTapGesture() {
         let tap = UITapGestureRecognizer(target: self, action: #selector(functionTap))
-        tap.cancelsTouchesInView = false
-        view.addGestureRecognizer(tap)
+        chatTableView.addGestureRecognizer(tap)
     }
     
     func setupTestView() {
@@ -118,10 +126,8 @@ extension ChatViewController {
     }
 
     func configureToolbarView() {
-        self.toolbarView.messageView.delegate = self
-
-        self.toolbarBackgroundView.addSubview(toolbarView)
-        self.toolbarView.setup()
+        toolbarView.messageView.delegate = self
+        toolbarView.loadXibViewSetup()
     }
     
     func setupTitleView() {
@@ -130,12 +136,6 @@ extension ChatViewController {
             make.width.equalTo(200)
         }
 
-        let gestureRecognizer = UITapGestureRecognizer(
-            target: self,
-            action: #selector(titleViewTapAction)
-        )
-
-        titleView.addGestureRecognizer(gestureRecognizer)
         navigationItem.titleView = titleView
     }
     
@@ -153,14 +153,16 @@ extension ChatViewController {
             make.top.bottom.equalToSuperview()
                 .inset(2)
         }
-    
+        
         customViewForOperatorAvatar.addTarget(self, action: #selector(titleViewTapAction), for: .touchUpInside)
+        
         
         let customRightBarButtonItem = UIBarButtonItem(
             customView: customViewForOperatorAvatar
         )
         
         navigationItem.rightBarButtonItem = customRightBarButtonItem
+        navigationItem.rightBarButtonItem?.isEnabled = false
     }
     
     func configureNetworkErrorView() {
@@ -176,13 +178,28 @@ extension ChatViewController {
     
     func setupScrollButton() {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(scrollToUnreadMessage))
+
         view.addSubview(scrollButtonView)
         scrollButtonView.initialSetup()
-        scrollButtonView.setScrollButtonBackgroundImage(scrollButtonImage, state: .normal)
-        scrollButtonView.add(tapGesture: tapGesture)
         scrollButtonView.setScrollButtonViewState(.hidden)
-        setupScrollButtonViewConstraints()
+        scrollButtonView.add(tapGesture: tapGesture)
+
+        let scrollButtonPadding: CGFloat = 22
+        scrollButtonView.snp.makeConstraints { make in
+            make.trailing.equalTo(view.safeAreaLayoutGuide).inset(scrollButtonPadding)
+            make.bottom.equalToSuperview().inset(toolbarView.frame.height + scrollButtonPadding)
+            make.height.equalTo(scrollButtonView.snp.width)
+            make.width.equalTo(34)
+        }
     }
+    
+    func setupTableViewDataSource() {
+        dataSource = UITableViewDiffableDataSource(tableView: chatTableView, cellProvider: { tableView, indexPath, _ in
+            self.updatedCellGeneration(for: indexPath, tableView: tableView)
+        })
+        chatTableView.dataSource = dataSource
+    }
+    
 
     private func setupScrollButtonViewConstraints() {
         scrollButtonView.snp.makeConstraints { make in
@@ -190,7 +207,7 @@ extension ChatViewController {
             make.trailing.equalToSuperview().inset(scrollButtonPadding)
             make.bottom.equalToSuperview().inset(scrollButtonPadding)
             make.height.equalTo(scrollButtonView.snp.width)
-            make.width.equalTo(34)
+            make.width.equalTo(24)
         }
     }
     
@@ -210,14 +227,14 @@ extension ChatViewController {
         )
     }
     
-    func setupChatTableView() {
-        if #available(iOS 13.0, *) {
-            chatTableView.automaticallyAdjustsScrollIndicatorInsets = false
-        }
+    func setupTableView() {
+        let initialSafeAreaInset: CGFloat = 34
+        //chatTableView.refreshControl = defaultRefreshControl()
+        chatTableView.contentInset.bottom = toolbarView.bounds.height + initialSafeAreaInset
     }
 
     func setupServerSideSettingsManager() {
-        roxchatServerSideSettingsManager.getServerSideSettings()
+        roxchatServerSideSettingsManager.getServerSideSettings(self)
     }
 
     func setupAlreadyRatedOperators() {
@@ -227,4 +244,29 @@ extension ChatViewController {
         }
         alreadyRatedOperators = alreadyRatedOperatorsDictionary
     }
+}
+
+
+extension ChatViewController: ServerSideSettingsCompletionHandler {
+    func onFailure() {
+    }
+    
+    func onSuccess(roxchatServerSideSettings: RoxchatServerSideSettings) {
+        roxchatServerSideSettingsManager.onSuccess(roxchatServerSideSettings: roxchatServerSideSettings)
+        
+        if roxchatServerSideSettingsManager.isRateOperatorEnabled() && roxchatServerSideSettingsManager.showRateOperatorButton() {
+            let gestureRecognizer = UITapGestureRecognizer(
+                target: self,
+                action: #selector(titleViewTapAction)
+            )
+            
+            navigationItem.titleView?.addGestureRecognizer(gestureRecognizer)
+            
+            navigationItem.rightBarButtonItem?.isEnabled = true
+        }
+        if RoxchatServiceController.currentSession.getVisitSessionState() == .firstQuestion {
+            checkAgreement()
+        }
+    }
+    
 }

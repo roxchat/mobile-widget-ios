@@ -1,0 +1,236 @@
+//ScrollButtonView.xib
+"0" = "0";
+//WMOperatorFileCell.xib,WMVisitorFileCell.xib
+"25%" = "25%";
+//WMStartViewController.xib
+"99" = "99";
+//WMQuoteView.xib
+"<?>Autor" = "<?>Autor";
+//WMOperatorFileCell.xib,WMVisitorFileCell.xib
+"<?>Description" = "<?>Description";
+//WMOperatorFileCell.xib,WMVisitorFileCell.xib
+"<?>File name.pdf" = "<?>File name.pdf";
+//WMBotButtonsTableViewCell.xib,WMInfoCell.xib,WMOperatorMessageCell.xib,WMOperatorQuoteFileCell.xib,WMOperatorQuoteImageCell.xib,WMOperatorQuoteMessageCell.xib,WMQuoteView.xib,WMVisitorMessageCell.xib,WMVisitorQuoteFileCell.xib,WMVisitorQuoteImageCell.xib,WMVisitorQuoteMessageCell.xib
+"<?>Message" = "<?>Message";
+//WMOperatorQuoteFileCell.xib,WMOperatorQuoteImageCell.xib,WMOperatorQuoteMessageCell.xib,WMVisitorQuoteFileCell.xib,WMVisitorQuoteImageCell.xib,WMVisitorQuoteMessageCell.xib
+"<?>Name " = "<?>Name ";
+//WMOperatorFileCell.xib,WMOperatorMessageCell.xib,WMOperatorQuoteFileCell.xib,WMOperatorQuoteImageCell.xib,WMOperatorQuoteMessageCell.xib
+"<?>Operator name" = "<?>Operator name";
+//WMOperatorQuoteFileCell.xib,WMOperatorQuoteImageCell.xib,WMOperatorQuoteMessageCell.xib,WMVisitorQuoteFileCell.xib,WMVisitorQuoteImageCell.xib,WMVisitorQuoteMessageCell.xib
+"<?>Quote Message" = "<?>Quote Message";
+//WMBotButtonsTableViewCell.xib,WMInfoCell.xib,WMOperatorFileCell.xib,WMOperatorImageCell.xib,WMOperatorMessageCell.xib,WMOperatorQuoteFileCell.xib,WMOperatorQuoteImageCell.xib,WMOperatorQuoteMessageCell.xib,WMVisitorFileCell.xib,WMVisitorImageCell.xib,WMVisitorMessageCell.xib,WMVisitorQuoteFileCell.xib,WMVisitorQuoteImageCell.xib,WMVisitorQuoteMessageCell.xib
+"<?>Time" = "<?>Time";
+//SurveyCommentViewController.xib,SurveyRadioButtonViewController.xib,SurveyTableViewCell.xib
+"<this text will be replaced>" = "<this text will be replaced>";
+//UIAlertHandler.swift
+"Account" = "חשבון";
+"AccountBlocked" = "החשבון שמשמש ליצירת הסשן נחסם. יש ליצור קשר עם תמיכת Rox.Chat או להשתמש בחשבון אחר.";
+//ChatTestView.swift
+"Additional information" = "מידע נוסף";
+//ChatTestView.swift
+"Agent title" = "כותרת הסוכן";
+//UIAlertHandler.swift
+"Alert account name" = "שם החשבון של Rox.Chat או כתובת השרת המלאה (לדוג' \"דמו\" או \"https://demo.rox.chat\")";
+//FilePicker.swift
+"Camera" = "מצלמה";
+//FilePicker.swift
+"Camera is not available" = "המצלמה אינה זמינה";
+//FilePicker.swift,UIAlertHandler.swift
+"Cancel" = "ביטול";
+//ChatViewController+CompletionHandler.swift
+"Chat does not exist" = "הצ'אט אינו קיים";
+//UIAlertHandler.swift
+"Chat finished." = "הצ'אט הסתיים";
+//ChatViewController+Surveys.swift
+"Comment is too long" = "ההערה ארוכה מדי";
+//ConnectionErrorView.xib
+"Connection error" = "שגיאת חיבור";
+//UIAlertHandler.swift
+"Choose department" = "בחר מחלקה";
+//StringConstants.swift
+"Copy" = "העתק";
+//StringConstants.swift
+"Delete" = "מחק";
+//ChatViewController+CompletionHandler.swift
+"Delete message unknown error" = "שגיאה לא ידועה במחיקת ההודעה";
+//ChatViewController+CompletionHandler.swift
+"Deleting messages is turned off on the server" = "מחיקת הודעות מנוטרלת בשרת";
+//StringConstants.swift
+"Edit" = "ערוך";
+//ChatViewController+CompletionHandler.swift
+"Edit message unknown error" = "שגיאה לא ידועה בעריכת ההודעה";
+//ChatViewController+CompletionHandler.swift
+"Editing message is empty" = "עריכת הודעה ריקה";
+//ChatViewController+CompletionHandler.swift
+"Editing messages is turned off on the server" = "עריכת הודעות מנוטרלת בשרת";
+//WMNewMessageView.xib
+"Enter message" = "הזן הודעה";
+//SurveyCommentViewController.swift
+"Enter your comment" = "הזן את ההערה שלך";
+//ChatViewController+Surveys.swift
+"Failed to send survey answer" = "נכשל בשליחת תשובת הסקר";
+//ChatViewController+CompletionHandler.swift
+"Failed to upload file: visitor is not logged in" = "נכשל בהעלאת הקובץ: המבקר לא מחובר";
+//ChatViewController+Setup.swift
+"Fetching more messages..." = "מביא הודעות נוספות...";
+//FilePicker.swift
+"File" = "קובץ";
+//WMFileTableViewCell.swift
+"File is being sent" = "הקובץ נשלח";
+//ChatViewController+CompletionHandler.swift
+"File is too large." = "הקובץ גדול מדי.";
+//ChatViewController+CompletionHandler.swift
+"File is too small" = "הקובץ קטן מדי";
+//ChatViewController+CompletionHandler.swift
+"File upload request canceled" = "בקשת העלאת הקובץ בוטלה";
+//ChatViewController+CompletionHandler.swift
+"File sending failed" = "נכשל בשליחת הקובץ";
+//ChatViewController+CompletionHandler.swift
+"File type is not supported" = "סוג הקובץ אינו נתמך";
+//ChatViewController+CompletionHandler.swift
+"File sending unknown error" = "שגיאה לא ידועה בשליחת הקובץ";
+//UIAlertHandler.swift
+"Go to Settings" = "עבור להגדרות";
+//WMSettingsViewController.xib
+"If you are registered in Rox.Chat service you can use your own account name and location." = "אם נרשמת בשירות Rox.Chat תוכל להשתמש בשם החשבון שלך ובמיקומך.";
+//WMQuoteImageCell.swift,WMQuoteView.swift
+"Image" = "תמונה";
+//ChatViewController+Surveys.swift
+"Incorrect radio value" = "ערך רדיו שגוי";
+//ChatViewController+Surveys.swift
+"Incorrect stars value" = "ערך כוכבי שגוי";
+//ChatViewController+Surveys.swift
+"Incorrect survey ID" = "מזהה סקר שגוי";
+//UIAlertHandler.swift
+"InvalidSettings" = "הגדרות חשבון לא תקינות";
+//UIAlertHandler.swift
+"LoadError" = "שגיאת טעינה";
+//UIAlertHandler.swift
+"LoadFileErrorText" = "נא לנסות להעלות קובץ אחר";
+//WMFileViewController.swift,WMFileViewController.xib
+"Loading File..." = "מעלה את הקובץ...";
+//ChatViewController+CompletionHandler.swift
+"MaxFilesCountExceeded" = "חריגה ממגבלת מס' הקבצים להודעה";
+//ChatViewController+CompletionHandler.swift
+"MaxMessageLengthExceeded" = "חריגה ממגבלת אורך ההודעה";
+//ChatViewController+CompletionHandler.swift
+"Message deleting failed" = "נכשל במחיקת ההודעה";
+//ChatViewController+CompletionHandler.swift
+"Message editing failed" = "נכשל בעריכת ההודעה";
+//ChatViewController+CompletionHandler.swift
+"Message not found" = "ההודעה לא נמצאה";
+//ChatViewController+CompletionHandler.swift
+"Message not owned by visitor" = "ההודעה לא שייכת למבקר";
+//FilePicker.swift
+"Need camera access" = "נדרש גישה למצלמה";
+//FilePicker.swift
+"Need photo access" = "היישום דורש גישה לספריית התמונות שלך. יש לעבור להגדרות המכשיר שלך > פרטיות > תמונות ולהפעיל";
+//ChatViewController+Setup.swift,ChatViewController.swift
+"No agent" = "אין סוכן";
+//UIAlertHandler.swift
+"No agents available" = "אין סוכנים זמינים";
+//ChatViewController+Surveys.swift
+"No current survey" = "אין סקר נוכחי";
+//ChatViewController+Surveys.swift
+"Note for rate is too long" = "ההערה לדירוג ארוכה מדי";
+//FilePicker.swift,UIAlertHandler.swift
+"OK" = "אישור";
+//ChatViewController+CompletionHandler.swift
+"Ok" = "אישור";
+//ChatViewController+Listener.swift,ChatViewController.swift
+"Online" = "מחובר";
+//FilePicker.swift
+"Open app settings" = "פתח הגדרות אפליקציה";
+//UIAlertHandler.swift
+"Operator Info" = "מידע על הסוכן";
+//ChatViewController+Surveys.swift
+"Operator rating failed" = "דירוג הסוכן נכשל";
+//AdditionalKeys.swift
+"P.CR" = "סוכן ביקש את פרטי התקשרותך.";
+//AdditionalKeys.swift
+"P.OA" = "הסוכן %@ הוקצה לבקשתך.";
+//AdditionalKeys.swift
+"P.OF" = "%@ שלח קובץ: %@.";
+//AdditionalKeys.swift
+"P.OM" = "%@ כתב הודעה: %@";
+//AdditionalKeys.swift
+"P.RO" = "דרג את הסוכן.";
+//FilePicker.swift
+"Photo Library" = "ספריית תמונות";
+//FilePicker.swift
+"Please Allow Access" = "נא לאשר גישה";
+//RateStarsViewController.swift,RateStarsViewController.xib
+"Please rate the overall impression of the consultation" = "נא לדרג את הרושם הכללי של הייעוץ.";
+//ChatViewController+Surveys.swift
+"Question not found" = "השאלה לא נמצאה";
+//RateStarsViewController.xib
+"Rate Operator" = "דרג את הסוכן";
+//StringConstants.swift
+"Reply" = "השב";
+//ChatViewController+CompletionHandler.swift
+"Response cannot be created for this request" = "לא ניתן ליצור תשובה עבור בקשה זו";
+//ChatTestView.xib
+"Run autotest" = "הרץ בדיקה אוטומטית";
+//UIAlertHandler.swift
+"Save error" = "שגיאת שמירה";
+//UIAlertHandler.swift
+"SaveError" = "שגיאת שמירה";
+//UIAlertHandler.swift
+"SaveErrorMessage" = "אין גישה לשמירת תמונות במכשיר. יש לאשר גישה בהגדרות האפליקציה.";
+//UIAlertHandler.swift
+"SaveFileErrorMessage" = "אין גישה לשמירת קבצים במכשיר. יש לאשר גישה בהגדרות האפליקציה.";
+//UIAlertHandler.swift
+"Saved!" = "נשמר!";
+//RateStarsViewController.xib,SurveyCommentViewController.xib,SurveyRadioButtonViewController.xib
+"Send" = "שלח";
+//ChatViewController+UITableView.swift
+"Send first message to start chat." = "שלח הודעה ראשונה כדי להתחיל בשיחה.";
+//ChatViewController+CompletionHandler.swift
+"Send keyboard request failed" = "נכשל בבקשת מקלדת שנשלחה";
+//ChatViewController+CompletionHandler.swift
+"Send keyboard request unknown error" = "שגיאה לא ידועה בבקשת מקלדת שנשלחה";
+//WMQuoteFileCell.swift
+"Sending" = "שולח";
+//ChatViewController+CompletionHandler.swift
+"Sending files in body is not supported" = "שליחת קבצים בתוך התוכן אינה נתמכת";
+//ChatViewController+CompletionHandler.swift,UIAlertHandler.swift
+"Session creation failed" = "נכשל ביצירת הסשן";
+//FilePicker.swift,WMStartViewController.xib
+"Settings" = "הגדרות";
+//ChatViewController+Surveys.swift
+"Survey disabled" = "הסקר מנוטרל";
+//WMThanksAlertView.xib
+"Thanks!" = "תודה!";
+//UIAlertHandler.swift
+"The image has been saved to your photos" = "התמונה נשמרה באלבומי התמונות שלך";
+//ChatViewController+Surveys.swift,UIAlertHandler.swift
+"There is no current agent to rate" = "אין סוכן נוכחי לדירוג";
+//ChatViewController+Surveys.swift
+"This agent not in the current chat" = "הסוכן הנוכחי אינו בשיחה הנוכחית";
+//ChatViewController+Surveys.swift
+"Unknown error" = "שגיאה לא ידועה";
+//WMFileTableViewCell.swift
+"Uploading file" = "מעלה קובץ";
+//ChatViewController+Setup.swift,ChatViewController.swift
+"Rox.Chat SDK App" = "Rox.Chat SDK App";
+//FilePicker.swift
+"Rox.Chat needs permission to access your camera so you can send photos to chat." = "Rox.Chat זקוק להרשאה לגישה למצלמה שלך כדי שתוכל לשלוח תמונות בצ'אט.";
+//ChatViewController+CompletionHandler.swift
+"Wrong button ID in request" = "זיהוי כפתור שגוי בבקשה";
+//ChatViewController+CompletionHandler.swift
+"Wrong message ID in request" = "זיהוי הודעה שגוי בבקשה";
+//ChatViewController+CompletionHandler.swift
+"Wrong message kind (not text)" = "הסוג של הודעה שגוי (לא טקסט)";
+//WMThanksAlertView.xib
+"Your feedback will help us become better." = "המשוב שלך יעזור לנו להתפתח ולשפר.";
+"Your visitor account is in the black list." = "חשבון המבקר שלך נמצא ברשימת השחור.";
+//SurveyCommentViewController.xib
+"comment" = "תגובה";
+//WMMessageTableCell.swift
+"edited" = "עריכה";
+//ChatViewController+Listener.swift
+"typing" = "מקליד";
+//LaunchScreen.storyboard,LaunchScreenController.storyboard
+"© 2022 Rox.Chat Inc. All rights reserved." = "© 2022 Rox.Chat Inc. כל הזכויות שמורות.";
+//WMQuoteView.swift
+"You" = "אתה";

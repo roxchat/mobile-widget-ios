@@ -1,0 +1,16 @@
+/* 
+  InfoPlist.strings
+  RoxchatClientLibrary
+
+  Copyright © 2022 Roxchat. All rights reserved.
+*/
+
+"NSPhotoLibraryAddUsageDescription" = "Rox.Chat се нуждае от разрешение за достъп до вашата библиотека със снимки, за да можете да запазвате изображения от чата.";
+
+"NSCameraUsageDescription" = "Rox.Chat се нуждае от разрешение за достъп до вашата камера, за да можете да изпращате снимки в чата.";
+
+"NSFileProviderDomainUsageDescription" = "Rox.Chat се нуждае от разрешение за достъп до папката ви с документи, за да можете да изпращате файлове в чата.";
+
+"NSFileProviderPresenceUsageDescription" = "Rox.Chat се нуждае от разрешение за достъп до папката ви с документи, за да можете да изпращате файлове в чата.";
+
+"NSPhotoLibraryUsageDescription" = "Rox.Chat се нуждае от разрешение за достъп до вашата библиотека със снимки, за да можете да изпращате изображения в чата.";

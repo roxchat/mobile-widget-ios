@@ -14,10 +14,10 @@ let package = Package(
             targets: ["RoxChatMobileWidget"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/roxchat/mobile-sdk-ios.git", exact: "3.0.4"),
+        .package(url: "https://github.com/roxchat/mobile-sdk-ios.git", exact: "3.0.7"),
         .package(url: "https://github.com/kean/Nuke.git", from: "12.0.0"),
-        .package(url: "https://github.com/evgenyneu/Cosmos.git", from: "20.0.0"),
-        .package(url: "https://github.com/SnapKit/SnapKit.git", from: "5.0.0"),
+        .package(url: "https://github.com/evgenyneu/Cosmos.git", from: "25.0.1"),
+        .package(url: "https://github.com/SnapKit/SnapKit.git", from: "5.7.1"),
         .package(url: "https://github.com/Flipboard/FLAnimatedImage.git", from: "1.0.17"),
         .package(url: "https://github.com/roxchat/mobile-keyboard-ios.git", exact: "2.0.1")
     ],

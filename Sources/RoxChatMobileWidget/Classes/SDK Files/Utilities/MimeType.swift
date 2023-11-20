@@ -117,6 +117,7 @@ fileprivate let mimeTypes = [
     "kar" : "audio/midi",
     "mp3" : "audio/mpeg",
     "ogg" : "audio/ogg",
+    "oga" : "audio/ogg",
     "m4a" : "audio/x-m4a",
     "ra" : "audio/x-realaudio",
     "3gpp" : "video/3gpp",

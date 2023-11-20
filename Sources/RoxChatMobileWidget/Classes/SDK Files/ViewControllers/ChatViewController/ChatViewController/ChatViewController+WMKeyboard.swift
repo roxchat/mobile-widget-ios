@@ -49,7 +49,7 @@ extension ChatViewController: WMKeyboardRepresentable {
 extension ChatViewController: WMKeyboardManagerDelegate {
     var scrollViewModel: RoxChatKeyboard.WMScrollViewModel {
         WMScrollViewModel(
-            toolbarViewHeight: inputAccessoryView?.frame.height ?? 0,
+            toolbarViewHeight: inputAccessoryView?.bounds.height ?? 0,
             scrollViewContentOffset: chatTableView.contentOffset.y,
             scrollViewContentInset: chatTableView.contentInset.bottom
         )
@@ -65,22 +65,23 @@ extension ChatViewController: WMKeyboardManagerDelegate {
     
     func set(contentInset: CGFloat) {
         chatTableView.contentInset.bottom = contentInset
-        chatTableView.scrollIndicatorInsets.bottom = contentInset
+        chatTableView.verticalScrollIndicatorInsets.bottom = contentInset
 
         updateScrollButtonViewConstraints(with: contentInset)
         
-        scrollButtonView.layoutIfNeeded()
     }
     
     func layoutIfNeeded() {
         view.layoutIfNeeded()
     }
     
-    private func updateScrollButtonViewConstraints(with inset: CGFloat) {
+    func updateScrollButtonViewConstraints(with inset: CGFloat) {
         let commonPadding: CGFloat = 22
-        let bottomConstraint = inset + commonPadding
+        var bottomConstraint = inset + commonPadding
+        bottomConstraint = max(bottomConstraint, 90)
         scrollButtonView.snp.updateConstraints { make in
             make.bottom.equalToSuperview().inset(bottomConstraint)
         }
+        view.layoutIfNeeded()
     }
 }

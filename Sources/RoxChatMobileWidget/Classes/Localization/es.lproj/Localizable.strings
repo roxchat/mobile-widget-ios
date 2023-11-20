@@ -1,0 +1,234 @@
+//ScrollButtonView.xib
+"0" = "0";
+//WMOperatorFileCell.xib,WMVisitorFileCell.xib
+"25%" = "25%";
+//WMStartViewController.xib
+"99" = "99";
+//WMQuoteView.xib
+"<?>Autor" = "<?>Autor";
+//WMOperatorFileCell.xib,WMVisitorFileCell.xib
+"<?>Description" = "<?>Description";
+//WMOperatorFileCell.xib,WMVisitorFileCell.xib
+"<?>File name.pdf" = "<?>File name.pdf";
+//WMBotButtonsTableViewCell.xib,WMInfoCell.xib,WMOperatorMessageCell.xib,WMOperatorQuoteFileCell.xib,WMOperatorQuoteImageCell.xib,WMOperatorQuoteMessageCell.xib,WMQuoteView.xib,WMVisitorMessageCell.xib,WMVisitorQuoteFileCell.xib,WMVisitorQuoteImageCell.xib,WMVisitorQuoteMessageCell.xib
+"<?>Message" = "<?>Message";
+//WMOperatorQuoteFileCell.xib,WMOperatorQuoteImageCell.xib,WMOperatorQuoteMessageCell.xib,WMVisitorQuoteFileCell.xib,WMVisitorQuoteImageCell.xib,WMVisitorQuoteMessageCell.xib
+"<?>Name " = "<?>Name ";
+//WMOperatorFileCell.xib,WMOperatorMessageCell.xib,WMOperatorQuoteFileCell.xib,WMOperatorQuoteImageCell.xib,WMOperatorQuoteMessageCell.xib
+"<?>Operator name" = "<?>Operator name";
+//WMOperatorQuoteFileCell.xib,WMOperatorQuoteImageCell.xib,WMOperatorQuoteMessageCell.xib,WMVisitorQuoteFileCell.xib,WMVisitorQuoteImageCell.xib,WMVisitorQuoteMessageCell.xib
+"<?>Quote Message" = "<?>Quote Message";
+//WMBotButtonsTableViewCell.xib,WMInfoCell.xib,WMOperatorFileCell.xib,WMOperatorImageCell.xib,WMOperatorMessageCell.xib,WMOperatorQuoteFileCell.xib,WMOperatorQuoteImageCell.xib,WMOperatorQuoteMessageCell.xib,WMVisitorFileCell.xib,WMVisitorImageCell.xib,WMVisitorMessageCell.xib,WMVisitorQuoteFileCell.xib,WMVisitorQuoteImageCell.xib,WMVisitorQuoteMessageCell.xib
+"<?>Time" = "<?>Time";
+//SurveyCommentViewController.xib,SurveyRadioButtonViewController.xib,SurveyTableViewCell.xib
+"<this text will be replaced>" = "<this text will be replaced>";
+//UIAlertHandler.swift
+"Account" = "Cuenta";
+"AccountBlocked" = "La cuenta que se utiliza para crear la sesión está bloqueada. Por favor, contacta el soporte de Rox.Chat o utiliza otra.";
+//ChatTestView.swift
+"Additional information" = "Información adicional";
+//ChatTestView.swift
+"Agent title" = "Título del agente";
+//UIAlertHandler.swift
+"Alert account name" = "Nombre de la cuenta de Rox.Chat o dirección completa del servidor (por ejemplo, \"demo\" o \"https://demo.rox.chat\")";
+//FilePicker.swift
+"Camera" = "Cámara";
+//FilePicker.swift
+"Camera is not available" = "La cámara no está disponible";
+//FilePicker.swift,UIAlertHandler.swift
+"Cancel" = "Cancelar";
+//ChatViewController+CompletionHandler.swift
+"Chat does not exist" = "El chat no existe";
+//UIAlertHandler.swift
+"Chat finished." = "Chat finalizado.";
+//ChatViewController+Surveys.swift
+"Comment is too long" = "El comentario es demasiado largo";
+//ConnectionErrorView.xib
+"Connection error" = "Error de conexión";
+//UIAlertHandler.swift
+"Choose department" = "Elegir departamento";
+//StringConstants.swift
+"Copy" = "Copiar";
+//StringConstants.swift
+"Delete" = "Eliminar";
+//ChatViewController+CompletionHandler.swift
+"Delete message unknown error" = "Error desconocido al eliminar el mensaje";
+//ChatViewController+CompletionHandler.swift
+"Deleting messages is turned off on the server" = "La eliminación de mensajes está desactivada en el servidor";
+//StringConstants.swift
+"Edit" = "Editar";
+//ChatViewController+CompletionHandler.swift
+"Edit message unknown error" = "Error desconocido al editar el mensaje";
+//ChatViewController+CompletionHandler.swift
+"Editing message is empty" = "El mensaje a editar está vacío";
+//ChatViewController+CompletionHandler.swift
+"Editing messages is turned off on the server" = "La edición de mensajes está desactivada en el servidor";
+//WMNewMessageView.xib
+"Enter message" = "Escribe un mensaje";
+//SurveyCommentViewController.swift
+"Enter your comment" = "Escribe tu comentario";
+//ChatViewController+Surveys.swift
+"Failed to send survey answer" = "Fallo al enviar la respuesta de la encuesta";
+//ChatViewController+CompletionHandler.swift
+"Failed to upload file: visitor is not logged in" = "Fallo al subir el archivo: el visitante no ha iniciado sesión";
+//ChatViewController+Setup.swift
+"Fetching more messages..." = "Obteniendo más mensajes...";
+//FilePicker.swift
+"File" = "Archivo";
+//WMFileTableViewCell.swift
+"File is being sent" = "El archivo se está enviando";
+//ChatViewController+CompletionHandler.swift
+"File is too large." = "El archivo es demasiado grande.";
+//ChatViewController+CompletionHandler.swift
+"File is too small" = "El archivo es demasiado pequeño";
+//ChatViewController+CompletionHandler.swift
+"File upload request canceled" = "Solicitud de carga de archivo cancelada";
+//ChatViewController+CompletionHandler.swift
+"File sending failed" = "Fallo al enviar el archivo";
+//ChatViewController+CompletionHandler.swift
+"File type is not supported" = "Tipo de archivo no compatible";
+//ChatViewController+CompletionHandler.swift
+"File sending unknown error" = "Error desconocido al enviar el archivo";
+//UIAlertHandler.swift
+"Go to Settings" = "Ir a Configuración";
+//WMQuoteImageCell.swift,WMQuoteView.swift
+"Image" = "Imagen";
+//ChatViewController+Surveys.swift
+"Incorrect radio value" = "Valor de radio incorrecto";
+//ChatViewController+Surveys.swift
+"Incorrect stars value" = "Valor de estrellas incorrecto";
+//ChatViewController+Surveys.swift
+"Incorrect survey ID" = "ID de encuesta incorrecta";
+//UIAlertHandler.swift
+"InvalidSettings" = "Configuración de cuenta inválida";
+//UIAlertHandler.swift
+"LoadError" = "Error de carga";
+//UIAlertHandler.swift
+"LoadFileErrorText" = "Intenta subir otro archivo";
+//WMFileViewController.swift,WMFileViewController.xib
+"Loading File..." = "Cargando el archivo...";
+//ChatViewController+CompletionHandler.swift
+"MaxFilesCountExceeded" = "Se ha excedido el límite de archivos por mensaje";
+//ChatViewController+CompletionHandler.swift
+"MaxMessageLengthExceeded" = "Se ha excedido la longitud máxima del mensaje";
+//ChatViewController+CompletionHandler.swift
+"Message deleting failed" = "Fallo al eliminar el mensaje";
+//ChatViewController+CompletionHandler.swift
+"Message editing failed" = "Fallo al editar el mensaje";
+//ChatViewController+CompletionHandler.swift
+"Message not found" = "Mensaje no encontrado";
+//ChatViewController+CompletionHandler.swift
+"Message not owned by visitor" = "Mensaje no pertenece al visitante";
+//FilePicker.swift
+"Need camera access" = "Necesita acceso a la cámara";
+//FilePicker.swift
+"Need photo access" = "La aplicación necesita acceso a tu biblioteca de fotos. Por favor, ve a Ajustes en tu dispositivo > Privacidad > Fotos y actívalo";
+//ChatViewController+Setup.swift,ChatViewController.swift
+"No agent" = "Sin agente";
+//UIAlertHandler.swift
+"No agents available" = "No hay agentes disponibles";
+//ChatViewController+Surveys.swift
+"No current survey" = "No hay encuesta actual";
+//ChatViewController+Surveys.swift
+"Note for rate is too long" = "La nota para la calificación es demasiado larga";
+//FilePicker.swift,UIAlertHandler.swift
+"OK" = "OK";
+//ChatViewController+CompletionHandler.swift
+"Ok" = "OK";
+//ChatViewController+Listener.swift,ChatViewController.swift
+"Online" = "En línea";
+//FilePicker.swift
+"Open app settings" = "Abrir ajustes de la aplicación";
+//UIAlertHandler.swift
+"Operator Info" = "Información sobre el agente";
+//ChatViewController+Surveys.swift
+"Operator rating failed" = "No se puede calificar al agente";
+//AdditionalKeys.swift
+"P.CR" = "Un agente solicitó tus datos de contacto.";
+//AdditionalKeys.swift
+"P.OA" = "El agente %@ fue asignado a tu solicitud.";
+//AdditionalKeys.swift
+"P.OF" = "%@ envió un archivo: %@.";
+//AdditionalKeys.swift
+"P.OM" = "%@ escribió un mensaje: %@";
+//AdditionalKeys.swift
+"P.RO" = "Califica al agente.";
+//FilePicker.swift
+"Photo Library" = "Biblioteca de fotos";
+//FilePicker.swift
+"Please Allow Access" = "Por favor, permite el acceso";
+//RateStarsViewController.swift,RateStarsViewController.xib
+"Please rate the overall impression of the consultation" = "Por favor califica la impresión general de la consulta.";
+//ChatViewController+Surveys.swift
+"Question not found" = "Pregunta no encontrada";
+//RateStarsViewController.xib
+"Rate Operator" = "Calificar agente";
+//StringConstants.swift
+"Reply" = "Responder";
+//ChatViewController+CompletionHandler.swift
+"Response cannot be created for this request" = "No se puede crear una respuesta para esta solicitud";
+//ChatTestView.xib
+"Run autotest" = "Ejecutar autoprueba";
+//UIAlertHandler.swift
+"Save error" = "Error al guardar";
+//UIAlertHandler.swift
+"SaveError" = "Error al guardar";
+//UIAlertHandler.swift
+"SaveErrorMessage" = "No hay acceso para guardar imágenes en el dispositivo. Concede acceso en la configuración de la aplicación.";
+//UIAlertHandler.swift
+"SaveFileErrorMessage" = "No hay acceso para guardar archivos en el dispositivo. Concede acceso en la configuración de la aplicación.";
+//UIAlertHandler.swift
+"Saved!" = "¡Guardado!";
+//RateStarsViewController.xib,SurveyCommentViewController.xib,SurveyRadioButtonViewController.xib
+"Send" = "Enviar";
+//ChatViewController+UITableView.swift
+"Send first message to start chat." =  "Envía el primer mensaje para comenzar el chat.";
+//ChatViewController+CompletionHandler.swift
+"Send keyboard request failed" = "Fallo al enviar solicitud del teclado";
+//ChatViewController+CompletionHandler.swift
+"Send keyboard request unknown error" = "Error desconocido al enviar solicitud del teclado";
+//WMQuoteFileCell.swift
+"Sending" = "Enviando";
+//ChatViewController+CompletionHandler.swift
+"Sending files in body is not supported" = "No se admite el envío de archivos en el cuerpo del mensaje";
+//ChatViewController+CompletionHandler.swift,UIAlertHandler.swift
+"Session creation failed" = "Fallo al crear la sesión";
+//FilePicker.swift,WMStartViewController.xib
+"Settings" = "Ajustes";
+//ChatViewController+Surveys.swift
+"Survey disabled" = "Encuesta deshabilitada";
+//WMThanksAlertView.xib
+"Thanks!" = "¡Gracias!";
+//UIAlertHandler.swift
+"The image has been saved to your photos" = "La imagen se ha guardado en tus fotos";
+//ChatViewController+Surveys.swift,UIAlertHandler.swift
+"There is no current agent to rate" = "No hay agente actual para calificar";
+//ChatViewController+Surveys.swift
+"This agent not in the current chat" = "Este agente no está en el chat actual";
+//ChatViewController+Surveys.swift
+"Unknown error" = "Error desconocido";
+//WMFileTableViewCell.swift
+"Uploading file" = "Subiendo archivo";
+//ChatViewController+Setup.swift,ChatViewController.swift
+"Rox.Chat SDK App" = "Rox.Chat SDK App";
+//FilePicker.swift
+"Rox.Chat needs permission to access your camera so you can send photos to chat." = "Rox.Chat necesita permiso para acceder a tu cámara para que puedas enviar fotos al chat.";
+//ChatViewController+CompletionHandler.swift
+"Wrong button ID in request" = "Identificación incorrecta del botón en la solicitud";
+//ChatViewController+CompletionHandler.swift
+"Wrong message ID in request" = "Identificación incorrecta del mensaje en la solicitud";
+//ChatViewController+CompletionHandler.swift
+"Wrong message kind (not text)" = "Tipo de mensaje incorrecto (no es texto)";
+//WMThanksAlertView.xib
+"Your feedback will help us become better." = "Tu opinión nos ayudará a mejorar.";
+"Your visitor account is in the black list." = "Tu cuenta de visitante está en la lista negra.";
+//SurveyCommentViewController.xib
+"comment" = "comentario";
+//WMMessageTableCell.swift
+"edited" = "editado";
+//ChatViewController+Listener.swift
+"typing" = "escribiendo";
+//LaunchScreen.storyboard,LaunchScreenController.storyboard
+"© 2022 Rox.Chat Inc. All rights reserved." = "© 2022 Rox.Chat Inc. Todos los derechos reservados.";
+//WMQuoteView.swift
+"You" = "Tú";

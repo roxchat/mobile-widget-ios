@@ -1,0 +1,87 @@
+{
+  "originHash" : "1bcb02c0b7f21e4240d1c00f023ce884795018a03584a80e98794a96ace5296b",
+  "pins" : [
+    {
+      "identity" : "cosmos",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/evgenyneu/Cosmos.git",
+      "state" : {
+        "revision" : "40ba10aaf175bf50abefd0e518bd3b40862af3b1",
+        "version" : "25.0.1"
+      }
+    },
+    {
+      "identity" : "flanimatedimage",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/Flipboard/FLAnimatedImage.git",
+      "state" : {
+        "revision" : "d4f07b6f164d53c1212c3e54d6460738b1981e9f",
+        "version" : "1.0.17"
+      }
+    },
+    {
+      "identity" : "mobile-keyboard-ios",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/roxchat/mobile-keyboard-ios.git",
+      "state" : {
+        "revision" : "d33bed5058814d0478e81f6bbe0c5d2bf5b13718",
+        "version" : "2.0.1"
+      }
+    },
+    {
+      "identity" : "mobile-sdk-ios",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/roxchat/mobile-sdk-ios.git",
+      "state" : {
+        "revision" : "0ee710b98bdc32a46bd36de6f09662400d0319ae",
+        "version" : "3.0.7"
+      }
+    },
+    {
+      "identity" : "mobile-widget-ios",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/roxchat/mobile-widget-ios",
+      "state" : {
+        "revision" : "831f643ad124c7c534b87d7ad31ebcdefcc1c633",
+        "version" : "1.1.1"
+      }
+    },
+    {
+      "identity" : "nuke",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/kean/Nuke.git",
+      "state" : {
+        "revision" : "0ead44350d2737db384908569c012fe67c421e4d",
+        "version" : "12.8.0"
+      }
+    },
+    {
+      "identity" : "snapkit",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/SnapKit/SnapKit.git",
+      "state" : {
+        "revision" : "2842e6e84e82eb9a8dac0100ca90d9444b0307f4",
+        "version" : "5.7.1"
+      }
+    },
+    {
+      "identity" : "sqlite.swift",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/stephencelis/SQLite.swift.git",
+      "state" : {
+        "revision" : "392dd6058624d9f6c5b4c769d165ddd8c7293394",
+        "version" : "0.15.4"
+      }
+    },
+    {
+      "identity" : "swift-toolchain-sqlite",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/swiftlang/swift-toolchain-sqlite",
+      "state" : {
+        "revision" : "b626d3002773b1a1304166643e7f118f724b2132",
+        "version" : "1.0.4"
+      }
+    }
+  ],
+  "version" : 3
+}

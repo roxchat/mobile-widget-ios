@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iN0-l3-epB" customClass="ChatTestView" customModule="WebimMobileWidget" customModuleProvider="target">
+        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iN0-l3-epB" customClass="ChatTestView" customModule="RoxChatMobileWidget">
             <rect key="frame" x="0.0" y="0.0" width="414" height="40"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qkG-Ra-LC2">
@@ -43,20 +43,46 @@
                                 <action selector="hideTap" destination="iN0-l3-epB" eventType="touchUpInside" id="vAh-Ne-2KP"/>
                             </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LSc-b8-XMN">
-                            <rect key="frame" x="178" y="5" width="107" height="30"/>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LSc-b8-XMN">
+                            <rect key="frame" x="203" y="6.5" width="72" height="27"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
                             <state key="normal" title="Run autotest"/>
                             <connections>
                                 <action selector="runAutotestClicked" destination="iN0-l3-epB" eventType="touchUpInside" id="N1Y-Et-R3B"/>
                             </connections>
                         </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tfe-vU-enC">
+                            <rect key="frame" x="137.5" y="6" width="61.5" height="28.5"/>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="plain" title="Config">
+                                <fontDescription key="titleFontDescription" type="system" pointSize="12"/>
+                            </buttonConfiguration>
+                            <connections>
+                                <action selector="showStolotoConfig:" destination="iN0-l3-epB" eventType="touchUpInside" id="eTv-a4-2d4"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UrB-cq-oJ0">
+                            <rect key="frame" x="56.5" y="6" width="72.5" height="28.5"/>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="plain" title="Столото">
+                                <fontDescription key="titleFontDescription" type="system" pointSize="12"/>
+                            </buttonConfiguration>
+                            <connections>
+                                <action selector="stolotoForm:" destination="iN0-l3-epB" eventType="touchUpInside" id="gvl-fU-SzL"/>
+                            </connections>
+                        </button>
                     </subviews>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
+                        <constraint firstItem="tfe-vU-enC" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="UrB-cq-oJ0" secondAttribute="trailing" constant="8" symbolic="YES" id="7mR-xD-BYP"/>
                         <constraint firstItem="AOr-yk-2Jg" firstAttribute="centerY" secondItem="qkG-Ra-LC2" secondAttribute="centerY" id="8Fj-SF-goO"/>
                         <constraint firstAttribute="trailing" secondItem="Lb5-0m-w2p" secondAttribute="trailing" constant="10" id="Br9-RY-pC2"/>
+                        <constraint firstItem="tfe-vU-enC" firstAttribute="centerY" secondItem="LSc-b8-XMN" secondAttribute="centerY" id="BwG-86-6SU"/>
+                        <constraint firstItem="UrB-cq-oJ0" firstAttribute="leading" secondItem="WK9-kg-nWv" secondAttribute="trailing" constant="28.5" id="FJO-1X-bKm"/>
                         <constraint firstItem="Lb5-0m-w2p" firstAttribute="leading" secondItem="AOr-yk-2Jg" secondAttribute="trailing" constant="10" id="Izh-Z4-FAT"/>
+                        <constraint firstItem="LSc-b8-XMN" firstAttribute="leading" secondItem="tfe-vU-enC" secondAttribute="trailing" constant="4" id="Ly2-yC-zjU"/>
                         <constraint firstItem="WK9-kg-nWv" firstAttribute="centerY" secondItem="qkG-Ra-LC2" secondAttribute="centerY" id="Nkw-n7-yCN"/>
+                        <constraint firstItem="UrB-cq-oJ0" firstAttribute="centerY" secondItem="tfe-vU-enC" secondAttribute="centerY" id="WT4-zC-Ugr"/>
                         <constraint firstItem="WK9-kg-nWv" firstAttribute="leading" secondItem="qkG-Ra-LC2" secondAttribute="leading" constant="9" id="Xz9-nY-ZFB"/>
                         <constraint firstItem="Lb5-0m-w2p" firstAttribute="centerY" secondItem="qkG-Ra-LC2" secondAttribute="centerY" id="bDT-Ot-xnm"/>
                         <constraint firstItem="SwW-5d-9Gm" firstAttribute="centerY" secondItem="qkG-Ra-LC2" secondAttribute="centerY" id="kKi-GT-MU1"/>
@@ -77,9 +103,11 @@
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
-                <outlet property="autotestButton" destination="LSc-b8-XMN" id="o8D-i7-a43"/>
+                <outlet property="autotestButton" destination="LSc-b8-XMN" id="2QG-jg-g2t"/>
                 <outlet property="clearHistory" destination="Lb5-0m-w2p" id="Kt2-QS-GJm"/>
                 <outlet property="operatorInfo" destination="AOr-yk-2Jg" id="yFc-h8-gxy"/>
+                <outlet property="showConfig" destination="tfe-vU-enC" id="3ua-nX-kGf"/>
+                <outlet property="stolotoRate" destination="UrB-cq-oJ0" id="7XC-33-329"/>
             </connections>
             <point key="canvasLocation" x="42.028985507246382" y="407.8125"/>
         </view>

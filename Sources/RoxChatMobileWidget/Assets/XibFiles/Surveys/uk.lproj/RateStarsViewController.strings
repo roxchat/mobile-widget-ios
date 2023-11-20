@@ -1,0 +1,9 @@
+
+/* Class = "UILabel"; text = "Please rate the overall impression of the consultation"; ObjectID = "53s-S5-RZf"; */
+"53s-S5-RZf.text" = "Оцініть, будь ласка, загальне враження від консультації";
+
+/* Class = "UILabel"; text = "Rate Operator"; ObjectID = "uhc-HQ-v5f"; */
+"uhc-HQ-v5f.text" = "Рейтинговий агент";
+
+/* Class = "UIButton"; normalTitle = "Send"; ObjectID = "v9Q-or-LCA"; */
+"v9Q-or-LCA.normalTitle" = "Надіслати";

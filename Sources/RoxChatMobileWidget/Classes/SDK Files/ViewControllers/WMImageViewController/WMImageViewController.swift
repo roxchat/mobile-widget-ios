@@ -89,7 +89,7 @@ class WMImageViewController: UIViewController {
 
     // MARK: - Private methods
     private func setupNavigationItem() {
-        var buttonImage: UIImage = config?.navigationBarConfig?.rightBarButtonImage ?? saveButtonImage
+        let buttonImage: UIImage = config?.navigationBarConfig?.rightBarButtonImage ?? saveButtonImage
         let rightButton = UIButton(type: .system)
         rightButton.frame = CGRect(x: 0.0, y: 0.0, width: 20.0, height: 20.0)
         rightButton.setBackgroundImage(buttonImage, for: .normal)

@@ -125,7 +125,7 @@ class SurveyCommentViewController: WMSurveyViewController {
 
 extension SurveyCommentViewController: UITextViewDelegate {
     func textViewDidChange(_ textView: UITextView) {
-        self.commentTextView.textViewDidChange()
+        // self.commentTextView.textViewDidChange()
         checkHeightConstraints()
     }
     

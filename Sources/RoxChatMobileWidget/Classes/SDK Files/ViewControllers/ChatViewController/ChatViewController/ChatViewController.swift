@@ -36,13 +36,13 @@ class ChatViewController: UIViewController {
     var chatConfig: WMViewControllerConfig?
     var imageViewControllerConfig: WMViewControllerConfig?
     var fileViewControllerConfig: WMViewControllerConfig?
+    var processingPersonalDataUrl: String?
 
     // MARK: Models
     lazy var navigationBarUpdater = NavigationBarUpdater()
     lazy var roxchatServerSideSettingsManager = RoxchatServerSideSettingsManager()
     lazy var messageCounter = MessageCounter(delegate: self)
     lazy var keyboardNotificationManager = WMKeyboardManager()
-    lazy var scrollQueueManager = ScrollQueueManager()
     lazy var filePicker = FilePicker(presentationController: self, delegate: self)
     lazy var alertDialogHandler = AlertController(delegate: self)
 
@@ -66,13 +66,14 @@ class ChatViewController: UIViewController {
     var selectedMessage: Message?
     var showSearchResult = false
     var canReloadRows = false
-    var scrollToBottom = false
     var alreadyRatedOperators = [String: Bool]()
+    var dataSource: UITableViewDiffableDataSource<Int, String>!
+    var delayedScrollLink: String?
     weak var cellWithSelection: WMMessageTableCell?
+    lazy var dateFormatter = ChatViewController.createMessageDateFormatter()
     
     // MARK: - Outletls
     @IBOutlet var chatTableView: UITableView!
-    @IBOutlet var toolbarBackgroundView: WMToolbarBackgroundView!
     @IBOutlet var toolbarView: WMToolbarView!
 
     // MARK: - Constants
@@ -89,9 +90,11 @@ class ChatViewController: UIViewController {
     lazy var connectionErrorView = ConnectionErrorView.loadXibView()
     lazy var chatTestView = ChatTestView.loadXibView()
     
+    let chatMessagesQueue = DispatchQueue(label: "ru.roxchat.chatMessagesQueue", attributes: .concurrent)
+    
     // Bottom bar
     override var inputAccessoryView: UIView? {
-        return presentedViewController?.isBeingDismissed != false ? toolbarBackgroundView : nil
+        presentedViewController?.isBeingDismissed != false ? toolbarView : nil
     }
     
     override var canBecomeFirstResponder: Bool {
@@ -108,6 +111,7 @@ class ChatViewController: UIViewController {
         setupNavigationBar()
         configureNetworkErrorView()
         configureThanksView()
+        self.setupTableViewDataSource()
         configureToolbarView()
         setupScrollButton()
         setupAlreadyRatedOperators()
@@ -115,20 +119,15 @@ class ChatViewController: UIViewController {
         addTapGesture()
 
         setupRefreshControl()
-        setupChatTableView()
-
         if true {
             setupTestView()
         }
         subscribeOnKeyboardNotifications()
         configureKeyboardNotificationManager()
         setupServerSideSettingsManager()
-        
+        setupTableView()
         // Config parameters
         adjustConfig()
-        
-        // Nuke animated images
-        // ImagePipeline.Configuration._isAnimatedImageDataEnabled = true
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -152,6 +151,7 @@ class ChatViewController: UIViewController {
 
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+        updateNavigationBar(true)
         navigationBarUpdater.set(canUpdate: false)
         WMTestManager.testDialogModeEnabled = false
         updateTestModeState()
@@ -161,8 +161,15 @@ class ChatViewController: UIViewController {
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        if navigationController == nil {
+        let lastController = navigationController?.viewControllers.last
+        if let presentedVC = presentedViewController as? UIImagePickerController {
+            if presentedVC.sourceType == .camera {
+                return
+            }
+        }
+        if navigationController == nil || lastController?.isImageViewController == false && lastController?.isFileViewController == false && lastController?.isProcessingPersonalData == false {
             RoxchatServiceController.shared.stopSession()
+            dataSource = nil
         }
     }
     
@@ -175,6 +182,7 @@ class ChatViewController: UIViewController {
     
     deinit {
         NotificationCenter.default.removeObserver(self)
+        unsubscribeFromKeyboardNotifications()
     }
     
     // MARK: - Methods
@@ -192,17 +200,14 @@ class ChatViewController: UIViewController {
 
     @objc
     func scrollToUnreadMessage() {
-        scrollQueueManager.perform(kind: .scrollTableView(animated: true)) { [weak self] in
-            guard let self = self else { return }
-            let lastReadMessageIndexPath = IndexPath(row: self.messageCounter.lastReadMessageIndex, section: 0)
-            let firstUnreadMessageIndexPath = IndexPath(row: self.messageCounter.firstUnreadMessageIndex(), section: 0)
-            if self.messageCounter.hasNewMessages() && lastReadMessageIndexPath != self.lastVisibleCellIndexPath() {
-                self.chatTableView.scrollToRowSafe(at: firstUnreadMessageIndexPath,
-                                              at: .bottom,
-                                              animated: true)
-            } else {
-                self.scrollToBottomInMainQueue(animated: true)
-            }
+        let lastReadMessageIndexPath = IndexPath(row: self.messageCounter.lastReadMessageIndex, section: 0)
+        let firstUnreadMessageIndexPath = IndexPath(row: self.messageCounter.firstUnreadMessageIndex(), section: 0)
+        if self.messageCounter.hasNewMessages() && lastReadMessageIndexPath != self.lastVisibleCellIndexPath() {
+            self.chatTableView.scrollToRowSafe(at: firstUnreadMessageIndexPath,
+                                               at: .bottom,
+                                               animated: true)
+        } else {
+            self.scrollToBottom(animated: true)
         }
     }
 
@@ -210,24 +215,63 @@ class ChatViewController: UIViewController {
     func requestMessages() {
         let chatConfig = chatConfig as? WMChatViewControllerConfig
         RoxchatServiceController.currentSession.getNextMessages(messagesCount: chatConfig?.requestMessagesCount) { [weak self] messages in
-            DispatchQueue.main.async {
+            self?.chatMessagesQueue.async(flags: .barrier) {
                 self?.chatMessages.insert(contentsOf: messages, at: 0)
                 self?.messageCounter.increaseLastReadMessageIndex(with: messages.count)
+                
             }
 
             DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                self?.reloadTableWithNewData()
-                self?.chatTableView.layoutIfNeeded()
-                if self?.scrollToBottom == true {
-                    self?.scrollToBottom(animated: false)
-                    self?.scrollToBottom = false
-                } else {
-                    //self?.chatTableView?.scrollToRowSafe(at: IndexPath(row: messages.count, section: 0), at: .middle, animated: false)
-                }
-
+                self?.updateThreadListAndReloadTable()
                 self?.chatTableView.refreshControl?.endRefreshing()
             }
         }
+    }
+    
+    func scrollToDelayedLink(_ link: String, animated: Bool) {
+        guard let row = self.messages().firstIndex(where: { $0.getID() == link}) else {
+            return
+        }
+
+        self.chatTableView.scrollToRowSafe(
+            at: IndexPath(row: row, section: 0),
+            at: .bottom,
+            animated: animated
+        )
+        self.delayedScrollLink = nil
+    }
+    
+    func scrollToBottom(animated: Bool) {
+        guard UIApplication.shared.applicationState == .active else { return }
+        guard let lastMessage = messages().last else { return }
+        let lastMessageIndexPath = index(for: lastMessage) ?? IndexPath()
+        let currentContentOffset = chatTableView.contentOffset.y
+        let maxContentOffset = chatTableView.contentSize.height - view.bounds.height
+        let contentOffsetDelta = maxContentOffset - currentContentOffset
+
+        if contentOffsetDelta >= view.bounds.height || !animated {
+            self.chatTableView.scrollToRowSafe(
+                at: lastMessageIndexPath,
+                at: .bottom,
+                animated: animated
+            )
+        } else {
+            // This implementation required for smooth scrolling experience.
+            UIView.animate(
+                withDuration: 0.3,
+                delay: .zero,
+                options: .curveEaseOut,
+                animations: { [weak self] in
+                    self?.chatTableView.scrollToRowSafe(
+                        at: lastMessageIndexPath,
+                        at: .bottom,
+                        animated: false
+                    )
+                }
+            )
+        }
+        RoxchatServiceController.currentSession.setChatRead()
+        print("scrollToBottom animated \(animated)")
     }
 
     @objc
@@ -255,24 +299,6 @@ class ChatViewController: UIViewController {
         )
     }
 
-
-    func scrollToBottom(animated: Bool) {
-        scrollQueueManager.perform(kind: .scrollTableView(animated: animated)) { [weak self] in
-            self?.scrollToBottomInMainQueue(animated: animated)
-        }
-    }
-
-
-    func scrollToTop(animated: Bool) {
-        if messages().isEmpty {
-            return
-        }
-
-        let indexPath = IndexPath(row: 0, section: 0)
-        self.chatTableView?.scrollToRowSafe(at: indexPath, at: .top, animated: animated)
-    }
-
-
     func clearTextViewSelection() {
         guard let cellWithSelection = cellWithSelection else { return }
         cellWithSelection.resignTextViewFirstResponder()
@@ -287,10 +313,6 @@ class ChatViewController: UIViewController {
         } else if let name = RoxchatServiceController.currentSession.getCurrentOperator()?.getName() {
             titleView.state = .operatorDefined(name: name)
         }
-    }
-
-    func scrollTableView(_ sender: UIButton) {
-        self.scrollToBottom(animated: true)
     }
 
     func setConnectionStatus(connected: Bool) {
@@ -369,13 +391,6 @@ class ChatViewController: UIViewController {
         )
     }
 
-    func reloadTableWithNewData() {
-        scrollQueueManager.perform(kind: .reloadTableView) {
-            self.chatTableView?.reloadData()
-            self.canReloadRows = true
-        }
-    }
-
     func updateOperatorInfo(operator: Operator?, state: ChatState) {
         updateOperatorAvatar(`operator`?.getAvatarURL())
         switch state {
@@ -404,6 +419,15 @@ class ChatViewController: UIViewController {
         return differenceBetweenDates.day != 0
     }
     
+    func checkAgreement() {
+        if roxchatServerSideSettingsManager.showProcessingPersonalDataCheckbox() {
+            let vc = ProcessingPersonalData.loadViewControllerFromXib()
+            vc.agreementUrlString = roxchatServerSideSettingsManager.getProcessingPersonalDataUrl() ?? processingPersonalDataUrl ?? "https://rox.chat/doc/agreement/"
+            
+            navigationController?.pushViewController(vc, animated: true)
+        }
+    }
+    
     // MARK: - Private methods
     private func adjustConfig() {
         adjustChatConfig()
@@ -421,12 +445,15 @@ class ChatViewController: UIViewController {
 
         let chatConfig = chatConfig as? WMChatViewControllerConfig
 
-        if let scrollButtonImage = chatConfig?.scrollButtonImage {
-            scrollButtonView.setScrollButtonBackgroundImage(scrollButtonImage, state: .normal)
-        }
+        let scrollImage = chatConfig?.scrollButtonImage ?? scrollButtonImage
+        scrollButtonView.setScrollButtonBackgroundImage(scrollImage, state: .normal)
 
         if let attributedTitle = chatConfig?.refreshControlAttributedTitle {
             chatTableView.refreshControl?.attributedTitle = attributedTitle
+        }
+        
+        if let refreshControlTintColor = chatConfig?.refreshControlTintColor {
+            chatTableView.refreshControl?.tintColor = refreshControlTintColor
         }
     }
 
@@ -513,66 +540,6 @@ class ChatViewController: UIViewController {
         }
     }
     
-    private func sendImage(image: UIImage, imageURL: URL?) {
-        
-        var imageData = Data()
-        var imageName = String()
-        var mimeType = MimeType()
-        
-        if let imageURL = imageURL {
-            mimeType = MimeType(url: imageURL as URL)
-            imageName = imageURL.lastPathComponent
-            
-            let imageExtension = imageURL.pathExtension.lowercased()
-            
-            switch imageExtension {
-            case "jpg", "jpeg":
-                guard let unwrappedData = image.jpegData(compressionQuality: 1.0)
-                else { return }
-                imageData = unwrappedData
-                
-            case "heic", "heif":
-                guard let unwrappedData = image.jpegData(compressionQuality: 0.5)
-                else { return }
-                imageData = unwrappedData
-                
-                var components = imageName.components(separatedBy: ".")
-                if components.count > 1 {
-                    components.removeLast()
-                    imageName = components.joined(separator: ".")
-                }
-                imageName += ".jpeg"
-                
-            default:
-                guard let unwrappedData = image.pngData()
-                else { return }
-                imageData = unwrappedData
-            }
-        } else {
-            guard let unwrappedData = image.jpegData(compressionQuality: 1.0)
-            else { return }
-            imageData = unwrappedData
-            imageName = "photo.jpeg"
-        }
-        
-        RoxchatServiceController.currentSession.send(
-            file: imageData,
-            fileName: imageName,
-            mimeType: mimeType.value,
-            completionHandler: self
-        )
-    }
-    
-    private func sendFile(file: Data, fileURL: URL?) {
-        let url = fileURL ?? URL(fileURLWithPath: "document.pdf")
-        RoxchatServiceController.currentSession.send(
-            file: file,
-            fileName: url.lastPathComponent,
-            mimeType: MimeType(url: url).value,
-            completionHandler: self
-        )
-    }
-    
     private func replyToMessage(_ message: String) {
         guard let messageToReply = selectedMessage else { return }
         RoxchatServiceController.currentSession.reply(
@@ -592,13 +559,6 @@ class ChatViewController: UIViewController {
             text: message,
             completionHandler: self
         )
-    }
-
-    func scrollToBottomInMainQueue(animated: Bool) {
-        guard !self.messages().isEmpty else { return }
-        let row = (self.chatTableView.numberOfRows(inSection: 0)) - 1
-        let bottomMessageIndex = IndexPath(row: row, section: 0)
-        self.chatTableView?.scrollToRowSafe(at: bottomMessageIndex, at: .bottom, animated: animated)
     }
 
     private func shouldShowOperatorInfo(forMessageNumber index: Int) -> Bool {
@@ -622,21 +582,27 @@ class ChatViewController: UIViewController {
         RoxchatServiceController.currentSession.set(currentOperatorChangeListener: self)
         RoxchatServiceController.currentSession.set(chatStateListener: self)
         RoxchatServiceController.currentSession.set(surveyListener: self)
+        RoxchatServiceController.currentSession.set(visitSessionStateListener: self)
         RoxchatServiceController.currentSession.set(unreadByVisitorMessageCountChangeListener: messageCounter)
         
         RoxchatServiceController.shared.notFatalErrorHandler = self
         RoxchatServiceController.shared.departmentListHandlerDelegate = self
         RoxchatServiceController.shared.fatalErrorHandlerDelegate = self
         
-        DispatchQueue.main.async {
-            RoxchatServiceController.currentSession.getLastMessages { [weak self] messages in
-                self?.chatMessages.insert(contentsOf: messages, at: 0)
-                self?.reloadTableWithNewData()
-                self?.scrollToBottom(animated: false)
-                if messages.count < RoxchatService.ChatSettings.messagesPerRequest.rawValue {
-                    self?.scrollToBottom = true
-                    self?.requestMessages()
+        RoxchatServiceController.currentSession.getLastMessages { [weak self] messages in
+            guard let self = self else { return }
+            self.chatMessagesQueue.async(flags: .barrier) {
+                self.chatMessages.insert(contentsOf: messages, at: 0)
+                DispatchQueue.main.async {
+                    if messages.count < RoxchatService.ChatSettings.messagesPerRequest.rawValue {
+                        self.requestMessages()
+                    }
                 }
+            }
+            DispatchQueue.main.async {
+                self.becomeFirstResponder()
+                self.updateThreadListAndReloadTable()
+                self.scrollToBottom(animated: true)
             }
         }
     }
@@ -653,7 +619,6 @@ class ChatViewController: UIViewController {
         imageDownloadIndicator.isHidden = true
         imageDownloadIndicator.translatesAutoresizingMaskIntoConstraints = false
 
-        //let loadingOptions = ImageLoadingOptions(placeholder: UIImage(),transition: .fadeIn(duration: 0.5))
         let defaultRequestOptions = ImageRequest.Options()
         let imageRequest = ImageRequest(
             url: avatarURL,
@@ -664,8 +629,6 @@ class ChatViewController: UIViewController {
 
         ImagePipeline.shared.loadImage(
             with: imageRequest,
-            //options: loadingOptions,
-            //into: self.titleViewOperatorAvatarImageView,
             progress: { _, completed, total in
                 DispatchQueue.global(qos: .userInteractive).async {
                     let progress = Float(completed) / Float(total)
@@ -712,6 +675,9 @@ class ChatViewController: UIViewController {
         messageCounter.set(lastReadMessageIndex: lastVisibleCellIndexPath()?.row ?? 0)
         let state: ScrollButtonViewState = messageCounter.hasNewMessages() && chatConfig?.showScrollButtonCounter != false ?
             .newMessage : isLastCellVisible() || chatMessages.isEmpty ? .hidden : .visible
+        if state == .hidden {
+            RoxchatServiceController.currentSession.setChatRead()
+        }
         scrollButtonView.setScrollButtonViewState(state)
     }
 }
@@ -737,28 +703,21 @@ extension ChatViewController: UIScrollViewDelegate {
         updateScrollButtonView()
     }
 
-    func recountChatTableFrame(keyboardHeight: CGFloat) -> CGRect {
-        let offset = max(keyboardHeight, self.toolbarView.frame.height )
-        let height = self.view.frame.height - self.chatTableView.frame.origin.y - offset
-        var newFrame = self.chatTableView.frame
-        newFrame.size.height = height
-        return newFrame
-    }
-
-    func recountTableSize() {
-        let newFrame = recountChatTableFrame(keyboardHeight: 0)
-        self.chatTableView.frame = newFrame
-        var scrollButtonFrame = self.scrollButtonView.frame
-        scrollButtonFrame.origin.y = newFrame.size.height - 50
-        self.scrollButtonView.frame = scrollButtonFrame
-        self.view.setNeedsDisplay()
-        self.view.setNeedsLayout()
-    }
-
     func isLastCellVisible() -> Bool {
-        guard let lastVisibleCell = chatTableView.visibleCells.last else { return false }
-        let lastIndexPath = chatTableView.indexPath(for: lastVisibleCell)
-        return lastIndexPath?.row == chatMessages.count - 1
+        var visibleTableViewBounds = chatTableView.bounds
+        visibleTableViewBounds.size.height -= chatTableView.contentInset.bottom - view.safeAreaInsets.bottom
+        let systemVisibleCells = chatTableView.visibleCells
+        let lastVisibleCell = systemVisibleCells
+            .filter { cell in
+                let cellFrame = cell.convert(cell.bounds, to: chatTableView)
+                return cellFrame.intersects(visibleTableViewBounds)
+            }
+            .last
+
+        guard let lastVisibleCell = lastVisibleCell,
+              let actuallyLastIndexPath = messages().last else { return false }
+        let lastVisibleIndexPath = chatTableView.indexPath(for: lastVisibleCell)
+        return lastVisibleIndexPath == index(for: actuallyLastIndexPath)
     }
 
     func lastVisibleCellIndexPath() -> IndexPath? {
@@ -772,23 +731,32 @@ extension ChatViewController: UIScrollViewDelegate {
 extension ChatViewController: FilePickerDelegate {
     
     func didSelect(images: [ImageToSend]) {
-        for image in images {
-            print("didSelect(image: \(String(describing: image.url?.lastPathComponent)), imageURL: \(String(describing: image.url)))")
-            guard let imageToSend = image.image else { return }
-            self.sendImage(image: imageToSend, imageURL: image.url)
-        }
+        RoxchatServiceController.currentSession.send(
+            images: images,
+            completionHandler: self
+        )
     }
-    
+
     func didSelect(files: [FileToSend]) {
-        for file in files {
-            print("didSelect(file: \(file.url?.lastPathComponent ?? "nil")), fileURL: \(file.url?.path ?? "nil"))")
-            guard let fileToSend = file.file else { return }
-            self.sendFile(file: fileToSend,fileURL: file.url)
-        }
+        RoxchatServiceController.currentSession.send(
+            files: files,
+            completionHandler: self
+        )
     }
 }
 
 extension ChatViewController: ChatTestViewDelegate {
+    func getConfig() -> RoxchatServerSideSettingsManager? {
+        return roxchatServerSideSettingsManager
+    }
+    
+    func sendResolution(answer: Int) {
+        if let operatorID = currentOperatorId() {
+           RoxchatServiceController.currentSession.sendResolution(withID: operatorID, answer: answer, completionHandler: self)
+        } else {
+            onFailure(error: SendResolutionError.operatorNotInChat)
+        }
+    }
     
     func getSearchMessageText() -> String {
         let searchText = self.toolbarView.messageView.getMessage()
@@ -810,24 +778,25 @@ extension ChatViewController: ChatTestViewDelegate {
 }
 
 extension ChatViewController: WMNewMessageViewDelegate {
+    
     func inputTextChanged() {
         RoxchatServiceController.currentSession.setVisitorTyping(draft: self.toolbarView.messageView.getMessage())
     }
     
     func sendMessage() {
         let messageText = self.toolbarView.messageView.getMessage()
+        toolbarView.messageView.setMessageText("")
         guard !messageText.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else { return }
-        
-        if self.toolbarView.quoteBarIsVisible() {
-            if self.toolbarView.quoteView.currentMode() == .edit {
+        if self.toolbarView.isQuoteViewVisible() {
+            hideQuoteView()
+            if self.toolbarView.quoteView.currentMode == .edit {
                 if messageText.trimmingCharacters(in: .whitespacesAndNewlines) !=
-                    self.toolbarView.quoteView.currentMessage().trimmingCharacters(in: .whitespacesAndNewlines) {
+                    self.toolbarView.quoteView.currentMessage.trimmingCharacters(in: .whitespacesAndNewlines) {
                     self.editMessage(messageText)
                 }
             } else {
                 self.replyToMessage(messageText)
             }
-            self.toolbarView.removeQuoteEditBar()
         } else {
             self.sendMessage(messageText)
         }
@@ -847,21 +816,32 @@ extension ChatViewController: MessageCounterDelegate {
         if newMessageCount > 0 && !isLastCellVisible() && chatConfig?.showScrollButtonCounter != false {
             state = .newMessage
             scrollButtonView.setNewMessageCount(newMessageCount)
+            setLastVisibleMessageRead()
         } else if newMessageCount >= 0 && !isLastCellVisible() {
             state = .visible
+            setLastVisibleMessageRead()
         } else {
             state = .hidden
             RoxchatServiceController.currentSession.setChatRead()
         }
         scrollButtonView.setScrollButtonViewState(state)
     }
+    
+    private func setLastVisibleMessageRead() {
+        let messages = messages()
+        if let lastVisibleCellIndex = lastVisibleCellIndexPath()?.row,
+            lastVisibleCellIndex < messages.count,
+            lastVisibleCellIndex > 0 {
+            RoxchatServiceController.currentSession.setChatRead(message: messages[lastVisibleCellIndex - 1])
+        }
+    }
 
     func updateLastMessageIndex(completionHandler: ((Int) -> ())?) {
         completionHandler?(messages().count - 1)
     }
 
-    func updateLastReadMessageIndex(completionHandler: ((Int) -> ())?) {
-        completionHandler?(lastVisibleCellIndexPath()?.row ?? 0)
+    func updateLastReadMessageIndex(newValue: Int, completionHandler: ((Int) -> ())?) {
+        completionHandler?(messages().count - 1 - newValue)
     }
 }
 

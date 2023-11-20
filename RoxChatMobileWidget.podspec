@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'RoxChatMobileWidget'
-  s.version          = '1.0.0'
+  s.version          = '1.1.1'
   s.summary          = 'RoxChat mobile UI for client SDK iOS.'
 
   s.homepage         = 'https://roxchat/integration/mobile-sdk/ios-sdk-howto/'
@@ -12,8 +12,10 @@ Pod::Spec.new do |s|
   s.source_files = 'Sources/RoxChatMobileWidget/Classes/**/*.{swift,strings}'
   s.resources = 'Sources/RoxChatMobileWidget/Assets/**/*.{xib,strings}',
   'Sources/RoxChatMobileWidget/Assets/WidgetImages.xcassets'
+  s.dependency 'RoxchatClientLibrary'
+  s.dependency 'RoxChatKeyboard'
   s.dependency 'Cosmos', '~> 19.0.3'
-  s.dependency 'Nuke', '~> 10.7.1'
+  s.dependency 'Nuke', '~>  8.0'
   s.dependency 'FLAnimatedImage', '~> 1.0'
   s.dependency 'SnapKit'
 end

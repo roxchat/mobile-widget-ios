@@ -201,6 +201,9 @@ let operatorMessageCellTextColor = #colorLiteral(red: 0.1529411765, green: 0.164
 // WMVisitorMessageCell
 let visitorMessageCellTextColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
 
+// WMInfoMessageCell
+let infoMessageCellTextColor = #colorLiteral(red: 0.3607843137, green: 0.3725490196, blue: 0.5411764706, alpha: 1)
+
 // WMNewMessageView
 let newMessageTextColor = #colorLiteral(red: 0.1529411765, green: 0.1647058824, blue: 0.3176470588, alpha: 1)
 let newMessageBorderColor = #colorLiteral(red: 0.7882352941, green: 0.8, blue: 0.8666666667, alpha: 0.6)

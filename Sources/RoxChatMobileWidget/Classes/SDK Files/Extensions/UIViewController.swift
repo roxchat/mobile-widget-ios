@@ -40,6 +40,10 @@ extension UIViewController {
         return self is WMFileViewController
     }
     
+    public var isProcessingPersonalData: Bool {
+        return self is ProcessingPersonalData
+    }
+    
     // MARK: - Methods
     func hideKeyboardOnTap() {
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self,

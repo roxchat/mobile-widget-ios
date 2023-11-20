@@ -205,6 +205,76 @@ public class WMAbstractCellConfigBuilder {
         return self
     }
 
+    /**
+     Sets cell time color.
+     - parameter timeColor:
+     Cell time color.
+     - returns:
+     `WMAbstractCellConfigBuilder` object with time color set.
+     - copyright:
+     2024 Roxchat
+     */
+    public func set(timeColor: UIColor) -> Self {
+        cellConfig.timeColor = timeColor
+        return self
+    }
+    
+    /**
+     Sets cell link color.
+     - parameter linkColor:
+     Cell link color.
+     - returns:
+     `WMAbstractCellConfigBuilder` object with link color set.
+     - copyright:
+     2024 Roxchat
+     */
+    public func set(linkColor: UIColor) -> Self {
+        cellConfig.linkColor = linkColor
+        return self
+    }
+    
+    /**
+     Sets cell message sending indicator color..
+     - parameter messageSendingIndicatorColor:
+     Cell message sending indicator color.
+     - returns:
+     `WMAbstractCellConfigBuilder` object with message sending indicator color.
+     - copyright:
+     2024 Roxchat
+     */
+    public func set(messageSendingIndicatorColor: UIColor) -> Self {
+        cellConfig.messageSendingIndicatorColor = messageSendingIndicatorColor
+        return self
+    }
+    
+    /**
+     Sets cell message unread icon.
+     - parameter messageUnreadIcon:
+     Cell message unread icon.
+     - returns:
+     `WMAbstractCellConfigBuilder` object with message unread icon.
+     - copyright:
+     2024 Roxchat
+     */
+    public func set(messageUnreadIcon: UIImage) -> Self {
+        cellConfig.messageUnreadIcon = messageUnreadIcon
+        return self
+    }
+    
+    /**
+     Sets cell message read icon.
+     - parameter messageReadIcon:
+     Cell message read icon.
+     - returns:
+     `WMAbstractCellConfigBuilder` object with message read icon.
+     - copyright:
+     2024 Roxchat
+     */
+    public func set(messageReadIcon: UIImage) -> Self {
+        cellConfig.messageReadIcon = messageReadIcon
+        return self
+    }
+
 }
 
 

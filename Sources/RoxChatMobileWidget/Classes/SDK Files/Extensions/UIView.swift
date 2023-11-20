@@ -119,8 +119,11 @@ extension UIView {
     }
 
     var globalPointOnScreen: CGPoint? {
-        let rootView = UIApplication.sharedInstance()?.keyWindow?.rootViewController?.view
-        return self.superview?.convert(self.frame.origin, to: rootView)
+        if let window = UIApplication.shared.windows.first(where: { $0.isKeyWindow }),
+           let rootView = window.rootViewController?.view {
+            return self.superview?.convert(self.frame.origin, to: rootView)
+        }
+        return nil
     }
     
     func setWidth(_ width: CGFloat) {

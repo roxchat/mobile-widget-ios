@@ -7,8 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		90099CE92E854768009E561A /* RoxChatMobileWidget in Frameworks */ = {isa = PBXBuildFile; productRef = 90099CE82E854768009E561A /* RoxChatMobileWidget */; };
 		901AD67D2B0CFF2100DB1722 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 90D502A12B0ABBC800A14597 /* Images.xcassets */; };
-		901AD6AE2B0D518800DB1722 /* RoxChatMobileWidget in Frameworks */ = {isa = PBXBuildFile; productRef = 901AD6AD2B0D518800DB1722 /* RoxChatMobileWidget */; };
+		904D941A2E84393B000C8502 /* RoxChatMobileWidget in Frameworks */ = {isa = PBXBuildFile; productRef = 904D94192E84393B000C8502 /* RoxChatMobileWidget */; };
 		90E84C1D2B0B8C9100E2933A /* ColorConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 903F502E2B0A614F00741E7A /* ColorConstants.swift */; };
 		90E84C1E2B0B8C9500E2933A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 903F502F2B0A614F00741E7A /* LaunchScreen.xib */; };
 		90E84C1F2B0B8C9700E2933A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 903F50322B0A614F00741E7A /* AppDelegate.swift */; };
@@ -16,7 +17,6 @@
 		90E84C212B0B8C9C00E2933A /* ImageConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 903F50342B0A614F00741E7A /* ImageConstants.swift */; };
 		90E84C222B0B8CA100E2933A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 903F50372B0A614F00741E7A /* InfoPlist.strings */; };
 		90E84C242B0B8CA700E2933A /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 903F503B2B0A614F00741E7A /* Tests.swift */; };
-		90E84C272B0B8F1200E2933A /* RoxChatMobileWidget in Frameworks */ = {isa = PBXBuildFile; productRef = 90E84C262B0B8F1200E2933A /* RoxChatMobileWidget */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +59,24 @@
 		903F503C2B0A614F00741E7A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		903F50452B0A810A00741E7A /* RoxChatMobileWidget_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RoxChatMobileWidget_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		903F50462B0A810A00741E7A /* RoxChatMobileWidget_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RoxChatMobileWidget_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9071052E2BC44534000431A5 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ../ar.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		9071052F2BC44535000431A5 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		907105302BC4454C000431A5 /* he */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = he; path = ../he.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		907105312BC4454C000431A5 /* he */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = he; path = he.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		907105322BC44558000431A5 /* bg */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = bg; path = ../bg.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		907105332BC44558000431A5 /* bg */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = bg; path = bg.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		907105342BC4455E000431A5 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = ../uk.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		907105352BC4455E000431A5 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		907105362BC44564000431A5 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = ../es.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		907105372BC44564000431A5 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		907105382BC44596000431A5 /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = ../pt.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		907105392BC44596000431A5 /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		9071053A2BC445A6000431A5 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		9071053B2BC445A7000431A5 /* bg */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = bg; path = bg.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		9071053C2BC445AA000431A5 /* he */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = he; path = he.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		9071053D2BC445AA000431A5 /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		9071053E2BC445AC000431A5 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		9071053F2BC445AD000431A5 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		90D500872B0AB08E00A14597 /* RoxChatMobileWidget.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; name = RoxChatMobileWidget.podspec; path = ../RoxChatMobileWidget.podspec; sourceTree = "<group>"; };
 		90D502A02B0ABBC800A14597 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = LaunchScreen.xib; sourceTree = "<group>"; };
 		90D502A12B0ABBC800A14597 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -69,8 +87,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				901AD6AE2B0D518800DB1722 /* RoxChatMobileWidget in Frameworks */,
-				90E84C272B0B8F1200E2933A /* RoxChatMobileWidget in Frameworks */,
+				90099CE92E854768009E561A /* RoxChatMobileWidget in Frameworks */,
+				904D941A2E84393B000C8502 /* RoxChatMobileWidget in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -92,9 +110,9 @@
 				903F502D2B0A614F00741E7A /* RoxChatMobileWidget */,
 				903F503A2B0A614F00741E7A /* Tests */,
 				607FACF51AFB993E008FA782 /* Podspec Metadata */,
-				E193A2E3D245201E4EFC8D0B /* Pods */,
 				903F50452B0A810A00741E7A /* RoxChatMobileWidget_Example.app */,
 				903F50462B0A810A00741E7A /* RoxChatMobileWidget_Tests.xctest */,
+				904D94182E84393B000C8502 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -141,19 +159,19 @@
 			path = Tests;
 			sourceTree = "<group>";
 		};
+		904D94182E84393B000C8502 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		90D5029E2B0ABBC800A14597 /* Base.lproj */ = {
 			isa = PBXGroup;
 			children = (
 				90D5029F2B0ABBC800A14597 /* LaunchScreen.xib */,
 			);
 			path = Base.lproj;
-			sourceTree = "<group>";
-		};
-		E193A2E3D245201E4EFC8D0B /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -173,10 +191,6 @@
 			dependencies = (
 			);
 			name = RoxChatMobileWidget_Example;
-			packageProductDependencies = (
-				90E84C262B0B8F1200E2933A /* RoxChatMobileWidget */,
-				901AD6AD2B0D518800DB1722 /* RoxChatMobileWidget */,
-			);
 			productName = RoxchatWidget;
 			productReference = 903F50452B0A810A00741E7A /* RoxChatMobileWidget_Example.app */;
 			productType = "com.apple.product-type.application";
@@ -229,10 +243,16 @@
 				Base,
 				ru,
 				"ru-RU",
+				ar,
+				he,
+				bg,
+				uk,
+				es,
+				pt,
 			);
 			mainGroup = 607FACC71AFB9204008FA782;
 			packageReferences = (
-				901AD6AC2B0D518800DB1722 /* XCRemoteSwiftPackageReference "mobile-widget-ios" */,
+				90099CE72E854768009E561A /* XCRemoteSwiftPackageReference "mobile-widget-ios" */,
 			);
 			productRefGroup = 607FACC71AFB9204008FA782;
 			projectDirPath = "";
@@ -299,6 +319,12 @@
 			isa = PBXVariantGroup;
 			children = (
 				903F50302B0A614F00741E7A /* Base */,
+				9071052F2BC44535000431A5 /* ar */,
+				907105312BC4454C000431A5 /* he */,
+				907105332BC44558000431A5 /* bg */,
+				907105352BC4455E000431A5 /* uk */,
+				907105372BC44564000431A5 /* es */,
+				907105392BC44596000431A5 /* pt */,
 			);
 			name = LaunchScreen.xib;
 			sourceTree = "<group>";
@@ -308,6 +334,12 @@
 			children = (
 				903F50382B0A614F00741E7A /* en */,
 				903F50392B0A614F00741E7A /* ru */,
+				9071053A2BC445A6000431A5 /* ar */,
+				9071053B2BC445A7000431A5 /* bg */,
+				9071053C2BC445AA000431A5 /* he */,
+				9071053D2BC445AA000431A5 /* pt */,
+				9071053E2BC445AC000431A5 /* es */,
+				9071053F2BC445AD000431A5 /* uk */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -316,6 +348,12 @@
 			isa = PBXVariantGroup;
 			children = (
 				90D502A02B0ABBC800A14597 /* Base */,
+				9071052E2BC44534000431A5 /* ar */,
+				907105302BC4454C000431A5 /* he */,
+				907105322BC44558000431A5 /* bg */,
+				907105342BC4455E000431A5 /* uk */,
+				907105362BC44564000431A5 /* es */,
+				907105382BC44596000431A5 /* pt */,
 			);
 			name = LaunchScreen.xib;
 			sourceTree = "<group>";
@@ -348,7 +386,7 @@
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_ENTITLEMENTS = RoxChatMobileWidget.entitlements;
+				CODE_SIGN_ENTITLEMENTS = "RoxСhatMobileWidget_Example.entitlements";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -402,7 +440,7 @@
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_ENTITLEMENTS = RoxChatMobileWidget.entitlements;
+				CODE_SIGN_ENTITLEMENTS = "RoxСhatMobileWidget_Example.entitlements";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -487,7 +525,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				DEVELOPMENT_TEAM = 574GE9X9L7;
+				DEVELOPMENT_TEAM = NHV62264UD;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -514,7 +552,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				DEVELOPMENT_TEAM = 574GE9X9L7;
+				DEVELOPMENT_TEAM = NHV62264UD;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -570,24 +608,33 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		90099CE72E854768009E561A /* XCRemoteSwiftPackageReference "mobile-widget-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/roxchat/mobile-widget-ios";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.1.1;
+			};
+		};
 		901AD6AC2B0D518800DB1722 /* XCRemoteSwiftPackageReference "mobile-widget-ios" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/roxchat/mobile-widget-ios";
 			requirement = {
-				branch = release_1_0_0;
+				branch = master;
 				kind = branch;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		901AD6AD2B0D518800DB1722 /* RoxChatMobileWidget */ = {
+		90099CE82E854768009E561A /* RoxChatMobileWidget */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 901AD6AC2B0D518800DB1722 /* XCRemoteSwiftPackageReference "mobile-widget-ios" */;
+			package = 90099CE72E854768009E561A /* XCRemoteSwiftPackageReference "mobile-widget-ios" */;
 			productName = RoxChatMobileWidget;
 		};
-		90E84C262B0B8F1200E2933A /* RoxChatMobileWidget */ = {
+		904D94192E84393B000C8502 /* RoxChatMobileWidget */ = {
 			isa = XCSwiftPackageProductDependency;
+			package = 901AD6AC2B0D518800DB1722 /* XCRemoteSwiftPackageReference "mobile-widget-ios" */;
 			productName = RoxChatMobileWidget;
 		};
 /* End XCSwiftPackageProductDependency section */

@@ -30,106 +30,107 @@ extension ChatViewController: MessageListener {
     
     // MARK: - Methods
     
-    func added(message newMessage: Message,
-               after previousMessage: Message?) {
-        DispatchQueue.main.async {
+    func added(message newMessage: Message, after previousMessage: Message?) {
+        chatMessagesQueue.async(flags: .barrier) {
             var inserted = false
-            
-            if let previousMessage = previousMessage {
-                for (index, message) in self.chatMessages.enumerated() {
-                    if previousMessage.isEqual(to: message) {
-                        self.chatMessages.insert(newMessage, at: index)
-                        inserted = true
-                        break
+            if !self.chatMessages.contains(where: { $0.getID() == newMessage.getID() }) {
+                if let previousMessage = previousMessage {
+                    for (index, message) in self.chatMessages.enumerated() {
+                        if previousMessage.isEqual(to: message) {
+                            self.chatMessages.insert(newMessage, at: index + 1)
+                            inserted = true
+                            break
+                        }
                     }
                 }
-            }
-
-            if !inserted {
-                self.chatMessages.append(newMessage)
-            }
-
-            self.reloadTableWithNewData()
-
-            self.scrollQueueManager.perform(kind: .scrollTableView(animated: true)) {
-                let scrollRequired = (!newMessage.isOperatorType() && !newMessage.isSystemType()) || self.isLastCellVisible()
-
-                guard !scrollRequired else {
-                    self.scrollToBottomInMainQueue(animated: true)
-                    return
+                
+                if !inserted {
+                    self.chatMessages.append(newMessage)
                 }
-                let chatConfig = self.chatConfig as? WMChatViewControllerConfig
-                guard chatConfig?.showScrollButtonCounter != false else { return }
-                self.messageCounter.set(lastMessageIndex: self.chatMessages.count - 1)
+            }
+            
+            let currentId = newMessage.getID()
+            
+            DispatchQueue.main.async {
+                var snapshot = self.dataSource.snapshot()
+                if snapshot.numberOfSections == 0 {
+                    snapshot.appendSections([0])
+                }
+                
+                if snapshot.itemIdentifiers.contains(currentId) {
+                    snapshot.reloadItems([currentId])
+                } else {
+                    snapshot.appendItems([currentId], toSection: 0)
+                }
+                
+                self.dataSource.apply(snapshot, animatingDifferences: false) {
+                    guard newMessage.isVisitorType() || self.isLastCellVisible() else { return }
+                    self.scrollToBottom(animated: true)
+                }
+                
+                if let chatConfig = self.chatConfig as? WMChatViewControllerConfig,
+                   chatConfig.showScrollButtonCounter != false {
+                    self.messageCounter.set(lastMessageIndex: self.chatMessages.count - 1)
+                }
             }
         }
     }
     
     func removed(message: Message) {
-        DispatchQueue.main.async {
-            var toUpdate = false
-            if message.getCurrentChatID() == self.selectedMessage?.getCurrentChatID() {
-                self.toolbarView.removeQuoteEditBar()
-            }
+        chatMessagesQueue.async(flags: .barrier) {
+            var snapshot = self.dataSource.snapshot()
             
-            for (messageIndex, iteratedMessage) in self.chatMessages.enumerated() {
-                if iteratedMessage.getID() == message.getID() {
-                    self.chatMessages.remove(at: messageIndex)
-                    let indexPath = IndexPath(row: messageIndex, section: 0)
-                    toUpdate = true
-                    
-                    break
+            if let index = self.chatMessages.firstIndex(where: { $0.getID() == message.getID() }) {
+                self.chatMessages.remove(at: index)
+            }
+            DispatchQueue.main.async {
+                if snapshot.numberOfSections > 0 {
+                    snapshot.deleteItems([message.getID()])
+                    self.dataSource.apply(snapshot, animatingDifferences: true)
                 }
-            }
-            
-            if toUpdate {
-                self.reloadTableWithNewData()
-                self.messageCounter.set(lastMessageIndex: self.chatMessages.count - 1)
             }
         }
     }
     
     func removedAllMessages() {
-        DispatchQueue.main.async {
+        chatMessagesQueue.async(flags: .barrier) {
+            
             self.chatMessages.removeAll()
-            self.reloadTableWithNewData()
+            
+            DispatchQueue.main.async {
+                self.updateThreadListAndReloadTable()
+            }
         }
     }
     
-    func changed(message oldVersion: Message,
-                 to newVersion: Message) {
-        let isScrollRequired = oldVersion.getText() != newVersion.getText() && !newVersion.isFile()
-        scrollQueueManager.perform(kind: .scrollTableView(animated: true)) { [weak self] in
-            guard let self = self else { return }
-            guard let index = self.chatMessages
-                .firstIndex(where: {$0.getID() == oldVersion.getID()}) else { return }
+    func changed(message oldVersion: Message, to newVersion: Message) {
+        chatMessagesQueue.async(flags: .barrier) {
+            let id = oldVersion.getID()
+            
+            guard let index = self.chatMessages.firstIndex(where: { $0.getID() == id }) else { return }
             
             self.chatMessages[index] = newVersion
             
-            let canPerformBatchUpdates = self.chatTableView.numberOfRows(inSection: 0) == self.messages().count
-            
-            if canPerformBatchUpdates {
-                self.chatTableView.performBatchUpdates {
-                    self.chatTableView.reloadRows(
-                        at: [IndexPath(row: index, section: 0)],
-                        with: .none
-                    )
-                } completion: { _ in
-                    guard isScrollRequired else { return }
-                    self.chatTableView.scrollToRowSafe(
-                        at: IndexPath(row: index, section: 0),
-                        at: .bottom,
-                        animated: true
-                    )
+            DispatchQueue.main.async {
+                var snapshot = self.dataSource.snapshot()
+                
+                if snapshot.numberOfSections > 0 {
+                    if snapshot.itemIdentifiers.contains(id) {
+                        snapshot.reloadItems([id])
+                    } else {
+                        snapshot.appendItems([newVersion.getID()], toSection: 0)
+                    }
+                    
+                    self.dataSource.apply(snapshot, animatingDifferences: false) {
+                        guard let delayedScrollLink = self.delayedScrollLink,
+                              delayedScrollLink == id else {
+                            guard self.isLastCellVisible() else { return }
+                            self.scrollToBottom(animated: true)
+                            return
+                        }
+                        self.scrollToDelayedLink(delayedScrollLink, animated: true)
+                    }
                 }
-            } else {
-                self.chatTableView.reloadData()
-                guard isScrollRequired else { return }
-                self.chatTableView.scrollToRowSafe(
-                    at: IndexPath(row: index, section: 0),
-                    at: .bottom,
-                    animated: true
-                )
             }
         }
     }
@@ -159,15 +160,22 @@ extension ChatViewController: CurrentOperatorChangeListener {
 // MARK: - ROXCHAT: ChatStateLisneter
 extension ChatViewController: ChatStateListener {
     func changed(state previousState: ChatState, to newState: ChatState) {
-        if (newState == .closedByVisitor || newState == .closedByOperator ) && (RoxchatServiceController.currentSession.sessionState() == .chatting || RoxchatServiceController.currentSession.sessionState() == .queue) {
-            showRateOperatorDialog(operatorId: currentOperatorId())
-        }
-
-        if newState == .invitation || newState == .chatting || newState == .queue {
-            guard let currentId = currentOperatorId() else { return }
-            alreadyRatedOperators[currentId] = false
+        let currentSessionState = RoxchatServiceController.currentSession.sessionState()
+        if (newState == .closedByVisitor || newState == .closedByOperator) && (currentSessionState == .chatting || currentSessionState == .queue || currentSessionState == .chattingWithRobot) {
+            
+            if let currentId = currentOperatorId(), alreadyRatedOperators[currentId] != true && roxchatServerSideSettingsManager.isRateOperatorEnabled() {
+                showRateOperatorDialog(operatorId: currentOperatorId())
+            }
         }
         
         updateOperatorInfo(operator: RoxchatServiceController.currentSession.getCurrentOperator(), state: newState)
+    }
+}
+
+extension ChatViewController: VisitSessionStateListener {
+    func changed(state previousState: VisitSessionState, to newState: VisitSessionState) {
+        if newState == .firstQuestion {
+            checkAgreement()
+        }
     }
 }

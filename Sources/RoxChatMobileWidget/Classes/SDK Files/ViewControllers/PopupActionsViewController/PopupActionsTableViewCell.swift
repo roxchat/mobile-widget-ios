@@ -47,7 +47,7 @@ class PopupActionsTableViewCell: UITableViewCell {
     // MARK: - Methods
     func setupCell(forAction action: PopupAction, with config: WMPopupActionCellConfig?) {
         var defaultActionImage: UIImage
-        let defaultActionText = action.rawValue
+        let defaultActionText = action.rawValue.localized
         let configActionImage = config?.actionImage
         let configActionText = config?.actionText
 

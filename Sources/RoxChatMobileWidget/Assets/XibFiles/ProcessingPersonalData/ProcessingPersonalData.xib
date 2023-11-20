@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="23727" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23721"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ProcessingPersonalData">
+            <connections>
+                <outlet property="agreementText" destination="n4t-ZO-p9s" id="vj6-Gs-vnl"/>
+                <outlet property="checkbox" destination="AZG-Z1-BSw" id="Ove-Iz-4DB"/>
+                <outlet property="titleLabel" destination="qWR-1k-51o" id="EG9-YW-fGG"/>
+                <outlet property="view" destination="Isx-Pr-d6m" id="lXw-ci-wUF"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="Isx-Pr-d6m">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AZG-Z1-BSw" customClass="CheckboxButton" customModule="RoxChatMobileWidget">
+                    <rect key="frame" x="16" y="225" width="25" height="38"/>
+                    <color key="tintColor" red="0.15294117647058825" green="0.16470588235294117" blue="0.31764705882352939" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                    <state key="normal" image="square" catalog="system"/>
+                    <connections>
+                        <action selector="tapCheckmark:" destination="-1" eventType="touchUpInside" id="Fvd-D0-p9R"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Чтобы начать чат, вам нужно принять Согласие на обработку персональных данных" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qWR-1k-51o">
+                    <rect key="frame" x="16" y="138" width="361" height="61"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" red="0.1529411765" green="0.1647058824" blue="0.31764705879999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <textView contentMode="scaleToFill" editable="NO" text="Я даю согласие на обработку персональных данных." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="n4t-ZO-p9s">
+                    <rect key="frame" x="57" y="219" width="320" height="50"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="DYh-Xp-olP"/>
+                    </constraints>
+                    <color key="textColor" red="0.1529411765" green="0.1647058824" blue="0.31764705879999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                </textView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="Jp5-Vf-pTW"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="n4t-ZO-p9s" firstAttribute="leading" secondItem="AZG-Z1-BSw" secondAttribute="trailing" constant="16" id="1I6-xe-i4F"/>
+                <constraint firstItem="Jp5-Vf-pTW" firstAttribute="top" secondItem="qWR-1k-51o" secondAttribute="top" constant="-20" id="2XH-YC-pmd"/>
+                <constraint firstItem="AZG-Z1-BSw" firstAttribute="centerY" secondItem="n4t-ZO-p9s" secondAttribute="centerY" id="4dV-Gk-HSs"/>
+                <constraint firstItem="Jp5-Vf-pTW" firstAttribute="trailing" secondItem="n4t-ZO-p9s" secondAttribute="trailing" constant="16" id="7tf-gn-S1b"/>
+                <constraint firstItem="AZG-Z1-BSw" firstAttribute="leading" secondItem="Jp5-Vf-pTW" secondAttribute="leading" constant="16" id="OMc-7h-z6E"/>
+                <constraint firstItem="qWR-1k-51o" firstAttribute="leading" secondItem="Jp5-Vf-pTW" secondAttribute="leading" constant="16" id="TG3-y1-gZy"/>
+                <constraint firstItem="AZG-Z1-BSw" firstAttribute="top" secondItem="qWR-1k-51o" secondAttribute="bottom" constant="26" id="eXr-1N-9lb"/>
+                <constraint firstItem="n4t-ZO-p9s" firstAttribute="top" secondItem="qWR-1k-51o" secondAttribute="bottom" constant="20" id="fPV-gW-EKV"/>
+                <constraint firstItem="Jp5-Vf-pTW" firstAttribute="trailing" secondItem="qWR-1k-51o" secondAttribute="trailing" constant="16" id="uZ8-Se-P4t"/>
+            </constraints>
+            <point key="canvasLocation" x="138.1679389312977" y="-15.492957746478874"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="square" catalog="system" width="128" height="114"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

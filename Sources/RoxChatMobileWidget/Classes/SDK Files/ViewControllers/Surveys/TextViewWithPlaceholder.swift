@@ -32,11 +32,11 @@ class TextViewWithPlaceholder: UITextView {
         self.placeholderLabel.font = self.font
         placeholderLabel.text = placeholder
         placeholderLabel.textColor = placeholderColor
-        self.placeholderLabel.snp.remakeConstraints { (make) -> Void in
+        /* self.placeholderLabel.snp.remakeConstraints { (make) -> Void in
             make.top.equalToSuperview().offset(10)
             make.centerX.equalToSuperview().offset(6)
             make.width.equalToSuperview()
-        }
+        }*/
         self.textViewDidChange()
     }
     

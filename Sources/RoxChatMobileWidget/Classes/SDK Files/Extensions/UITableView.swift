@@ -43,11 +43,22 @@ extension UITableView {
         self.separatorStyle = .none
     }
     
+    func safeNumberOfRows(inSection section: Int) -> Int? {
+        if 0 <= section && section < self.numberOfSections {
+            return self.numberOfRows(inSection: section)
+        }
+        return nil
+    }
+    
     func scrollToRowSafe(at indexPath: IndexPath, at scrollPosition: UITableView.ScrollPosition, animated: Bool) {
+        guard indexPath.count == 2  else {
+            return
+        }
         if  indexPath.section >= 0 &&
             indexPath.row >= 0 &&
             self.numberOfSections > indexPath.section &&
-            self.numberOfRows(inSection: indexPath.section) > indexPath.row {
+            self.numberOfRows(inSection: indexPath.section) > indexPath.row &&
+                self.safeNumberOfRows(inSection: indexPath.section) ?? 0 > indexPath.row {
             self.scrollToRow(at: indexPath, at: scrollPosition, animated: animated)
         }
     }

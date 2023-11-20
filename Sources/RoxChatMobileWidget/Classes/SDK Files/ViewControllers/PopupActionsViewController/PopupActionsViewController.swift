@@ -54,7 +54,7 @@ class PopupActionsViewController: UIViewController {
     
     // MARK: - Properties
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
-        if UIApplication.sharedInstance()?.statusBarOrientation == .portrait {
+        if UIApplication.shared.windows.first(where: { $0.isKeyWindow })?.windowScene?.interfaceOrientation == .portrait {
             return .portrait
         }
         return .landscape

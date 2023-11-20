@@ -31,11 +31,47 @@ class WMInfoCell: WMMessageTableCell {
     
     override func setMessage(message: Message) {
         super.setMessage(message: message)
+        let textColor = config?.titleAttributes?[.foregroundColor] as? UIColor ?? infoMessageCellTextColor
+        let textFont = config?.titleAttributes?[.font] as? UIFont ?? messageTextView.notNilFont()
+        
         let _ = self.messageTextView.setTextWithReferences(
             message.getText(),
-            alignment: .center
+            textColor: textColor,
+            textFont: textFont,
+            alignment: .center,
+            linkColor: config?.linkColor
         )
     }
+    
+    override func applyConfig() {
+
+        guard let config = config else { return }
+
+        if let backgroundColor = config.backgroundColor {
+            messageTextView?.backgroundColor = backgroundColor
+        }
+
+        if let cornerRadius = config.cornerRadius {
+            if let roundCorners = config.roundCorners {
+                messageTextView?.roundCorners(roundCorners, radius: cornerRadius)
+            } else {
+                sharpCorner(view: messageView, visitor: message.isVisitorType(), radius: cornerRadius)
+            }
+        }
+
+        if let timeColor = config.timeColor {
+            time?.textColor = timeColor
+        }
+        
+        if let strokeColor = config.strokeColor {
+            messageTextView?.layer.borderColor = strokeColor.cgColor
+        }
+        
+        if let strokeWidth = config.strokeWidth {
+            messageTextView?.layer.borderWidth = strokeWidth
+        }
+    }
+    
     override func initialSetup() -> Bool {
         let setup = super.initialSetup()
         return setup

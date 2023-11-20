@@ -25,6 +25,7 @@
 
 import Foundation
 import RoxchatClientLibrary
+import UIKit
 
 extension ChatViewController: WMDialogPopoverDelegate {
     func addQuoteReplyBar() {
@@ -44,10 +45,10 @@ extension ChatViewController: WMDialogPopoverDelegate {
     }
     
     func addQuoteEditBar() {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
-            self.toolbarView.addQuoteEditBarForMessage(self.selectedMessage, delegate: self)
-            self.toolbarView.messageView.messageText.becomeFirstResponder()
-        }
+        let isQuoteEditBarVisible = toolbarView.isQuoteViewVisible()
+        toolbarView.addEditBarForMessage(self.selectedMessage, delegate: self)
+        applyAdditionalOffset(includeQuoteEditBar: !isQuoteEditBarVisible)
+        showKyboardAsync()
     }
     
     func likeMessage() {
@@ -60,5 +61,35 @@ extension ChatViewController: WMDialogPopoverDelegate {
     
     func removeQuoteEditBar() {
         self.toolbarView.removeQuoteEditBar()
+    }
+    
+    private func applyAdditionalOffset(includeQuoteEditBar: Bool) {
+        DispatchQueue.main.async {
+            UIView.animate(withDuration: 0.3) {
+                var delta: CGFloat = self.toolbarView.messageView.heightDelta()
+
+                if includeQuoteEditBar {
+                    delta += self.toolbarView.quoteView.bounds.height
+                }
+
+                var contentOffset = self.chatTableView.contentOffset
+                contentOffset.y += delta
+                self.chatTableView.contentOffset = contentOffset
+
+                var contentInset = self.chatTableView.contentInset
+                self.updateScrollButtonViewConstraints(with: contentInset.bottom)
+                contentInset.bottom += delta
+                self.chatTableView.contentInset = contentInset
+                self.chatTableView.verticalScrollIndicatorInsets = contentInset
+
+                self.updateScrollButtonViewConstraints(with: contentInset.bottom)
+            }
+        }
+    }
+    
+    private func showKyboardAsync() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+            self.toolbarView.messageView.becomeMessageViewFirstResponder()
+        }
     }
 }

@@ -35,7 +35,6 @@ class WMBotButtonsTableViewCell: WMMessageTableCell {
     private let SPACING_CELL: CGFloat = 6.0
     private let SPACING_DEFAULT: CGFloat = 10.0
     
-    
     lazy var buttonsVerticalStack: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .vertical

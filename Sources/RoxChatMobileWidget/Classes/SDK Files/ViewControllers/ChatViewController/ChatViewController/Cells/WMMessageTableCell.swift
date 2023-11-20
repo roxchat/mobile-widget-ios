@@ -116,7 +116,7 @@ class WMMessageTableCell: UITableViewCell, UITextViewDelegate {
     }
     
     func sharpCorner(view: UIView?, visitor: Bool, radius: CGFloat = 10) {
-        if !visitor {
+        if visitor != WMLocaleManager.isRightOrientationLocale() {
             view?.roundCorners([.layerMinXMinYCorner, .layerMaxXMinYCorner, .layerMaxXMaxYCorner], radius: radius)
         } else {
             view?.roundCorners([.layerMinXMinYCorner, .layerMaxXMinYCorner, .layerMinXMaxYCorner], radius: radius)
@@ -152,6 +152,15 @@ class WMMessageTableCell: UITableViewCell, UITextViewDelegate {
         if let strokeWidth = config.strokeWidth {
             messageView?.layer.borderWidth = strokeWidth
         }
+        
+        if let timeColor = config.timeColor {
+            time?.textColor = timeColor
+        }
+        
+        if let indicatorColor = config.messageSendingIndicatorColor {
+            activityIndicatorView?.color = indicatorColor
+        }
+        
     }
     
     func updateStatus(sendStatus: Bool, readStatus: Bool) {
@@ -165,9 +174,9 @@ class WMMessageTableCell: UITableViewCell, UITextViewDelegate {
         
         self.sendStatus?.isHidden = !sendStatus
         if readStatus {
-            self.sendStatus?.image = .loadImageFromWidget(named: "ReadByOperator")
+            self.sendStatus?.image = config?.messageReadIcon ?? .loadImageFromWidget(named: "ReadByOperator")
         } else {
-            self.sendStatus?.image = .loadImageFromWidget(named: "Sent")
+            self.sendStatus?.image = config?.messageUnreadIcon ?? .loadImageFromWidget(named: "Sent")
         }
     }
 

@@ -45,7 +45,10 @@ class WMQuoteFileCell: FileMessage {
         }
         self.quoteAuthorName.text = message.getQuote()?.getSenderName()
         let textColor = message.isVisitorType() ? quoteFileVisitorMessageTextColor : quoteFileOperatorMessageTextColor
-        let _ = self.messageTextView.setTextWithReferences(message.getText(), textColor: textColor, alignment: .left)
+        let _ = self.messageTextView.setTextWithReferences(message.getText(),
+                                                           textColor: textColor,
+                                                           alignment: .left,
+                                                           linkColor: config?.linkColor)
         self.messageTextView.isUserInteractionEnabled = true
         for recognizer in messageTextView.gestureRecognizers ?? [] {
             if recognizer.isKind(of: UIPanGestureRecognizer.self) {

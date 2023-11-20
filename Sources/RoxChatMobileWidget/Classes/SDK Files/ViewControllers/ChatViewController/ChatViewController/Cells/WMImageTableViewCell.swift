@@ -25,7 +25,6 @@
 
 import UIKit
 import RoxchatClientLibrary
-import UIKit
 import Nuke
 import FLAnimatedImage
 
@@ -61,6 +60,7 @@ class WMImageTableViewCell: WMMessageTableCell, WMFileDownloadProgressListener {
     override func setMessage(message: Message) {
         super.setMessage(message: message)
         imagePreview.image = loadingPlaceholderImage
+        animatedImage = nil
         guard let attachment = message.getData()?.getAttachment(), let imageURL = WMDownloadFileManager.shared.urlFromFileInfo(attachment.getFileInfo()) else {
             return
         }
@@ -101,14 +101,15 @@ class WMImageTableViewCell: WMMessageTableCell, WMFileDownloadProgressListener {
 
     // Common Methods
     @objc func imageViewTapped() {
-        self.delegate?.imageViewTapped(message: self.message, image: self.animatedImage ?? (self.imagePreview.image != nil  ? ImageContainer(image: self.imagePreview.image!) : nil), url: self.url)
+        if downloadProcessIndicator.isHidden {
+            self.delegate?.imageViewTapped(message: self.message, image: self.animatedImage ?? (self.imagePreview.image != nil  ? ImageContainer(image: self.imagePreview.image!) : nil), url: self.url)
+        }
     }
     
     func progressChanged(url: URL, progress: Float, image: ImageContainer?, error: Error?) {
         if url != self.url { return }
         guard error == nil else {
-            WMFileDownloadManager.shared.addDamagedImageMessage(id: message.getID())
-            delegate?.reloadCell(self)
+            handleProgress(progress)
             return
         }
         guard let image = image else {
@@ -138,7 +139,7 @@ class WMImageTableViewCell: WMMessageTableCell, WMFileDownloadProgressListener {
                 guard let self = self, self.delegate?.isCellVisible(self) ?? false else { return }
                 WMFileDownloadManager.shared.subscribeForImage(url: self.url!, progressListener: self)
             }
-        } else if progress != 0.0 {
+        } else {
             self.downloadProcessIndicator.isHidden = false
             self.downloadProcessIndicator.updateImageDownloadProgress(progress)
         }
