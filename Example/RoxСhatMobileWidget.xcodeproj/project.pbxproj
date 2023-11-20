@@ -3,10 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 55;
+	objectVersion = 60;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		16AFAB6DA23D5CF8088B1BA4 /* Pods_RoxChatMobileWidget_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DB4C806832865FA4E868361 /* Pods_RoxChatMobileWidget_Example.framework */; };
+		599CEB7B74A3CDDA7B916EEA /* Pods_RoxChatMobileWidget_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57D7ADCE25319CD1F7E2BEA7 /* Pods_RoxChatMobileWidget_Tests.framework */; };
 		90E84C1D2B0B8C9100E2933A /* ColorConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 903F502E2B0A614F00741E7A /* ColorConstants.swift */; };
 		90E84C1E2B0B8C9500E2933A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 903F502F2B0A614F00741E7A /* LaunchScreen.xib */; };
 		90E84C1F2B0B8C9700E2933A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 903F50322B0A614F00741E7A /* AppDelegate.swift */; };
@@ -14,8 +16,7 @@
 		90E84C212B0B8C9C00E2933A /* ImageConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 903F50342B0A614F00741E7A /* ImageConstants.swift */; };
 		90E84C222B0B8CA100E2933A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 903F50372B0A614F00741E7A /* InfoPlist.strings */; };
 		90E84C242B0B8CA700E2933A /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 903F503B2B0A614F00741E7A /* Tests.swift */; };
-		A8DF4D267B9AB43BDE6E7364 /* Pods_RoxChatMobileWidget_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E888E4E76837519CED66C86 /* Pods_RoxChatMobileWidget_Example.framework */; };
-		CE69FBD413C265A4397DF4CD /* Pods_RoxChatMobileWidget_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9ECE0A714B48339EFC7B41F9 /* Pods_RoxChatMobileWidget_Tests.framework */; };
+		90E84C272B0B8F1200E2933A /* RoxChatMobileWidget in Frameworks */ = {isa = PBXBuildFile; productRef = 90E84C262B0B8F1200E2933A /* RoxChatMobileWidget */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,10 +43,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		0387BDE82E6F2714FFDC0ECA /* Pods-RoxChatMobileWidget_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RoxChatMobileWidget_Example.release.xcconfig"; path = "Target Support Files/Pods-RoxChatMobileWidget_Example/Pods-RoxChatMobileWidget_Example.release.xcconfig"; sourceTree = "<group>"; };
+		032CD14495B49F4CDF4E414D /* Pods-RoxChatMobileWidget_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RoxChatMobileWidget_Example.debug.xcconfig"; path = "Target Support Files/Pods-RoxChatMobileWidget_Example/Pods-RoxChatMobileWidget_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		0E70578ACEB1C9EFBF0B04A9 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
-		1EFA68B3A1DBDEDE7CECCC54 /* Pods-RoxChatMobileWidget_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RoxChatMobileWidget_Tests.release.xcconfig"; path = "Target Support Files/Pods-RoxChatMobileWidget_Tests/Pods-RoxChatMobileWidget_Tests.release.xcconfig"; sourceTree = "<group>"; };
-		5017247677E99A96551579E9 /* Pods-RoxChatMobileWidget_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RoxChatMobileWidget_Tests.debug.xcconfig"; path = "Target Support Files/Pods-RoxChatMobileWidget_Tests/Pods-RoxChatMobileWidget_Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		57D7ADCE25319CD1F7E2BEA7 /* Pods_RoxChatMobileWidget_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RoxChatMobileWidget_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		78FE657BCD6A76A0A19CFAD4 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		903F502B2B0A614F00741E7A /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
 		903F502C2B0A614F00741E7A /* RoxСhatMobileWidget_Example.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "RoxСhatMobileWidget_Example.entitlements"; sourceTree = "<group>"; };
@@ -65,9 +65,10 @@
 		90D500872B0AB08E00A14597 /* RoxChatMobileWidget.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; name = RoxChatMobileWidget.podspec; path = ../RoxChatMobileWidget.podspec; sourceTree = "<group>"; };
 		90D502A02B0ABBC800A14597 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = LaunchScreen.xib; sourceTree = "<group>"; };
 		90D502A12B0ABBC800A14597 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		98CA4A1828E840108F3F735D /* Pods-RoxChatMobileWidget_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RoxChatMobileWidget_Example.debug.xcconfig"; path = "Target Support Files/Pods-RoxChatMobileWidget_Example/Pods-RoxChatMobileWidget_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		9E888E4E76837519CED66C86 /* Pods_RoxChatMobileWidget_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RoxChatMobileWidget_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		9ECE0A714B48339EFC7B41F9 /* Pods_RoxChatMobileWidget_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RoxChatMobileWidget_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9DB4C806832865FA4E868361 /* Pods_RoxChatMobileWidget_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RoxChatMobileWidget_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E1216EE49C7292F15ACD4BC0 /* Pods-RoxChatMobileWidget_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RoxChatMobileWidget_Tests.release.xcconfig"; path = "Target Support Files/Pods-RoxChatMobileWidget_Tests/Pods-RoxChatMobileWidget_Tests.release.xcconfig"; sourceTree = "<group>"; };
+		EF7CEBD5884DA4ACD4E13D75 /* Pods-RoxChatMobileWidget_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RoxChatMobileWidget_Example.release.xcconfig"; path = "Target Support Files/Pods-RoxChatMobileWidget_Example/Pods-RoxChatMobileWidget_Example.release.xcconfig"; sourceTree = "<group>"; };
+		F1D80B70B97C40B42B2E7E33 /* Pods-RoxChatMobileWidget_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RoxChatMobileWidget_Tests.debug.xcconfig"; path = "Target Support Files/Pods-RoxChatMobileWidget_Tests/Pods-RoxChatMobileWidget_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,7 +76,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A8DF4D267B9AB43BDE6E7364 /* Pods_RoxChatMobileWidget_Example.framework in Frameworks */,
+				90E84C272B0B8F1200E2933A /* RoxChatMobileWidget in Frameworks */,
+				16AFAB6DA23D5CF8088B1BA4 /* Pods_RoxChatMobileWidget_Example.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,7 +85,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CE69FBD413C265A4397DF4CD /* Pods_RoxChatMobileWidget_Tests.framework in Frameworks */,
+				599CEB7B74A3CDDA7B916EEA /* Pods_RoxChatMobileWidget_Tests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -102,7 +104,7 @@
 				E193A2E3D245201E4EFC8D0B /* Pods */,
 				903F50452B0A810A00741E7A /* RoxChatMobileWidget_Example.app */,
 				903F50462B0A810A00741E7A /* RoxChatMobileWidget_Tests.xctest */,
-				7D9D1475FC14331A8BD33FC3 /* Frameworks */,
+				C2E988CC31FE05B9D056BEC2 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -114,15 +116,6 @@
 				78FE657BCD6A76A0A19CFAD4 /* LICENSE */,
 			);
 			name = "Podspec Metadata";
-			sourceTree = "<group>";
-		};
-		7D9D1475FC14331A8BD33FC3 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				9E888E4E76837519CED66C86 /* Pods_RoxChatMobileWidget_Example.framework */,
-				9ECE0A714B48339EFC7B41F9 /* Pods_RoxChatMobileWidget_Tests.framework */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		903F502D2B0A614F00741E7A /* RoxСhatMobileWidget */ = {
@@ -166,13 +159,22 @@
 			path = Base.lproj;
 			sourceTree = "<group>";
 		};
+		C2E988CC31FE05B9D056BEC2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9DB4C806832865FA4E868361 /* Pods_RoxChatMobileWidget_Example.framework */,
+				57D7ADCE25319CD1F7E2BEA7 /* Pods_RoxChatMobileWidget_Tests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		E193A2E3D245201E4EFC8D0B /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				98CA4A1828E840108F3F735D /* Pods-RoxChatMobileWidget_Example.debug.xcconfig */,
-				0387BDE82E6F2714FFDC0ECA /* Pods-RoxChatMobileWidget_Example.release.xcconfig */,
-				5017247677E99A96551579E9 /* Pods-RoxChatMobileWidget_Tests.debug.xcconfig */,
-				1EFA68B3A1DBDEDE7CECCC54 /* Pods-RoxChatMobileWidget_Tests.release.xcconfig */,
+				032CD14495B49F4CDF4E414D /* Pods-RoxChatMobileWidget_Example.debug.xcconfig */,
+				EF7CEBD5884DA4ACD4E13D75 /* Pods-RoxChatMobileWidget_Example.release.xcconfig */,
+				F1D80B70B97C40B42B2E7E33 /* Pods-RoxChatMobileWidget_Tests.debug.xcconfig */,
+				E1216EE49C7292F15ACD4BC0 /* Pods-RoxChatMobileWidget_Tests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -184,18 +186,21 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 607FACEF1AFB9204008FA782 /* Build configuration list for PBXNativeTarget "RoxChatMobileWidget_Example" */;
 			buildPhases = (
-				80774A0034555EC73B2A666B /* [CP] Check Pods Manifest.lock */,
+				C82B58D0113D446268E895B3 /* [CP] Check Pods Manifest.lock */,
 				607FACCC1AFB9204008FA782 /* Sources */,
 				607FACCD1AFB9204008FA782 /* Frameworks */,
 				607FACCE1AFB9204008FA782 /* Resources */,
 				90C7969C2B0B692300D1ECAD /* Embed Frameworks */,
-				034C6C39380E027996EDB04C /* [CP] Embed Pods Frameworks */,
+				963BE2DE60A2D5C5F91E9B22 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = RoxChatMobileWidget_Example;
+			packageProductDependencies = (
+				90E84C262B0B8F1200E2933A /* RoxChatMobileWidget */,
+			);
 			productName = RoxchatWidget;
 			productReference = 903F50452B0A810A00741E7A /* RoxChatMobileWidget_Example.app */;
 			productType = "com.apple.product-type.application";
@@ -204,7 +209,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 607FACF21AFB9204008FA782 /* Build configuration list for PBXNativeTarget "RoxChatMobileWidget_Tests" */;
 			buildPhases = (
-				4D10B10F16E87724444A46D0 /* [CP] Check Pods Manifest.lock */,
+				BF49960E6E6A0BCE636F817D /* [CP] Check Pods Manifest.lock */,
 				607FACE11AFB9204008FA782 /* Sources */,
 				607FACE21AFB9204008FA782 /* Frameworks */,
 				607FACE31AFB9204008FA782 /* Resources */,
@@ -251,6 +256,9 @@
 				"ru-RU",
 			);
 			mainGroup = 607FACC71AFB9204008FA782;
+			packageReferences = (
+				90E84C252B0B8F1200E2933A /* XCLocalSwiftPackageReference ".." */,
+			);
 			productRefGroup = 607FACC71AFB9204008FA782;
 			projectDirPath = "";
 			projectRoot = "";
@@ -281,7 +289,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		034C6C39380E027996EDB04C /* [CP] Embed Pods Frameworks */ = {
+		963BE2DE60A2D5C5F91E9B22 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -298,7 +306,7 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RoxChatMobileWidget_Example/Pods-RoxChatMobileWidget_Example-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		4D10B10F16E87724444A46D0 /* [CP] Check Pods Manifest.lock */ = {
+		BF49960E6E6A0BCE636F817D /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -320,7 +328,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		80774A0034555EC73B2A666B /* [CP] Check Pods Manifest.lock */ = {
+		C82B58D0113D446268E895B3 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -505,7 +513,7 @@
 		};
 		607FACF01AFB9204008FA782 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 98CA4A1828E840108F3F735D /* Pods-RoxChatMobileWidget_Example.debug.xcconfig */;
+			baseConfigurationReference = 032CD14495B49F4CDF4E414D /* Pods-RoxChatMobileWidget_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = RoxchatMobileWidget_Example.entitlements;
@@ -532,7 +540,7 @@
 		};
 		607FACF11AFB9204008FA782 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0387BDE82E6F2714FFDC0ECA /* Pods-RoxChatMobileWidget_Example.release.xcconfig */;
+			baseConfigurationReference = EF7CEBD5884DA4ACD4E13D75 /* Pods-RoxChatMobileWidget_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = RoxchatMobileWidget_Example.entitlements;
@@ -559,7 +567,7 @@
 		};
 		607FACF31AFB9204008FA782 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5017247677E99A96551579E9 /* Pods-RoxChatMobileWidget_Tests.debug.xcconfig */;
+			baseConfigurationReference = F1D80B70B97C40B42B2E7E33 /* Pods-RoxChatMobileWidget_Tests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = 574GE9X9L7;
@@ -587,7 +595,7 @@
 		};
 		607FACF41AFB9204008FA782 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1EFA68B3A1DBDEDE7CECCC54 /* Pods-RoxChatMobileWidget_Tests.release.xcconfig */;
+			baseConfigurationReference = E1216EE49C7292F15ACD4BC0 /* Pods-RoxChatMobileWidget_Tests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = 574GE9X9L7;
@@ -644,6 +652,20 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		90E84C252B0B8F1200E2933A /* XCLocalSwiftPackageReference ".." */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = ..;
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		90E84C262B0B8F1200E2933A /* RoxChatMobileWidget */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = RoxChatMobileWidget;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 607FACC81AFB9204008FA782 /* Project object */;
 }
