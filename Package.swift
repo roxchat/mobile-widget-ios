@@ -19,7 +19,7 @@ let package = Package(
         .package(url: "https://github.com/evgenyneu/Cosmos.git", from: "20.0.0"),
         .package(url: "https://github.com/SnapKit/SnapKit.git", from: "5.0.0"),
         .package(url: "https://github.com/Flipboard/FLAnimatedImage.git", from: "1.0.17"),
-        .package(url: "https://github.com/roxchat/mobile-keyboard-ios.git", exact: "2.0.0")
+        .package(url: "https://github.com/roxchat/mobile-keyboard-ios.git", exact: "2.0.1")
     ],
     targets: [
         .target(

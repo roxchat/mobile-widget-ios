@@ -23,8 +23,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/roxchat/mobile-keyboard-ios.git",
       "state" : {
-        "revision" : "08a8f8283b6527d1b1376cd73487c417daea91f8",
-        "version" : "2.0.0"
+        "revision" : "d33bed5058814d0478e81f6bbe0c5d2bf5b13718",
+        "version" : "2.0.1"
       }
     },
     {
