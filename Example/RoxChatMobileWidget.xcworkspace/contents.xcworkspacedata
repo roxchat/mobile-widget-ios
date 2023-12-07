@@ -2,7 +2,7 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:Rox&#x421;hatMobileWidget.xcodeproj">
+      location = "group:/Users/nikita/Documents/GitHub/Roxchat/mobile-widget-ios/Example/RoxChatMobileWidget.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:Pods/Pods.xcodeproj">

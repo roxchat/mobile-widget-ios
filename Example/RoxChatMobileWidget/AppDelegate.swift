@@ -2,7 +2,6 @@
 //  AppDelegate.swift
 //  RoxChat
 //
-//  Copyright (c) 2022 kotsan777. All rights reserved.
 //
 
 import UIKit
