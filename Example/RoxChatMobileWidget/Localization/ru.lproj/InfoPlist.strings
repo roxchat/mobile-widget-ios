@@ -1,0 +1,17 @@
+/* 
+  InfoPlist.strings
+  RoxchatClientLibrary
+
+  Copyright © 2022 Roxchat. All rights reserved.
+*/
+
+"NSPhotoLibraryAddUsageDescription" = "Чтобы Вы могли сохранять фотографии, приложению нужен доступ к галерее.";
+
+"NSCameraUsageDescription" = "Чтобы Вы могли отправить фото в чат, Roxchat требуется доступ к камере.";
+
+"NSFileProviderDomainUsageDescription" = "Приложению нужен доступ файлам.";
+
+"NSFileProviderPresenceUsageDescription" = "Приложению нужен доступ файлам.";
+
+"NSPhotoLibraryUsageDescription" = "Чтобы Вы могли отправлять фотографии, приложению нужен доступ к галерее.";
+
