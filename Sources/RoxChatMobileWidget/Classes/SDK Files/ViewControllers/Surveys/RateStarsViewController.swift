@@ -38,6 +38,7 @@ class RateStarsViewController: WMSurveyViewController {
     weak var rateOperatorDelegate: RateStarsViewControllerDelegate?
     var operatorId = String()
     var operatorRating = 0.0
+    var currentRating = 0.0
     var isSurvey = false
     var descriptionText: String?
     var config: WMSurveyViewConfig?
@@ -119,12 +120,16 @@ class RateStarsViewController: WMSurveyViewController {
         descriptionLabel.text = isSurvey ? descriptionText : "Please rate the overall impression of the consultation".localized
 
         disableSendButton()
-        
-        cosmosRatingView.rating = operatorRating
+        cosmosRatingView.rating = currentRating
+        let changeRateEnabled = operatorRating != 0.0 ? self.config?.changeRateEnabled != false : true
         
         cosmosRatingView.didFinishTouchingCosmos = { (rating) -> Void in
-            self.operatorRating = rating
-            self.enableSendButton()
+            if self.currentRating != rating && changeRateEnabled {
+                self.operatorRating = rating
+                self.enableSendButton()
+            } else {
+                self.disableSendButton()
+            }
         }
         containerView.addSubview(cosmosRatingView)
         cosmosRatingView.snp.makeConstraints { make in

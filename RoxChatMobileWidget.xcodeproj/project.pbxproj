@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		907106072BC44EEB000431A5 /* LocaleManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907106062BC44EEB000431A5 /* LocaleManager.swift */; };
 		90D500862B0AAC3A00A14597 /* RoxChatMobileWidget.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 90D500852B0AAC3A00A14597 /* RoxChatMobileWidget.podspec */; };
 		90D501E72B0AB38A00A14597 /* RoxСhatMobileWidget.h in Headers */ = {isa = PBXBuildFile; fileRef = 90D5008A2B0AB38900A14597 /* RoxСhatMobileWidget.h */; };
 		90D501E82B0AB38A00A14597 /* WMToolbarConfigBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D5008C2B0AB38900A14597 /* WMToolbarConfigBuilder.swift */; };
@@ -222,6 +223,205 @@
 		901AD6BC2B0D53B300DB1722 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/ChatTitleView.strings; sourceTree = "<group>"; };
 		901AD6BD2B0D53C400DB1722 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/ScrollButtonView.strings; sourceTree = "<group>"; };
 		901AD6BE2B0D53C600DB1722 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/ScrollButtonView.strings; sourceTree = "<group>"; };
+		907105402BC447B6000431A5 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/WMSaveView.strings; sourceTree = "<group>"; };
+		907105412BC447B6000431A5 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/WMLogsViewController.strings; sourceTree = "<group>"; };
+		907105422BC447B7000431A5 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/WMFileViewController.strings; sourceTree = "<group>"; };
+		907105432BC447B7000431A5 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/SurveyCommentViewController.strings; sourceTree = "<group>"; };
+		907105442BC447B7000431A5 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/RateStarsViewController.strings; sourceTree = "<group>"; };
+		907105452BC447B7000431A5 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/SurveyRadioButtonViewController.strings; sourceTree = "<group>"; };
+		907105462BC447B7000431A5 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/SurveyTableViewCell.strings; sourceTree = "<group>"; };
+		907105472BC447B7000431A5 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/WMBotButtonsTableViewCell.strings; sourceTree = "<group>"; };
+		907105482BC447B7000431A5 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/WMNilTableViewCell.strings; sourceTree = "<group>"; };
+		907105492BC447B8000431A5 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/WMVisitorImageCell.strings; sourceTree = "<group>"; };
+		9071054A2BC447B8000431A5 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/WMVisitorFileCell.strings; sourceTree = "<group>"; };
+		9071054B2BC447B8000431A5 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/WMVisitorMessageCell.strings; sourceTree = "<group>"; };
+		9071054C2BC447B8000431A5 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/WMVisitorQuoteFileCell.strings; sourceTree = "<group>"; };
+		9071054D2BC447B8000431A5 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/WMVisitorQuoteImageCell.strings; sourceTree = "<group>"; };
+		9071054E2BC447B8000431A5 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/WMVisitorQuoteMessageCell.strings; sourceTree = "<group>"; };
+		9071054F2BC447B8000431A5 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/WMInfoCell.strings; sourceTree = "<group>"; };
+		907105502BC447B8000431A5 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/WMOperatorFileCell.strings; sourceTree = "<group>"; };
+		907105512BC447B8000431A5 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/WMOperatorMessageCell.strings; sourceTree = "<group>"; };
+		907105522BC447B8000431A5 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/WMOperatorImageCell.strings; sourceTree = "<group>"; };
+		907105532BC447B8000431A5 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/WMOperatorQuoteMessageCell.strings; sourceTree = "<group>"; };
+		907105542BC447B8000431A5 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/WMOperatorQuoteFileCell.strings; sourceTree = "<group>"; };
+		907105552BC447B8000431A5 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/WMOperatorQuoteImageCell.strings; sourceTree = "<group>"; };
+		907105562BC447B9000431A5 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/ChatViewController.strings; sourceTree = "<group>"; };
+		907105572BC447B9000431A5 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/WMToolbarView.strings; sourceTree = "<group>"; };
+		907105582BC447B9000431A5 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/WMNewMessageView.strings; sourceTree = "<group>"; };
+		907105592BC447B9000431A5 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/WMQuoteView.strings; sourceTree = "<group>"; };
+		9071055A2BC447B9000431A5 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/WMThanksAlertView.strings; sourceTree = "<group>"; };
+		9071055B2BC447B9000431A5 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/ChatTestView.strings; sourceTree = "<group>"; };
+		9071055C2BC447B9000431A5 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/ConnectionErrorView.strings; sourceTree = "<group>"; };
+		9071055D2BC447B9000431A5 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/ScrollButtonView.strings; sourceTree = "<group>"; };
+		9071055E2BC447B9000431A5 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/ChatTitleView.strings; sourceTree = "<group>"; };
+		9071055F2BC447B9000431A5 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/WMImageViewController.strings; sourceTree = "<group>"; };
+		907105602BC447B9000431A5 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Localizable.strings; sourceTree = "<group>"; };
+		907105612BC447C8000431A5 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/WMSaveView.strings; sourceTree = "<group>"; };
+		907105622BC447C8000431A5 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/WMLogsViewController.strings; sourceTree = "<group>"; };
+		907105632BC447C8000431A5 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/WMFileViewController.strings; sourceTree = "<group>"; };
+		907105642BC447C8000431A5 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/SurveyCommentViewController.strings; sourceTree = "<group>"; };
+		907105652BC447C8000431A5 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/RateStarsViewController.strings; sourceTree = "<group>"; };
+		907105662BC447C9000431A5 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/SurveyRadioButtonViewController.strings; sourceTree = "<group>"; };
+		907105672BC447C9000431A5 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/SurveyTableViewCell.strings; sourceTree = "<group>"; };
+		907105682BC447C9000431A5 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/WMBotButtonsTableViewCell.strings; sourceTree = "<group>"; };
+		907105692BC447C9000431A5 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/WMNilTableViewCell.strings; sourceTree = "<group>"; };
+		9071056A2BC447C9000431A5 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/WMVisitorImageCell.strings; sourceTree = "<group>"; };
+		9071056B2BC447C9000431A5 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/WMVisitorFileCell.strings; sourceTree = "<group>"; };
+		9071056C2BC447C9000431A5 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/WMVisitorMessageCell.strings; sourceTree = "<group>"; };
+		9071056D2BC447C9000431A5 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/WMVisitorQuoteFileCell.strings; sourceTree = "<group>"; };
+		9071056E2BC447C9000431A5 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/WMVisitorQuoteImageCell.strings; sourceTree = "<group>"; };
+		9071056F2BC447C9000431A5 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/WMVisitorQuoteMessageCell.strings; sourceTree = "<group>"; };
+		907105702BC447C9000431A5 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/WMInfoCell.strings; sourceTree = "<group>"; };
+		907105712BC447C9000431A5 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/WMOperatorFileCell.strings; sourceTree = "<group>"; };
+		907105722BC447C9000431A5 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/WMOperatorMessageCell.strings; sourceTree = "<group>"; };
+		907105732BC447C9000431A5 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/WMOperatorImageCell.strings; sourceTree = "<group>"; };
+		907105742BC447C9000431A5 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/WMOperatorQuoteMessageCell.strings; sourceTree = "<group>"; };
+		907105752BC447C9000431A5 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/WMOperatorQuoteFileCell.strings; sourceTree = "<group>"; };
+		907105762BC447CA000431A5 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/WMOperatorQuoteImageCell.strings; sourceTree = "<group>"; };
+		907105772BC447CA000431A5 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/ChatViewController.strings; sourceTree = "<group>"; };
+		907105782BC447CA000431A5 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/WMToolbarView.strings; sourceTree = "<group>"; };
+		907105792BC447CA000431A5 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/WMNewMessageView.strings; sourceTree = "<group>"; };
+		9071057A2BC447CA000431A5 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/WMQuoteView.strings; sourceTree = "<group>"; };
+		9071057B2BC447CA000431A5 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/WMThanksAlertView.strings; sourceTree = "<group>"; };
+		9071057C2BC447CA000431A5 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/ChatTestView.strings; sourceTree = "<group>"; };
+		9071057D2BC447CA000431A5 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/ConnectionErrorView.strings; sourceTree = "<group>"; };
+		9071057E2BC447CA000431A5 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/ScrollButtonView.strings; sourceTree = "<group>"; };
+		9071057F2BC447CA000431A5 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/ChatTitleView.strings; sourceTree = "<group>"; };
+		907105802BC447CA000431A5 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/WMImageViewController.strings; sourceTree = "<group>"; };
+		907105812BC447CA000431A5 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/Localizable.strings; sourceTree = "<group>"; };
+		907105822BC447D9000431A5 /* bg */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = bg; path = bg.lproj/WMSaveView.strings; sourceTree = "<group>"; };
+		907105832BC447D9000431A5 /* bg */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = bg; path = bg.lproj/WMLogsViewController.strings; sourceTree = "<group>"; };
+		907105842BC447D9000431A5 /* bg */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = bg; path = bg.lproj/WMFileViewController.strings; sourceTree = "<group>"; };
+		907105852BC447D9000431A5 /* bg */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = bg; path = bg.lproj/SurveyCommentViewController.strings; sourceTree = "<group>"; };
+		907105862BC447D9000431A5 /* bg */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = bg; path = bg.lproj/RateStarsViewController.strings; sourceTree = "<group>"; };
+		907105872BC447D9000431A5 /* bg */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = bg; path = bg.lproj/SurveyRadioButtonViewController.strings; sourceTree = "<group>"; };
+		907105882BC447DA000431A5 /* bg */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = bg; path = bg.lproj/SurveyTableViewCell.strings; sourceTree = "<group>"; };
+		907105892BC447DA000431A5 /* bg */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = bg; path = bg.lproj/WMBotButtonsTableViewCell.strings; sourceTree = "<group>"; };
+		9071058A2BC447DA000431A5 /* bg */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = bg; path = bg.lproj/WMNilTableViewCell.strings; sourceTree = "<group>"; };
+		9071058B2BC447DA000431A5 /* bg */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = bg; path = bg.lproj/WMVisitorImageCell.strings; sourceTree = "<group>"; };
+		9071058C2BC447DA000431A5 /* bg */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = bg; path = bg.lproj/WMVisitorFileCell.strings; sourceTree = "<group>"; };
+		9071058D2BC447DA000431A5 /* bg */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = bg; path = bg.lproj/WMVisitorMessageCell.strings; sourceTree = "<group>"; };
+		9071058E2BC447DA000431A5 /* bg */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = bg; path = bg.lproj/WMVisitorQuoteFileCell.strings; sourceTree = "<group>"; };
+		9071058F2BC447DA000431A5 /* bg */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = bg; path = bg.lproj/WMVisitorQuoteImageCell.strings; sourceTree = "<group>"; };
+		907105902BC447DA000431A5 /* bg */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = bg; path = bg.lproj/WMVisitorQuoteMessageCell.strings; sourceTree = "<group>"; };
+		907105912BC447DA000431A5 /* bg */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = bg; path = bg.lproj/WMInfoCell.strings; sourceTree = "<group>"; };
+		907105922BC447DA000431A5 /* bg */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = bg; path = bg.lproj/WMOperatorFileCell.strings; sourceTree = "<group>"; };
+		907105932BC447DA000431A5 /* bg */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = bg; path = bg.lproj/WMOperatorMessageCell.strings; sourceTree = "<group>"; };
+		907105942BC447DA000431A5 /* bg */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = bg; path = bg.lproj/WMOperatorImageCell.strings; sourceTree = "<group>"; };
+		907105952BC447DA000431A5 /* bg */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = bg; path = bg.lproj/WMOperatorQuoteMessageCell.strings; sourceTree = "<group>"; };
+		907105962BC447DB000431A5 /* bg */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = bg; path = bg.lproj/WMOperatorQuoteFileCell.strings; sourceTree = "<group>"; };
+		907105972BC447DB000431A5 /* bg */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = bg; path = bg.lproj/WMOperatorQuoteImageCell.strings; sourceTree = "<group>"; };
+		907105982BC447DB000431A5 /* bg */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = bg; path = bg.lproj/ChatViewController.strings; sourceTree = "<group>"; };
+		907105992BC447DB000431A5 /* bg */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = bg; path = bg.lproj/WMToolbarView.strings; sourceTree = "<group>"; };
+		9071059A2BC447DB000431A5 /* bg */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = bg; path = bg.lproj/WMNewMessageView.strings; sourceTree = "<group>"; };
+		9071059B2BC447DB000431A5 /* bg */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = bg; path = bg.lproj/WMQuoteView.strings; sourceTree = "<group>"; };
+		9071059C2BC447DB000431A5 /* bg */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = bg; path = bg.lproj/WMThanksAlertView.strings; sourceTree = "<group>"; };
+		9071059D2BC447DB000431A5 /* bg */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = bg; path = bg.lproj/ChatTestView.strings; sourceTree = "<group>"; };
+		9071059E2BC447DB000431A5 /* bg */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = bg; path = bg.lproj/ConnectionErrorView.strings; sourceTree = "<group>"; };
+		9071059F2BC447DB000431A5 /* bg */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = bg; path = bg.lproj/ScrollButtonView.strings; sourceTree = "<group>"; };
+		907105A02BC447DB000431A5 /* bg */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = bg; path = bg.lproj/ChatTitleView.strings; sourceTree = "<group>"; };
+		907105A12BC447DB000431A5 /* bg */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = bg; path = bg.lproj/WMImageViewController.strings; sourceTree = "<group>"; };
+		907105A22BC447DB000431A5 /* bg */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = bg; path = bg.lproj/Localizable.strings; sourceTree = "<group>"; };
+		907105A32BC447E2000431A5 /* he */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = he; path = he.lproj/WMSaveView.strings; sourceTree = "<group>"; };
+		907105A42BC447E2000431A5 /* he */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = he; path = he.lproj/WMLogsViewController.strings; sourceTree = "<group>"; };
+		907105A52BC447E2000431A5 /* he */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = he; path = he.lproj/WMFileViewController.strings; sourceTree = "<group>"; };
+		907105A62BC447E2000431A5 /* he */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = he; path = he.lproj/SurveyCommentViewController.strings; sourceTree = "<group>"; };
+		907105A72BC447E2000431A5 /* he */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = he; path = he.lproj/RateStarsViewController.strings; sourceTree = "<group>"; };
+		907105A82BC447E2000431A5 /* he */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = he; path = he.lproj/SurveyRadioButtonViewController.strings; sourceTree = "<group>"; };
+		907105A92BC447E2000431A5 /* he */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = he; path = he.lproj/SurveyTableViewCell.strings; sourceTree = "<group>"; };
+		907105AA2BC447E2000431A5 /* he */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = he; path = he.lproj/WMBotButtonsTableViewCell.strings; sourceTree = "<group>"; };
+		907105AB2BC447E2000431A5 /* he */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = he; path = he.lproj/WMNilTableViewCell.strings; sourceTree = "<group>"; };
+		907105AC2BC447E2000431A5 /* he */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = he; path = he.lproj/WMVisitorImageCell.strings; sourceTree = "<group>"; };
+		907105AD2BC447E2000431A5 /* he */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = he; path = he.lproj/WMVisitorFileCell.strings; sourceTree = "<group>"; };
+		907105AE2BC447E2000431A5 /* he */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = he; path = he.lproj/WMVisitorMessageCell.strings; sourceTree = "<group>"; };
+		907105AF2BC447E3000431A5 /* he */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = he; path = he.lproj/WMVisitorQuoteFileCell.strings; sourceTree = "<group>"; };
+		907105B02BC447E3000431A5 /* he */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = he; path = he.lproj/WMVisitorQuoteImageCell.strings; sourceTree = "<group>"; };
+		907105B12BC447E3000431A5 /* he */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = he; path = he.lproj/WMVisitorQuoteMessageCell.strings; sourceTree = "<group>"; };
+		907105B22BC447E3000431A5 /* he */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = he; path = he.lproj/WMInfoCell.strings; sourceTree = "<group>"; };
+		907105B32BC447E3000431A5 /* he */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = he; path = he.lproj/WMOperatorFileCell.strings; sourceTree = "<group>"; };
+		907105B42BC447E3000431A5 /* he */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = he; path = he.lproj/WMOperatorMessageCell.strings; sourceTree = "<group>"; };
+		907105B52BC447E3000431A5 /* he */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = he; path = he.lproj/WMOperatorImageCell.strings; sourceTree = "<group>"; };
+		907105B62BC447E3000431A5 /* he */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = he; path = he.lproj/WMOperatorQuoteMessageCell.strings; sourceTree = "<group>"; };
+		907105B72BC447E3000431A5 /* he */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = he; path = he.lproj/WMOperatorQuoteFileCell.strings; sourceTree = "<group>"; };
+		907105B82BC447E3000431A5 /* he */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = he; path = he.lproj/WMOperatorQuoteImageCell.strings; sourceTree = "<group>"; };
+		907105B92BC447E3000431A5 /* he */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = he; path = he.lproj/ChatViewController.strings; sourceTree = "<group>"; };
+		907105BA2BC447E3000431A5 /* he */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = he; path = he.lproj/WMToolbarView.strings; sourceTree = "<group>"; };
+		907105BB2BC447E3000431A5 /* he */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = he; path = he.lproj/WMNewMessageView.strings; sourceTree = "<group>"; };
+		907105BC2BC447E4000431A5 /* he */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = he; path = he.lproj/WMQuoteView.strings; sourceTree = "<group>"; };
+		907105BD2BC447E4000431A5 /* he */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = he; path = he.lproj/WMThanksAlertView.strings; sourceTree = "<group>"; };
+		907105BE2BC447E4000431A5 /* he */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = he; path = he.lproj/ChatTestView.strings; sourceTree = "<group>"; };
+		907105BF2BC447E4000431A5 /* he */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = he; path = he.lproj/ConnectionErrorView.strings; sourceTree = "<group>"; };
+		907105C02BC447E4000431A5 /* he */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = he; path = he.lproj/ScrollButtonView.strings; sourceTree = "<group>"; };
+		907105C12BC447E4000431A5 /* he */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = he; path = he.lproj/ChatTitleView.strings; sourceTree = "<group>"; };
+		907105C22BC447E4000431A5 /* he */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = he; path = he.lproj/WMImageViewController.strings; sourceTree = "<group>"; };
+		907105C32BC447E4000431A5 /* he */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = he; path = he.lproj/Localizable.strings; sourceTree = "<group>"; };
+		907105C42BC447FF000431A5 /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/WMSaveView.strings; sourceTree = "<group>"; };
+		907105C52BC447FF000431A5 /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/WMLogsViewController.strings; sourceTree = "<group>"; };
+		907105C62BC447FF000431A5 /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/WMFileViewController.strings; sourceTree = "<group>"; };
+		907105C72BC447FF000431A5 /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/SurveyCommentViewController.strings; sourceTree = "<group>"; };
+		907105C82BC447FF000431A5 /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/RateStarsViewController.strings; sourceTree = "<group>"; };
+		907105C92BC447FF000431A5 /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/SurveyRadioButtonViewController.strings; sourceTree = "<group>"; };
+		907105CA2BC447FF000431A5 /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/SurveyTableViewCell.strings; sourceTree = "<group>"; };
+		907105CB2BC447FF000431A5 /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/WMBotButtonsTableViewCell.strings; sourceTree = "<group>"; };
+		907105CC2BC447FF000431A5 /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/WMNilTableViewCell.strings; sourceTree = "<group>"; };
+		907105CD2BC447FF000431A5 /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/WMVisitorImageCell.strings; sourceTree = "<group>"; };
+		907105CE2BC447FF000431A5 /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/WMVisitorFileCell.strings; sourceTree = "<group>"; };
+		907105CF2BC44800000431A5 /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/WMVisitorMessageCell.strings; sourceTree = "<group>"; };
+		907105D02BC44800000431A5 /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/WMVisitorQuoteFileCell.strings; sourceTree = "<group>"; };
+		907105D12BC44800000431A5 /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/WMVisitorQuoteImageCell.strings; sourceTree = "<group>"; };
+		907105D22BC44800000431A5 /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/WMVisitorQuoteMessageCell.strings; sourceTree = "<group>"; };
+		907105D32BC44800000431A5 /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/WMInfoCell.strings; sourceTree = "<group>"; };
+		907105D42BC44800000431A5 /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/WMOperatorFileCell.strings; sourceTree = "<group>"; };
+		907105D52BC44800000431A5 /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/WMOperatorMessageCell.strings; sourceTree = "<group>"; };
+		907105D62BC44800000431A5 /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/WMOperatorImageCell.strings; sourceTree = "<group>"; };
+		907105D72BC44800000431A5 /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/WMOperatorQuoteMessageCell.strings; sourceTree = "<group>"; };
+		907105D82BC44800000431A5 /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/WMOperatorQuoteFileCell.strings; sourceTree = "<group>"; };
+		907105D92BC44800000431A5 /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/WMOperatorQuoteImageCell.strings; sourceTree = "<group>"; };
+		907105DA2BC44800000431A5 /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/ChatViewController.strings; sourceTree = "<group>"; };
+		907105DB2BC44800000431A5 /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/WMToolbarView.strings; sourceTree = "<group>"; };
+		907105DC2BC44800000431A5 /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/WMNewMessageView.strings; sourceTree = "<group>"; };
+		907105DD2BC44800000431A5 /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/WMQuoteView.strings; sourceTree = "<group>"; };
+		907105DE2BC44801000431A5 /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/WMThanksAlertView.strings; sourceTree = "<group>"; };
+		907105DF2BC44801000431A5 /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/ChatTestView.strings; sourceTree = "<group>"; };
+		907105E02BC44801000431A5 /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/ConnectionErrorView.strings; sourceTree = "<group>"; };
+		907105E12BC44801000431A5 /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/ScrollButtonView.strings; sourceTree = "<group>"; };
+		907105E22BC44801000431A5 /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/ChatTitleView.strings; sourceTree = "<group>"; };
+		907105E32BC44801000431A5 /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/WMImageViewController.strings; sourceTree = "<group>"; };
+		907105E42BC44801000431A5 /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/Localizable.strings; sourceTree = "<group>"; };
+		907105E52BC44804000431A5 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/WMSaveView.strings; sourceTree = "<group>"; };
+		907105E62BC44804000431A5 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/WMLogsViewController.strings; sourceTree = "<group>"; };
+		907105E72BC44804000431A5 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/WMFileViewController.strings; sourceTree = "<group>"; };
+		907105E82BC44804000431A5 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/SurveyCommentViewController.strings; sourceTree = "<group>"; };
+		907105E92BC44804000431A5 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/RateStarsViewController.strings; sourceTree = "<group>"; };
+		907105EA2BC44805000431A5 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/SurveyRadioButtonViewController.strings; sourceTree = "<group>"; };
+		907105EB2BC44805000431A5 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/SurveyTableViewCell.strings; sourceTree = "<group>"; };
+		907105EC2BC44805000431A5 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/WMBotButtonsTableViewCell.strings; sourceTree = "<group>"; };
+		907105ED2BC44805000431A5 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/WMNilTableViewCell.strings; sourceTree = "<group>"; };
+		907105EE2BC44805000431A5 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/WMVisitorImageCell.strings; sourceTree = "<group>"; };
+		907105EF2BC44805000431A5 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/WMVisitorFileCell.strings; sourceTree = "<group>"; };
+		907105F02BC44805000431A5 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/WMVisitorMessageCell.strings; sourceTree = "<group>"; };
+		907105F12BC44805000431A5 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/WMVisitorQuoteFileCell.strings; sourceTree = "<group>"; };
+		907105F22BC44805000431A5 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/WMVisitorQuoteImageCell.strings; sourceTree = "<group>"; };
+		907105F32BC44805000431A5 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/WMVisitorQuoteMessageCell.strings; sourceTree = "<group>"; };
+		907105F42BC44806000431A5 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/WMInfoCell.strings; sourceTree = "<group>"; };
+		907105F52BC44806000431A5 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/WMOperatorFileCell.strings; sourceTree = "<group>"; };
+		907105F62BC44806000431A5 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/WMOperatorMessageCell.strings; sourceTree = "<group>"; };
+		907105F72BC44806000431A5 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/WMOperatorImageCell.strings; sourceTree = "<group>"; };
+		907105F82BC44806000431A5 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/WMOperatorQuoteMessageCell.strings; sourceTree = "<group>"; };
+		907105F92BC44806000431A5 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/WMOperatorQuoteFileCell.strings; sourceTree = "<group>"; };
+		907105FA2BC44806000431A5 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/WMOperatorQuoteImageCell.strings; sourceTree = "<group>"; };
+		907105FB2BC44806000431A5 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/ChatViewController.strings; sourceTree = "<group>"; };
+		907105FC2BC44806000431A5 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/WMToolbarView.strings; sourceTree = "<group>"; };
+		907105FD2BC44806000431A5 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/WMNewMessageView.strings; sourceTree = "<group>"; };
+		907105FE2BC44806000431A5 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/WMQuoteView.strings; sourceTree = "<group>"; };
+		907105FF2BC44806000431A5 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/WMThanksAlertView.strings; sourceTree = "<group>"; };
+		907106002BC44807000431A5 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/ChatTestView.strings; sourceTree = "<group>"; };
+		907106012BC44807000431A5 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/ConnectionErrorView.strings; sourceTree = "<group>"; };
+		907106022BC44807000431A5 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/ScrollButtonView.strings; sourceTree = "<group>"; };
+		907106032BC44807000431A5 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/ChatTitleView.strings; sourceTree = "<group>"; };
+		907106042BC44807000431A5 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/WMImageViewController.strings; sourceTree = "<group>"; };
+		907106052BC44807000431A5 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
+		907106062BC44EEB000431A5 /* LocaleManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocaleManager.swift; sourceTree = "<group>"; };
 		90D500852B0AAC3A00A14597 /* RoxChatMobileWidget.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = RoxChatMobileWidget.podspec; sourceTree = "<group>"; };
 		90D5008A2B0AB38900A14597 /* RoxСhatMobileWidget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RoxСhatMobileWidget.h"; sourceTree = "<group>"; };
 		90D5008C2B0AB38900A14597 /* WMToolbarConfigBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WMToolbarConfigBuilder.swift; sourceTree = "<group>"; };
@@ -499,6 +699,7 @@
 				90D500B22B0AB38900A14597 /* WidgetLogManager.swift */,
 				90D500B32B0AB38900A14597 /* FilePicker.swift */,
 				90D500B42B0AB38900A14597 /* RoxСhatService.swift */,
+				907106062BC44EEB000431A5 /* LocaleManager.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1177,6 +1378,12 @@
 				en,
 				Base,
 				ru,
+				ar,
+				uk,
+				bg,
+				he,
+				pt,
+				es,
 			);
 			mainGroup = BEB26A0B29547455003F19C7;
 			productRefGroup = BEB26A1629547455003F19C7 /* Products */;
@@ -1298,6 +1505,7 @@
 				90D502492B0AB38A00A14597 /* WMToolbarView.swift in Sources */,
 				90D501EF2B0AB38A00A14597 /* WMNavigationBarConfigBuilder.swift in Sources */,
 				90D502032B0AB38A00A14597 /* RoxСhatServerSideSettingsManager.swift in Sources */,
+				907106072BC44EEB000431A5 /* LocaleManager.swift in Sources */,
 				90D5020D2B0AB38A00A14597 /* CollectionUtils.swift in Sources */,
 				90D502312B0AB38A00A14597 /* WMNilTableViewCell.swift in Sources */,
 				90D502472B0AB38A00A14597 /* ChatViewController+CompletionHandler.swift in Sources */,
@@ -1364,6 +1572,12 @@
 				90D501222B0AB38A00A14597 /* en */,
 				90D501232B0AB38A00A14597 /* Base */,
 				90D501242B0AB38A00A14597 /* ru */,
+				907105602BC447B9000431A5 /* ar */,
+				907105812BC447CA000431A5 /* uk */,
+				907105A22BC447DB000431A5 /* bg */,
+				907105C32BC447E4000431A5 /* he */,
+				907105E42BC44801000431A5 /* pt */,
+				907106052BC44807000431A5 /* es */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -1374,6 +1588,12 @@
 				90D5012B2B0AB38A00A14597 /* Base */,
 				901AD67E2B0D4D2800DB1722 /* en */,
 				901AD67F2B0D4D2A00DB1722 /* ru */,
+				907105402BC447B6000431A5 /* ar */,
+				907105612BC447C8000431A5 /* uk */,
+				907105822BC447D9000431A5 /* bg */,
+				907105A32BC447E2000431A5 /* he */,
+				907105C42BC447FF000431A5 /* pt */,
+				907105E52BC44804000431A5 /* es */,
 			);
 			name = WMSaveView.xib;
 			sourceTree = "<group>";
@@ -1384,6 +1604,12 @@
 				90D501312B0AB38A00A14597 /* Base */,
 				901AD6802B0D4D4E00DB1722 /* en */,
 				901AD6812B0D4D5000DB1722 /* ru */,
+				907105412BC447B6000431A5 /* ar */,
+				907105622BC447C8000431A5 /* uk */,
+				907105832BC447D9000431A5 /* bg */,
+				907105A42BC447E2000431A5 /* he */,
+				907105C52BC447FF000431A5 /* pt */,
+				907105E62BC44804000431A5 /* es */,
 			);
 			name = WMLogsViewController.xib;
 			sourceTree = "<group>";
@@ -1394,6 +1620,12 @@
 				90D501372B0AB38A00A14597 /* Base */,
 				901AD6822B0D4D7500DB1722 /* en */,
 				901AD6832B0D4D7800DB1722 /* ru */,
+				907105422BC447B7000431A5 /* ar */,
+				907105632BC447C8000431A5 /* uk */,
+				907105842BC447D9000431A5 /* bg */,
+				907105A52BC447E2000431A5 /* he */,
+				907105C62BC447FF000431A5 /* pt */,
+				907105E72BC44804000431A5 /* es */,
 			);
 			name = WMFileViewController.xib;
 			sourceTree = "<group>";
@@ -1404,6 +1636,12 @@
 				90D501432B0AB38A00A14597 /* Base */,
 				901AD6842B0D4D8200DB1722 /* en */,
 				901AD6852B0D4D8500DB1722 /* ru */,
+				907105432BC447B7000431A5 /* ar */,
+				907105642BC447C8000431A5 /* uk */,
+				907105852BC447D9000431A5 /* bg */,
+				907105A62BC447E2000431A5 /* he */,
+				907105C72BC447FF000431A5 /* pt */,
+				907105E82BC44804000431A5 /* es */,
 			);
 			name = SurveyCommentViewController.xib;
 			sourceTree = "<group>";
@@ -1414,6 +1652,12 @@
 				90D501452B0AB38A00A14597 /* Base */,
 				901AD6862B0D4D8A00DB1722 /* en */,
 				901AD6872B0D4D8B00DB1722 /* ru */,
+				907105442BC447B7000431A5 /* ar */,
+				907105652BC447C8000431A5 /* uk */,
+				907105862BC447D9000431A5 /* bg */,
+				907105A72BC447E2000431A5 /* he */,
+				907105C82BC447FF000431A5 /* pt */,
+				907105E92BC44804000431A5 /* es */,
 			);
 			name = RateStarsViewController.xib;
 			sourceTree = "<group>";
@@ -1424,6 +1668,12 @@
 				90D501472B0AB38A00A14597 /* Base */,
 				901AD6882B0D4D8F00DB1722 /* en */,
 				901AD6892B0D4D9200DB1722 /* ru */,
+				907105452BC447B7000431A5 /* ar */,
+				907105662BC447C9000431A5 /* uk */,
+				907105872BC447D9000431A5 /* bg */,
+				907105A82BC447E2000431A5 /* he */,
+				907105C92BC447FF000431A5 /* pt */,
+				907105EA2BC44805000431A5 /* es */,
 			);
 			name = SurveyRadioButtonViewController.xib;
 			sourceTree = "<group>";
@@ -1434,6 +1684,12 @@
 				90D501492B0AB38A00A14597 /* Base */,
 				901AD68A2B0D4D9500DB1722 /* en */,
 				901AD68B2B0D4D9700DB1722 /* ru */,
+				907105462BC447B7000431A5 /* ar */,
+				907105672BC447C9000431A5 /* uk */,
+				907105882BC447DA000431A5 /* bg */,
+				907105A92BC447E2000431A5 /* he */,
+				907105CA2BC447FF000431A5 /* pt */,
+				907105EB2BC44805000431A5 /* es */,
 			);
 			name = SurveyTableViewCell.xib;
 			sourceTree = "<group>";
@@ -1444,6 +1700,12 @@
 				90D501552B0AB38A00A14597 /* Base */,
 				901AD6902B0D4DC800DB1722 /* en */,
 				901AD6912B0D4DCA00DB1722 /* ru */,
+				907105472BC447B7000431A5 /* ar */,
+				907105682BC447C9000431A5 /* uk */,
+				907105892BC447DA000431A5 /* bg */,
+				907105AA2BC447E2000431A5 /* he */,
+				907105CB2BC447FF000431A5 /* pt */,
+				907105EC2BC44805000431A5 /* es */,
 			);
 			name = WMBotButtonsTableViewCell.xib;
 			sourceTree = "<group>";
@@ -1454,6 +1716,12 @@
 				90D5015B2B0AB38A00A14597 /* Base */,
 				901AD6922B0D4DDA00DB1722 /* en */,
 				901AD6932B0D4DDD00DB1722 /* ru */,
+				907105482BC447B7000431A5 /* ar */,
+				907105692BC447C9000431A5 /* uk */,
+				9071058A2BC447DA000431A5 /* bg */,
+				907105AB2BC447E2000431A5 /* he */,
+				907105CC2BC447FF000431A5 /* pt */,
+				907105ED2BC44805000431A5 /* es */,
 			);
 			name = WMNilTableViewCell.xib;
 			sourceTree = "<group>";
@@ -1464,6 +1732,12 @@
 				90D501622B0AB38A00A14597 /* Base */,
 				901AD6962B0D4DF900DB1722 /* en */,
 				901AD6972B0D4DFB00DB1722 /* ru */,
+				907105492BC447B8000431A5 /* ar */,
+				9071056A2BC447C9000431A5 /* uk */,
+				9071058B2BC447DA000431A5 /* bg */,
+				907105AC2BC447E2000431A5 /* he */,
+				907105CD2BC447FF000431A5 /* pt */,
+				907105EE2BC44805000431A5 /* es */,
 			);
 			name = WMVisitorImageCell.xib;
 			sourceTree = "<group>";
@@ -1474,6 +1748,12 @@
 				90D501682B0AB38A00A14597 /* Base */,
 				901AD6942B0D4DEB00DB1722 /* en */,
 				901AD6952B0D4DED00DB1722 /* ru */,
+				9071054A2BC447B8000431A5 /* ar */,
+				9071056B2BC447C9000431A5 /* uk */,
+				9071058C2BC447DA000431A5 /* bg */,
+				907105AD2BC447E2000431A5 /* he */,
+				907105CE2BC447FF000431A5 /* pt */,
+				907105EF2BC44805000431A5 /* es */,
 			);
 			name = WMVisitorFileCell.xib;
 			sourceTree = "<group>";
@@ -1484,6 +1764,12 @@
 				90D501702B0AB38A00A14597 /* Base */,
 				901AD6982B0D4E0000DB1722 /* en */,
 				901AD6992B0D4E0200DB1722 /* ru */,
+				9071054B2BC447B8000431A5 /* ar */,
+				9071056C2BC447C9000431A5 /* uk */,
+				9071058D2BC447DA000431A5 /* bg */,
+				907105AE2BC447E2000431A5 /* he */,
+				907105CF2BC44800000431A5 /* pt */,
+				907105F02BC44805000431A5 /* es */,
 			);
 			name = WMVisitorMessageCell.xib;
 			sourceTree = "<group>";
@@ -1494,6 +1780,12 @@
 				90D5017A2B0AB38A00A14597 /* Base */,
 				901AD69A2B0D4E1100DB1722 /* en */,
 				901AD69B2B0D4E1400DB1722 /* ru */,
+				9071054C2BC447B8000431A5 /* ar */,
+				9071056D2BC447C9000431A5 /* uk */,
+				9071058E2BC447DA000431A5 /* bg */,
+				907105AF2BC447E3000431A5 /* he */,
+				907105D02BC44800000431A5 /* pt */,
+				907105F12BC44805000431A5 /* es */,
 			);
 			name = WMVisitorQuoteFileCell.xib;
 			sourceTree = "<group>";
@@ -1504,6 +1796,12 @@
 				90D5017C2B0AB38A00A14597 /* Base */,
 				901AD69C2B0D4E1D00DB1722 /* en */,
 				901AD69D2B0D4E2000DB1722 /* ru */,
+				9071054D2BC447B8000431A5 /* ar */,
+				9071056E2BC447C9000431A5 /* uk */,
+				9071058F2BC447DA000431A5 /* bg */,
+				907105B02BC447E3000431A5 /* he */,
+				907105D12BC44800000431A5 /* pt */,
+				907105F22BC44805000431A5 /* es */,
 			);
 			name = WMVisitorQuoteImageCell.xib;
 			sourceTree = "<group>";
@@ -1514,6 +1812,12 @@
 				90D5017E2B0AB38A00A14597 /* Base */,
 				901AD69E2B0D4E3700DB1722 /* en */,
 				901AD69F2B0D4E3A00DB1722 /* ru */,
+				9071054E2BC447B8000431A5 /* ar */,
+				9071056F2BC447C9000431A5 /* uk */,
+				907105902BC447DA000431A5 /* bg */,
+				907105B12BC447E3000431A5 /* he */,
+				907105D22BC44800000431A5 /* pt */,
+				907105F32BC44805000431A5 /* es */,
 			);
 			name = WMVisitorQuoteMessageCell.xib;
 			sourceTree = "<group>";
@@ -1524,6 +1828,12 @@
 				90D501862B0AB38A00A14597 /* Base */,
 				901AD6A02B0D4E5800DB1722 /* en */,
 				901AD6A12B0D4E5A00DB1722 /* ru */,
+				9071054F2BC447B8000431A5 /* ar */,
+				907105702BC447C9000431A5 /* uk */,
+				907105912BC447DA000431A5 /* bg */,
+				907105B22BC447E3000431A5 /* he */,
+				907105D32BC44800000431A5 /* pt */,
+				907105F42BC44806000431A5 /* es */,
 			);
 			name = WMInfoCell.xib;
 			sourceTree = "<group>";
@@ -1534,6 +1844,12 @@
 				90D5018D2B0AB38A00A14597 /* Base */,
 				901AD6A22B0D4E6300DB1722 /* ru */,
 				901AD6A32B0D4E6900DB1722 /* en */,
+				907105502BC447B8000431A5 /* ar */,
+				907105712BC447C9000431A5 /* uk */,
+				907105922BC447DA000431A5 /* bg */,
+				907105B32BC447E3000431A5 /* he */,
+				907105D42BC44800000431A5 /* pt */,
+				907105F52BC44806000431A5 /* es */,
 			);
 			name = WMOperatorFileCell.xib;
 			sourceTree = "<group>";
@@ -1544,6 +1860,12 @@
 				90D501932B0AB38A00A14597 /* Base */,
 				901AD6A42B0D4E8800DB1722 /* ru */,
 				901AD6A52B0D4E8A00DB1722 /* en */,
+				907105512BC447B8000431A5 /* ar */,
+				907105722BC447C9000431A5 /* uk */,
+				907105932BC447DA000431A5 /* bg */,
+				907105B42BC447E3000431A5 /* he */,
+				907105D52BC44800000431A5 /* pt */,
+				907105F62BC44806000431A5 /* es */,
 			);
 			name = WMOperatorMessageCell.xib;
 			sourceTree = "<group>";
@@ -1552,6 +1874,12 @@
 			isa = PBXVariantGroup;
 			children = (
 				90D5019B2B0AB38A00A14597 /* Base */,
+				907105522BC447B8000431A5 /* ar */,
+				907105732BC447C9000431A5 /* uk */,
+				907105942BC447DA000431A5 /* bg */,
+				907105B52BC447E3000431A5 /* he */,
+				907105D62BC44800000431A5 /* pt */,
+				907105F72BC44806000431A5 /* es */,
 			);
 			name = WMOperatorImageCell.xib;
 			sourceTree = "<group>";
@@ -1562,6 +1890,12 @@
 				90D501A52B0AB38A00A14597 /* Base */,
 				901AD6A62B0D4ED800DB1722 /* en */,
 				901AD6A72B0D4EDA00DB1722 /* ru */,
+				907105532BC447B8000431A5 /* ar */,
+				907105742BC447C9000431A5 /* uk */,
+				907105952BC447DA000431A5 /* bg */,
+				907105B62BC447E3000431A5 /* he */,
+				907105D72BC44800000431A5 /* pt */,
+				907105F82BC44806000431A5 /* es */,
 			);
 			name = WMOperatorQuoteMessageCell.xib;
 			sourceTree = "<group>";
@@ -1572,6 +1906,12 @@
 				90D501A72B0AB38A00A14597 /* Base */,
 				901AD6A82B0D4EDE00DB1722 /* en */,
 				901AD6A92B0D4EE000DB1722 /* ru */,
+				907105542BC447B8000431A5 /* ar */,
+				907105752BC447C9000431A5 /* uk */,
+				907105962BC447DB000431A5 /* bg */,
+				907105B72BC447E3000431A5 /* he */,
+				907105D82BC44800000431A5 /* pt */,
+				907105F92BC44806000431A5 /* es */,
 			);
 			name = WMOperatorQuoteFileCell.xib;
 			sourceTree = "<group>";
@@ -1582,6 +1922,12 @@
 				90D501A92B0AB38A00A14597 /* Base */,
 				901AD6AA2B0D4EE500DB1722 /* en */,
 				901AD6AB2B0D4EE800DB1722 /* ru */,
+				907105552BC447B8000431A5 /* ar */,
+				907105762BC447CA000431A5 /* uk */,
+				907105972BC447DB000431A5 /* bg */,
+				907105B82BC447E3000431A5 /* he */,
+				907105D92BC44800000431A5 /* pt */,
+				907105FA2BC44806000431A5 /* es */,
 			);
 			name = WMOperatorQuoteImageCell.xib;
 			sourceTree = "<group>";
@@ -1592,6 +1938,12 @@
 				90D501B02B0AB38A00A14597 /* Base */,
 				901AD68E2B0D4DBA00DB1722 /* en */,
 				901AD68F2B0D4DBD00DB1722 /* ru */,
+				907105562BC447B9000431A5 /* ar */,
+				907105772BC447CA000431A5 /* uk */,
+				907105982BC447DB000431A5 /* bg */,
+				907105B92BC447E3000431A5 /* he */,
+				907105DA2BC44800000431A5 /* pt */,
+				907105FB2BC44806000431A5 /* es */,
 			);
 			name = ChatViewController.xib;
 			sourceTree = "<group>";
@@ -1602,6 +1954,12 @@
 				90D501BB2B0AB38A00A14597 /* Base */,
 				901AD6AF2B0D533200DB1722 /* en */,
 				901AD6B02B0D533600DB1722 /* ru */,
+				907105572BC447B9000431A5 /* ar */,
+				907105782BC447CA000431A5 /* uk */,
+				907105992BC447DB000431A5 /* bg */,
+				907105BA2BC447E3000431A5 /* he */,
+				907105DB2BC44800000431A5 /* pt */,
+				907105FC2BC44806000431A5 /* es */,
 			);
 			name = WMToolbarView.xib;
 			sourceTree = "<group>";
@@ -1612,6 +1970,12 @@
 				90D501BD2B0AB38A00A14597 /* Base */,
 				901AD6B12B0D534300DB1722 /* en */,
 				901AD6B22B0D534500DB1722 /* ru */,
+				907105582BC447B9000431A5 /* ar */,
+				907105792BC447CA000431A5 /* uk */,
+				9071059A2BC447DB000431A5 /* bg */,
+				907105BB2BC447E3000431A5 /* he */,
+				907105DC2BC44800000431A5 /* pt */,
+				907105FD2BC44806000431A5 /* es */,
 			);
 			name = WMNewMessageView.xib;
 			sourceTree = "<group>";
@@ -1622,6 +1986,12 @@
 				90D501BF2B0AB38A00A14597 /* Base */,
 				901AD6B32B0D534A00DB1722 /* en */,
 				901AD6B42B0D535400DB1722 /* ru */,
+				907105592BC447B9000431A5 /* ar */,
+				9071057A2BC447CA000431A5 /* uk */,
+				9071059B2BC447DB000431A5 /* bg */,
+				907105BC2BC447E4000431A5 /* he */,
+				907105DD2BC44800000431A5 /* pt */,
+				907105FE2BC44806000431A5 /* es */,
 			);
 			name = WMQuoteView.xib;
 			sourceTree = "<group>";
@@ -1632,6 +2002,12 @@
 				90D501C92B0AB38A00A14597 /* Base */,
 				901AD6B72B0D538600DB1722 /* en */,
 				901AD6B82B0D538800DB1722 /* ru */,
+				9071055A2BC447B9000431A5 /* ar */,
+				9071057B2BC447CA000431A5 /* uk */,
+				9071059C2BC447DB000431A5 /* bg */,
+				907105BD2BC447E4000431A5 /* he */,
+				907105DE2BC44801000431A5 /* pt */,
+				907105FF2BC44806000431A5 /* es */,
 			);
 			name = WMThanksAlertView.xib;
 			sourceTree = "<group>";
@@ -1642,6 +2018,12 @@
 				90D501CF2B0AB38A00A14597 /* Base */,
 				901AD6B92B0D539C00DB1722 /* en */,
 				901AD6BA2B0D539E00DB1722 /* ru */,
+				9071055B2BC447B9000431A5 /* ar */,
+				9071057C2BC447CA000431A5 /* uk */,
+				9071059D2BC447DB000431A5 /* bg */,
+				907105BE2BC447E4000431A5 /* he */,
+				907105DF2BC44801000431A5 /* pt */,
+				907106002BC44807000431A5 /* es */,
 			);
 			name = ChatTestView.xib;
 			sourceTree = "<group>";
@@ -1652,6 +2034,12 @@
 				90D501D22B0AB38A00A14597 /* Base */,
 				901AD6B52B0D536100DB1722 /* en */,
 				901AD6B62B0D536D00DB1722 /* ru */,
+				9071055C2BC447B9000431A5 /* ar */,
+				9071057D2BC447CA000431A5 /* uk */,
+				9071059E2BC447DB000431A5 /* bg */,
+				907105BF2BC447E4000431A5 /* he */,
+				907105E02BC44801000431A5 /* pt */,
+				907106012BC44807000431A5 /* es */,
 			);
 			name = ConnectionErrorView.xib;
 			sourceTree = "<group>";
@@ -1662,6 +2050,12 @@
 				90D501D82B0AB38A00A14597 /* Base */,
 				901AD6BD2B0D53C400DB1722 /* en */,
 				901AD6BE2B0D53C600DB1722 /* ru */,
+				9071055D2BC447B9000431A5 /* ar */,
+				9071057E2BC447CA000431A5 /* uk */,
+				9071059F2BC447DB000431A5 /* bg */,
+				907105C02BC447E4000431A5 /* he */,
+				907105E12BC44801000431A5 /* pt */,
+				907106022BC44807000431A5 /* es */,
 			);
 			name = ScrollButtonView.xib;
 			sourceTree = "<group>";
@@ -1672,6 +2066,12 @@
 				90D501DE2B0AB38A00A14597 /* Base */,
 				901AD6BB2B0D53B000DB1722 /* en */,
 				901AD6BC2B0D53B300DB1722 /* ru */,
+				9071055E2BC447B9000431A5 /* ar */,
+				9071057F2BC447CA000431A5 /* uk */,
+				907105A02BC447DB000431A5 /* bg */,
+				907105C12BC447E4000431A5 /* he */,
+				907105E22BC44801000431A5 /* pt */,
+				907106032BC44807000431A5 /* es */,
 			);
 			name = ChatTitleView.xib;
 			sourceTree = "<group>";
@@ -1682,6 +2082,12 @@
 				90D501E42B0AB38A00A14597 /* Base */,
 				901AD68C2B0D4DB000DB1722 /* en */,
 				901AD68D2B0D4DB200DB1722 /* ru */,
+				9071055F2BC447B9000431A5 /* ar */,
+				907105802BC447CA000431A5 /* uk */,
+				907105A12BC447DB000431A5 /* bg */,
+				907105C22BC447E4000431A5 /* he */,
+				907105E32BC44801000431A5 /* pt */,
+				907106042BC44807000431A5 /* es */,
 			);
 			name = WMImageViewController.xib;
 			sourceTree = "<group>";

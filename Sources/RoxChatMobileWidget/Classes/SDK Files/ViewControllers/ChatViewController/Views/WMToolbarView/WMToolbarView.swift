@@ -81,6 +81,10 @@ class WMToolbarView: UIView {
         if let sendButtonImage = config?.sendButtonImage {
             messageView.sendButton.setImage(sendButtonImage, for: .normal)
         }
+        
+        if let inactiveSendButtonImage = config?.inactiveSendButtonImage {
+            messageView.sendButton.setImage(inactiveSendButtonImage, for: .disabled)
+        }
 
         if let addAttachmentImage = config?.addAttachmentImage {
             messageView.fileButton.setImage(addAttachmentImage, for: .normal)
@@ -113,6 +117,14 @@ class WMToolbarView: UIView {
 
         if let textViewMaxHeight = config?.textViewMaxHeight {
             WMNewMessageView.maxInputTextViewHeight = textViewMaxHeight
+        }
+        
+        if let toolbarBackgroundColor = config?.toolbarBackgroundColor {
+            messageView.backgroundColor = toolbarBackgroundColor
+        }
+        
+        if let inputViewColor = config?.inputViewColor {
+            messageView.messageText.backgroundColor = inputViewColor
         }
 
         messageView.adjustConfig()

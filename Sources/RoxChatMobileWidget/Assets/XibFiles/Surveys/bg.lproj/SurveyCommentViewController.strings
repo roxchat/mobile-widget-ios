@@ -1,0 +1,10 @@
+
+/* Class = "UIButton"; normalTitle = "Send"; ObjectID = "FYM-Ln-zMj"; */
+"FYM-Ln-zMj.normalTitle" = "Изпратете";
+
+/* Class = "UILabel"; text = "<this text will be replaced>"; ObjectID = "GU7-z1-RMj"; */
+"GU7-z1-RMj.text" = "<this text will be replaced>";
+
+/* Class = "UILabel"; text = "comment"; ObjectID = "PTM-9M-0Ce"; */
+"PTM-9M-0Ce.text" = "коментар";
+

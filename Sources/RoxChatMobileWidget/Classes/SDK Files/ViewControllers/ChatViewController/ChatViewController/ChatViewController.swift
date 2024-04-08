@@ -513,66 +513,6 @@ class ChatViewController: UIViewController {
         }
     }
     
-    private func sendImage(image: UIImage, imageURL: URL?) {
-        
-        var imageData = Data()
-        var imageName = String()
-        var mimeType = MimeType()
-        
-        if let imageURL = imageURL {
-            mimeType = MimeType(url: imageURL as URL)
-            imageName = imageURL.lastPathComponent
-            
-            let imageExtension = imageURL.pathExtension.lowercased()
-            
-            switch imageExtension {
-            case "jpg", "jpeg":
-                guard let unwrappedData = image.jpegData(compressionQuality: 1.0)
-                else { return }
-                imageData = unwrappedData
-                
-            case "heic", "heif":
-                guard let unwrappedData = image.jpegData(compressionQuality: 0.5)
-                else { return }
-                imageData = unwrappedData
-                
-                var components = imageName.components(separatedBy: ".")
-                if components.count > 1 {
-                    components.removeLast()
-                    imageName = components.joined(separator: ".")
-                }
-                imageName += ".jpeg"
-                
-            default:
-                guard let unwrappedData = image.pngData()
-                else { return }
-                imageData = unwrappedData
-            }
-        } else {
-            guard let unwrappedData = image.jpegData(compressionQuality: 1.0)
-            else { return }
-            imageData = unwrappedData
-            imageName = "photo.jpeg"
-        }
-        
-        RoxchatServiceController.currentSession.send(
-            file: imageData,
-            fileName: imageName,
-            mimeType: mimeType.value,
-            completionHandler: self
-        )
-    }
-    
-    private func sendFile(file: Data, fileURL: URL?) {
-        let url = fileURL ?? URL(fileURLWithPath: "document.pdf")
-        RoxchatServiceController.currentSession.send(
-            file: file,
-            fileName: url.lastPathComponent,
-            mimeType: MimeType(url: url).value,
-            completionHandler: self
-        )
-    }
-    
     private func replyToMessage(_ message: String) {
         guard let messageToReply = selectedMessage else { return }
         RoxchatServiceController.currentSession.reply(
@@ -772,19 +712,15 @@ extension ChatViewController: UIScrollViewDelegate {
 extension ChatViewController: FilePickerDelegate {
     
     func didSelect(images: [ImageToSend]) {
-        for image in images {
-            print("didSelect(image: \(String(describing: image.url?.lastPathComponent)), imageURL: \(String(describing: image.url)))")
-            guard let imageToSend = image.image else { return }
-            self.sendImage(image: imageToSend, imageURL: image.url)
-        }
+        RoxchatServiceController.currentSession.send(
+            images: images,
+            completionHandler: self)
     }
     
     func didSelect(files: [FileToSend]) {
-        for file in files {
-            print("didSelect(file: \(file.url?.lastPathComponent ?? "nil")), fileURL: \(file.url?.path ?? "nil"))")
-            guard let fileToSend = file.file else { return }
-            self.sendFile(file: fileToSend,fileURL: file.url)
-        }
+        RoxchatServiceController.currentSession.send(
+            files: files,
+            completionHandler: self)
     }
 }
 

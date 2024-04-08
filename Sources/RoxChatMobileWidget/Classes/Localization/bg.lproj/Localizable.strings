@@ -1,0 +1,234 @@
+//ScrollButtonView.xib
+"0" = "0";
+//WMOperatorFileCell.xib,WMVisitorFileCell.xib
+"25%" = "25%";
+//WMStartViewController.xib
+"99" = "99";
+//WMQuoteView.xib
+"<?>Autor" = "<?>Autor";
+//WMOperatorFileCell.xib,WMVisitorFileCell.xib
+"<?>Description" = "<?>Description";
+//WMOperatorFileCell.xib,WMVisitorFileCell.xib
+"<?>File name.pdf" = "<?>File name.pdf";
+//WMBotButtonsTableViewCell.xib,WMInfoCell.xib,WMOperatorMessageCell.xib,WMOperatorQuoteFileCell.xib,WMOperatorQuoteImageCell.xib,WMOperatorQuoteMessageCell.xib,WMQuoteView.xib,WMVisitorMessageCell.xib,WMVisitorQuoteFileCell.xib,WMVisitorQuoteImageCell.xib,WMVisitorQuoteMessageCell.xib
+"<?>Message" = "<?>Message";
+//WMOperatorQuoteFileCell.xib,WMOperatorQuoteImageCell.xib,WMOperatorQuoteMessageCell.xib,WMVisitorQuoteFileCell.xib,WMVisitorQuoteImageCell.xib,WMVisitorQuoteMessageCell.xib
+"<?>Name " = "<?>Name ";
+//WMOperatorFileCell.xib,WMOperatorMessageCell.xib,WMOperatorQuoteFileCell.xib,WMOperatorQuoteImageCell.xib,WMOperatorQuoteMessageCell.xib
+"<?>Operator name" = "<?>Operator name";
+//WMOperatorQuoteFileCell.xib,WMOperatorQuoteImageCell.xib,WMOperatorQuoteMessageCell.xib,WMVisitorQuoteFileCell.xib,WMVisitorQuoteImageCell.xib,WMVisitorQuoteMessageCell.xib
+"<?>Quote Message" = "<?>Quote Message";
+//WMBotButtonsTableViewCell.xib,WMInfoCell.xib,WMOperatorFileCell.xib,WMOperatorImageCell.xib,WMOperatorMessageCell.xib,WMOperatorQuoteFileCell.xib,WMOperatorQuoteImageCell.xib,WMOperatorQuoteMessageCell.xib,WMVisitorFileCell.xib,WMVisitorImageCell.xib,WMVisitorMessageCell.xib,WMVisitorQuoteFileCell.xib,WMVisitorQuoteImageCell.xib,WMVisitorQuoteMessageCell.xib
+"<?>Time" = "<?>Time";
+//SurveyCommentViewController.xib,SurveyRadioButtonViewController.xib,SurveyTableViewCell.xib
+"<this text will be replaced>" = "<this text will be replaced>";
+//UIAlertHandler.swift
+"Account" = "Акаунтът";
+"AccountBlocked" = "Акаунтът, използван за създаване на сесия, е блокиран. Моля, свържете се с поддръжката на Rox.Chat или използвайте друг.";
+//ChatTestView.swift
+"Additional information" = "Допълнителна информация";
+//ChatTestView.swift
+"Agent title" = "Заглавие на оператор";
+//UIAlertHandler.swift
+"Alert account name" = "Име на акаунта в Rox.Chat или пълен адрес на сървъра (например „demo“ или \"https://demo.rox.chat\")";
+//FilePicker.swift
+"Camera" = "Камера";
+//FilePicker.swift
+"Camera is not available" = "Камерата не е налична";
+//FilePicker.swift,UIAlertHandler.swift
+"Cancel" = "Отказ";
+//ChatViewController+CompletionHandler.swift
+"Chat does not exist" = "Чатът не съществува";
+//UIAlertHandler.swift
+"Chat finished." = "Чатът приключи.";
+//ChatViewController+Surveys.swift
+"Comment is too long" = "Коментарът е твърде дълъг";
+//ConnectionErrorView.xib
+"Connection error" = "грешка във връзката";
+//UIAlertHandler.swift
+"Choose department" = "Изберете отдел";
+//StringConstants.swift
+"Copy" = "Копиране";
+//StringConstants.swift
+"Delete" = "Изтриване";
+//ChatViewController+CompletionHandler.swift
+"Delete message unknown error" = "Неизвестна грешка при изтриване на съобщение";
+//ChatViewController+CompletionHandler.swift
+"Deleting messages is turned off on the server" = "Изтриването на съобщения е изключено на сървъра";
+//StringConstants.swift
+"Edit" = "Редактиране";
+//ChatViewController+CompletionHandler.swift
+"Edit message unknown error" = "Неизвестна грешка при редактиране на съобщение";
+//ChatViewController+CompletionHandler.swift
+"Editing message is empty" = "Редактирането на съобщението е празно";
+//ChatViewController+CompletionHandler.swift
+"Editing messages is turned off on the server" = "Редактирането на съобщения е изключено на сървъра";
+//WMNewMessageView.xib
+"Enter message" = "Въведете съобщение";
+//SurveyCommentViewController.swift
+"Enter your comment" = "Въведете вашия коментаt";
+//ChatViewController+Surveys.swift
+"Failed to send survey answer" = "Неуспешно изпращане на отговор на анкетата";
+//ChatViewController+CompletionHandler.swift
+"Failed to upload file: visitor is not logged in" = "Неуспешно качване на файл: посетителят не е влезнал";
+//ChatViewController+Setup.swift
+"Fetching more messages..." = "Извличане на повече съобщения...";
+//FilePicker.swift
+"File" = "Файл";
+//WMFileTableViewCell.swift
+"File is being sent" = "Файлът се изпраща";
+//ChatViewController+CompletionHandler.swift
+"File is too large." = "Файлът е твърде голям.";
+//ChatViewController+CompletionHandler.swift
+"File is too small" = "Файлът е твърде малък";
+//ChatViewController+CompletionHandler.swift
+"File upload request canceled" = "Заявката за качване на файл е отказана";
+//ChatViewController+CompletionHandler.swift
+"File sending failed" = "Грешка при изпращането на файл";
+//ChatViewController+CompletionHandler.swift
+"File type is not supported" = "Типът на файла не се поддържа";
+//ChatViewController+CompletionHandler.swift
+"File sending unknown error" = "Неизвестна грешка при изпращане на файл";
+//UIAlertHandler.swift
+"Go to Settings" = "Отиди в Настройки";
+//WMQuoteImageCell.swift,WMQuoteView.swift
+"Image" = "Изображение";
+//ChatViewController+Surveys.swift
+"Incorrect radio value" = "Неправилна стойност за радио";
+//ChatViewController+Surveys.swift
+"Incorrect stars value" = "Неправилна стойност за звезди";
+//ChatViewController+Surveys.swift
+"Incorrect survey ID" = "Неправилен идентификатор на анкетата";
+//UIAlertHandler.swift
+"InvalidSettings" = "Невалидни настройки на акаунта";
+//UIAlertHandler.swift
+"LoadError" = "Грешка при зареждане";
+//UIAlertHandler.swift
+"LoadFileErrorText" = "Опитайте да качите друг файл";
+//WMFileViewController.swift,WMFileViewController.xib
+"Loading File..." = "Зареждане на файла...";
+//ChatViewController+CompletionHandler.swift
+"MaxFilesCountExceeded" = "Превишен лимит за брой на файлове за съобщение";
+//ChatViewController+CompletionHandler.swift
+"MaxMessageLengthExceeded" = "Надхвърлена максималната дължина на съобщението";
+//ChatViewController+CompletionHandler.swift
+"Message deleting failed" = "Съобщението за изтриване неуспешно";
+//ChatViewController+CompletionHandler.swift
+"Message editing failed" = "Съобщението за редактиране неуспешно";
+//ChatViewController+CompletionHandler.swift
+"Message not found" = "Съобщението не е намерено";
+//ChatViewController+CompletionHandler.swift
+"Message not owned by visitor" = "Съобщението не принадлежи на посетителя";
+//FilePicker.swift
+"Need camera access" = "Нужен е достъп до камерата";
+//FilePicker.swift
+"Need photo access" = "Приложението се нуждае от достъп до вашата библиотека със снимки. Моля, отидете в настройките на устройството си > Поверителност > Снимки и го задайте на ВКЛ.";
+//ChatViewController+Setup.swift,ChatViewController.swift
+"No agent" = "Няма оператор";
+//UIAlertHandler.swift
+"No agents available" = "Няма налични агенти";
+//ChatViewController+Surveys.swift
+"No current survey" = "Няма текуща анкета";
+//ChatViewController+Surveys.swift
+"Note for rate is too long" = "Забележката за оценка е твърде дълга";
+//FilePicker.swift,UIAlertHandler.swift
+"OK" = "ОК";
+//ChatViewController+CompletionHandler.swift
+"Ok" = "ОК";
+//ChatViewController+Listener.swift,ChatViewController.swift
+"Online" = "На линия";
+//FilePicker.swift
+"Open app settings" = "Отваряне на настройките на приложението";
+//UIAlertHandler.swift
+"Operator Info" = "Информация за агента";
+//ChatViewController+Surveys.swift
+"Operator rating failed" = "Агентът не може да бъде оценен";
+//AdditionalKeys.swift
+"P.CR" = "Aгентът поиска вашите контактни данни.";
+//AdditionalKeys.swift
+"P.OA" = "На агента %@ e възложен вашият заявка.";
+//AdditionalKeys.swift
+"P.OF" = "%@ изпрати файл: %@.";
+//AdditionalKeys.swift
+"P.OM" = "%@ написа съобщение: %@";
+//AdditionalKeys.swift
+"P.RO" = "Оценете агента.";
+//FilePicker.swift
+"Photo Library" = "Галерия";
+//FilePicker.swift
+"Please Allow Access" = "Моля, разрешете достъпа";
+//RateStarsViewController.swift,RateStarsViewController.xib
+"Please rate the overall impression of the consultation" = "Моля, оценете общия впечатление от консултацията.";
+//ChatViewController+Surveys.swift
+"Question not found" = "Въпросът не е намерен";
+//RateStarsViewController.xib
+"Rate Operator" = "Оцени агента";
+//StringConstants.swift
+"Reply" = "Отговор";
+//ChatViewController+CompletionHandler.swift
+"Response cannot be created for this request" = "Отговорът не може да бъде създаден за тази заявка";
+//ChatTestView.xib
+"Run autotest" = "Извърши автоматичен тест";
+//UIAlertHandler.swift
+"Save error" = "Грешка при записване";
+//UIAlertHandler.swift
+"SaveError" = "Грешка при записване";
+//UIAlertHandler.swift
+"SaveErrorMessage" = "Няма достъп за записване на изображения на устройството. Одобрете достъпа в настройките на приложението.";
+//UIAlertHandler.swift
+"SaveFileErrorMessage" = "Няма достъп за записване на файлове на устройството. Одобрете достъпа в настройките на приложението.";
+//UIAlertHandler.swift
+"Saved!" = "Запазено!";
+//RateStarsViewController.xib,SurveyCommentViewController.xib,SurveyRadioButtonViewController.xib
+"Send" = "Изпращане";
+//ChatViewController+UITableView.swift
+"Send first message to start chat." = "Изпратете първото съобщение, за да започнете чат.";
+//ChatViewController+CompletionHandler.swift
+"Send keyboard request failed" = "Неуспешно изпращане на заявка за клавиатура";
+//ChatViewController+CompletionHandler.swift
+"Send keyboard request unknown error" = "Неизвестна грешка при изпращане на заявка за клавиатура";
+//WMQuoteFileCell.swift
+"Sending" = "Изпращане";
+//ChatViewController+CompletionHandler.swift
+"Sending files in body is not supported" = "Изпращането на файлове в съдържанието не се поддържа";
+//ChatViewController+CompletionHandler.swift,UIAlertHandler.swift
+"Session creation failed" = "Създаването на сесия неуспешно";
+//FilePicker.swift,WMStartViewController.xib
+"Settings" = "Настройки";
+//ChatViewController+Surveys.swift
+"Survey disabled" = "Анкетата е деактивирана";
+//WMThanksAlertView.xib
+"Thanks!" = "Благодарности!";
+//UIAlertHandler.swift
+"The image has been saved to your photos" = "Изображението беше запазено във вашите снимки";
+//ChatViewController+Surveys.swift,UIAlertHandler.swift
+"There is no current agent to rate" = "Няма наличен агент, който да оцени.";
+//ChatViewController+Surveys.swift
+"This agent not in the current chat" = "Този агент не е в текущия разговор";
+//ChatViewController+Surveys.swift
+"Unknown error" = "Неизвестна грешка";
+//WMFileTableViewCell.swift
+"Uploading file" = "Качване на файл";
+//ChatViewController+Setup.swift,ChatViewController.swift
+"Rox.Chat SDK App" = "Rox.Chat SDK App";
+//FilePicker.swift
+"Rox.Chat needs permission to access your camera so you can send photos to chat." = "Rox.Chat има нужда от разрешение за достъп до вашата камера, за да може да изпращате снимки в чата.";
+//ChatViewController+CompletionHandler.swift
+"Wrong button ID in request" = "Грешен идентификатор на бутона в заявката";
+//ChatViewController+CompletionHandler.swift
+"Wrong message ID in request" = "Грешен идентификатор на съобщението в заявката";
+//ChatViewController+CompletionHandler.swift
+"Wrong message kind (not text)" = "Грешен вид съобщение (не текст)";
+//WMThanksAlertView.xib
+"Your feedback will help us become better." = "Вашият отзив ще ни помогне да станем по-добри.";
+"Your visitor account is in the black list." = "Вашият акаунт на посетител е в черния списък.";
+//SurveyCommentViewController.xib
+"comment" = "коментар";
+//WMMessageTableCell.swift
+"edited" = "редактиран";
+//ChatViewController+Listener.swift
+"typing" = "пише";
+//LaunchScreen.storyboard,LaunchScreenController.storyboard
+"© 2022 Rox.Chat Inc. All rights reserved." = "© 2022 Rox.Chat Inc. Всички права запазени.";
+//WMQuoteView.swift
+"You" = "Вие";

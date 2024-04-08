@@ -146,4 +146,18 @@ public class WMSurveyViewConfigBuilder {
         rateConfig.buttonCornerRadius = buttonCornerRadius
         return self
     }
+    
+    /**
+     Sets change rate enabled.
+     - parameter changeRateEnabled:
+     Stars view size.
+     - returns:
+     `WMSurveyViewConfigBuilder` object with stars view size set.
+     - copyright:
+     2024 Rox.Chat
+     */
+    public func set(changeRateEnabled: Bool) -> Self {
+        rateConfig.changeRateEnabled = changeRateEnabled
+        return self
+    }
 }

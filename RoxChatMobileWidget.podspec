@@ -13,7 +13,7 @@ Pod::Spec.new do |s|
   s.resources = 'Sources/RoxChatMobileWidget/Assets/**/*.{xib,strings}',
   'Sources/RoxChatMobileWidget/Assets/WidgetImages.xcassets'
   s.dependency 'Cosmos', '~> 19.0.3'
-  s.dependency 'Nuke', '~> 10.7.1'
+  s.dependency 'Nuke', '~>  8.0'
   s.dependency 'FLAnimatedImage', '~> 1.0'
   s.dependency 'SnapKit'
 end

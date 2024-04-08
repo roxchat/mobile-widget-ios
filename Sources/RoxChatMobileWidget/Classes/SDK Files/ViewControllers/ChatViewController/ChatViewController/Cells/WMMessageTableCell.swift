@@ -116,7 +116,7 @@ class WMMessageTableCell: UITableViewCell, UITextViewDelegate {
     }
     
     func sharpCorner(view: UIView?, visitor: Bool, radius: CGFloat = 10) {
-        if !visitor {
+        if visitor != LocaleManager.isRightOrientationLocale() {
             view?.roundCorners([.layerMinXMinYCorner, .layerMaxXMinYCorner, .layerMaxXMaxYCorner], radius: radius)
         } else {
             view?.roundCorners([.layerMinXMinYCorner, .layerMaxXMinYCorner, .layerMinXMaxYCorner], radius: radius)

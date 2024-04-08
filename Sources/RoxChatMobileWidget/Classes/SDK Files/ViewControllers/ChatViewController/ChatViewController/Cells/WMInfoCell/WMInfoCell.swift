@@ -36,6 +36,38 @@ class WMInfoCell: WMMessageTableCell {
             alignment: .center
         )
     }
+    
+    override func applyConfig() {
+
+        guard let config = config else { return }
+        if let attributes = config.titleAttributes {
+            messageTextView.attributedText = NSAttributedString(
+                string: messageTextView?.text ?? "",
+                attributes: attributes
+            )
+        }
+
+        if let backgroundColor = config.backgroundColor {
+            messageTextView?.backgroundColor = backgroundColor
+        }
+
+        if let cornerRadius = config.cornerRadius {
+            if let roundCorners = config.roundCorners {
+                messageTextView?.roundCorners(roundCorners, radius: cornerRadius)
+            } else {
+                sharpCorner(view: messageView, visitor: message.isVisitorType(), radius: cornerRadius)
+            }
+        }
+        
+        if let strokeColor = config.strokeColor {
+            messageTextView?.layer.borderColor = strokeColor.cgColor
+        }
+        
+        if let strokeWidth = config.strokeWidth {
+            messageTextView?.layer.borderWidth = strokeWidth
+        }
+    }
+    
     override func initialSetup() -> Bool {
         let setup = super.initialSetup()
         return setup

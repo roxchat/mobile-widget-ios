@@ -160,12 +160,10 @@ extension ChatViewController: CurrentOperatorChangeListener {
 extension ChatViewController: ChatStateListener {
     func changed(state previousState: ChatState, to newState: ChatState) {
         if (newState == .closedByVisitor || newState == .closedByOperator ) && (RoxchatServiceController.currentSession.sessionState() == .chatting || RoxchatServiceController.currentSession.sessionState() == .queue) {
-            showRateOperatorDialog(operatorId: currentOperatorId())
-        }
-
-        if newState == .invitation || newState == .chatting || newState == .queue {
-            guard let currentId = currentOperatorId() else { return }
-            alreadyRatedOperators[currentId] = false
+            
+            if let currentId = currentOperatorId(), alreadyRatedOperators[currentId] != true && webimServerSideSettingsManager.isRateOperatorEnabled() {
+                showRateOperatorDialog(operatorId: currentOperatorId())
+            }
         }
         
         updateOperatorInfo(operator: RoxchatServiceController.currentSession.getCurrentOperator(), state: newState)

@@ -30,8 +30,8 @@ class RoxchatServerSideSettingsManager {
 
     private var roxchatServerSideSettings: RoxchatServerSideSettings?
 
-    func getServerSideSettings() {
-        RoxchatServiceController.currentSession.getServerSideSettings(completionHandler: self)
+    func getServerSideSettings(_ completionHandler: ServerSideSettingsCompletionHandler) {
+        RoxchatServiceController.currentSession.getServerSideSettings(completionHandler: completionHandler)
     }
 
     func isGlobalReplyEnabled() -> Bool {
@@ -46,6 +46,20 @@ class RoxchatServerSideSettingsManager {
             return false
         }
         return isMessageEditEnabled
+    }
+    
+    func isRateOperatorEnabled() -> Bool {
+        guard let isRateOperatorEnabled = roxchatServerSideSettings?.accountConfig.rateOperator else {
+            return true
+        }
+        return isRateOperatorEnabled
+    }
+    
+    func showRateOperatorButton() -> Bool {
+        guard let showRateOperatorButton = roxchatServerSideSettings?.accountConfig.showRateOperator else {
+            return true
+        }
+        return showRateOperatorButton
     }
 }
 

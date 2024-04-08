@@ -130,12 +130,6 @@ extension ChatViewController {
             make.width.equalTo(200)
         }
 
-        let gestureRecognizer = UITapGestureRecognizer(
-            target: self,
-            action: #selector(titleViewTapAction)
-        )
-
-        titleView.addGestureRecognizer(gestureRecognizer)
         navigationItem.titleView = titleView
     }
     
@@ -161,6 +155,7 @@ extension ChatViewController {
         )
         
         navigationItem.rightBarButtonItem = customRightBarButtonItem
+        navigationItem.rightBarButtonItem?.isEnabled = false
     }
     
     func configureNetworkErrorView() {
@@ -217,7 +212,7 @@ extension ChatViewController {
     }
 
     func setupServerSideSettingsManager() {
-        roxchatServerSideSettingsManager.getServerSideSettings()
+        roxchatServerSideSettingsManager.getServerSideSettings(self)
     }
 
     func setupAlreadyRatedOperators() {
@@ -227,4 +222,24 @@ extension ChatViewController {
         }
         alreadyRatedOperators = alreadyRatedOperatorsDictionary
     }
+}
+
+extension ChatViewController: ServerSideSettingsCompletionHandler {
+    func onFailure() {
+    }
+    
+    func onSuccess(roxchatServerSideSettings: roxchatServerSideSettings) {
+        roxchatServerSideSettingsManager.onSuccess(roxchatServerSideSettings: roxchatServerSideSettings)
+        if roxchatServerSideSettingsManager.isRateOperatorEnabled() && roxchatServerSideSettingsManager.showRateOperatorButton() {
+            let gestureRecognizer = UITapGestureRecognizer(
+                target: self,
+                action: #selector(titleViewTapAction)
+            )
+            
+            navigationItem.titleView?.addGestureRecognizer(gestureRecognizer)
+            
+            navigationItem.rightBarButtonItem?.isEnabled = true
+        }
+    }
+    
 }

@@ -1,13 +1,13 @@
 PODS:
   - Cosmos (19.0.3)
   - FLAnimatedImage (1.0.17)
-  - Nuke (10.7.1)
+  - Nuke (8.4.1)
   - RoxchatClientLibrary (3.0.3):
     - SQLite.swift (= 0.13.3)
   - RoxChatMobileWidget (1.0.0):
     - Cosmos (~> 19.0.3)
     - FLAnimatedImage (~> 1.0)
-    - Nuke (~> 10.7.1)
+    - Nuke (~> 8.0)
     - SnapKit
   - SnapKit (5.6.0)
   - SQLite.swift (0.13.3):
@@ -35,9 +35,9 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   Cosmos: a6fb17284281fa12cf4c85c2efecd440a215ec44
   FLAnimatedImage: bbf914596368867157cc71b38a8ec834b3eeb32b
-  Nuke: 279f17a599fd1c83cf51de5e0e1f2db143a287b0
-  RoxchatClientLibrary: e1d78358267c3ca1ba138ad04dfe1436d15b7553
-  RoxChatMobileWidget: 93626dc00243e4afea976ae99924fa660adfda34
+  Nuke: d780e3507a86b86c589ab3cc5cd302d5456f06fb
+  RoxchatClientLibrary: 8d9609445ebbfbaddb79cf43706199ed2de643aa
+  RoxChatMobileWidget: c4cc87c681e03a718a9e3f5648d64b99549ec81c
   SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
   SQLite.swift: 903bfa3bc9ab06345fdfbb578e34f47cfcf417da
 

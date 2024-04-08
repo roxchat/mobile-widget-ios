@@ -1,4 +1,5 @@
 {
+  "originHash" : "1bcb02c0b7f21e4240d1c00f023ce884795018a03584a80e98794a96ace5296b",
   "pins" : [
     {
       "identity" : "cosmos",
@@ -23,8 +24,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/roxchat/mobile-keyboard-ios.git",
       "state" : {
-        "revision" : "08a8f8283b6527d1b1376cd73487c417daea91f8",
-        "version" : "2.0.0"
+        "revision" : "d33bed5058814d0478e81f6bbe0c5d2bf5b13718",
+        "version" : "2.0.1"
       }
     },
     {
@@ -42,7 +43,7 @@
       "location" : "https://github.com/roxchat/mobile-widget-ios",
       "state" : {
         "branch" : "release_1_0_0",
-        "revision" : "67cb443695959baf2b155781bbeed6cad821c21e"
+        "revision" : "9b500a957f81ec249ffb958448ebbcce781b7162"
       }
     },
     {
@@ -50,8 +51,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/kean/Nuke.git",
       "state" : {
-        "revision" : "3f666f120b63ea7de57d42e9a7c9b47f8e7a290b",
-        "version" : "12.1.6"
+        "revision" : "4625c73ea00a9fb4b4f3e28d95d0021a44af7e59",
+        "version" : "12.5.0"
       }
     },
     {
@@ -59,8 +60,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/SnapKit/SnapKit.git",
       "state" : {
-        "revision" : "f222cbdf325885926566172f6f5f06af95473158",
-        "version" : "5.6.0"
+        "revision" : "2842e6e84e82eb9a8dac0100ca90d9444b0307f4",
+        "version" : "5.7.1"
       }
     },
     {
@@ -68,10 +69,10 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/stephencelis/SQLite.swift.git",
       "state" : {
-        "revision" : "7a2e3cd27de56f6d396e84f63beefd0267b55ccb",
-        "version" : "0.14.1"
+        "revision" : "e78ae0220e17525a15ac68c697a155eb7a672a8e",
+        "version" : "0.15.0"
       }
     }
   ],
-  "version" : 2
+  "version" : 3
 }

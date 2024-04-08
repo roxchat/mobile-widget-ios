@@ -45,6 +45,8 @@ class WMQuoteView: UIView, URLSessionDelegate {
     @IBOutlet var fileDownloadIndicator: CircleProgressIndicator!
     @IBOutlet var downloadStatusLabel: UILabel!
 
+    @IBOutlet var senderAndMessageView: UIStackView!
+    
     @IBOutlet var heightConstraint: NSLayoutConstraint!
 
     var fileSize: Int64 = 0
@@ -117,8 +119,11 @@ class WMQuoteView: UIView, URLSessionDelegate {
         self.setup(quoteText, quoteAuthor, fromOperator)
         self.quoteImageView.isHidden = true
         self.quoteImageView.removeConstraints(quoteImageView.constraints)
-        self.quoteMessageText.leftAnchor.constraint(equalTo: self.quoteLine.rightAnchor, constant: 12.0).isActive = true
-        self.quoteAuthorName.leftAnchor.constraint(equalTo: self.quoteLine.rightAnchor, constant: 12.0).isActive = true
+        if !LocaleManager.isRightOrientationLocale() {
+            self.senderAndMessageView.leftAnchor.constraint(equalTo: self.quoteLine.rightAnchor, constant: 12.0).isActive = true
+        } else {
+            self.senderAndMessageView.rightAnchor.constraint(equalTo: self.quoteLine.leftAnchor, constant: -12.0).isActive = true
+        }
     }
     
     func setupImageQuoteMessage(quoteAuthor: String, url: URL, fileInfo: FileInfo, fromOperator: Bool) {
@@ -162,10 +167,17 @@ class WMQuoteView: UIView, URLSessionDelegate {
     }
 
     private func updateQuoteImageViewConstraints() {
-        quoteMessageText.leftAnchor.constraint(equalTo: self.quoteImageView.rightAnchor, constant: 10.0).isActive = true
-        quoteAuthorName.leftAnchor.constraint(equalTo: self.quoteImageView.rightAnchor, constant: 10.0).isActive = true
-        quoteImageView.leftAnchor.constraint(equalTo: self.quoteLine.rightAnchor, constant: 8.0).isActive = true
-        quoteImageView.heightAnchor.constraint(equalTo: self.quoteImageView.widthAnchor).isActive = true
+        if !LocaleManager.isRightOrientationLocale() {
+            quoteMessageText.leftAnchor.constraint(equalTo: self.quoteImageView.rightAnchor, constant: 10.0).isActive = true
+            quoteAuthorName.leftAnchor.constraint(equalTo: self.quoteImageView.rightAnchor, constant: 10.0).isActive = true
+            quoteImageView.leftAnchor.constraint(equalTo: self.quoteLine.rightAnchor, constant: 8.0).isActive = true
+            quoteImageView.heightAnchor.constraint(equalTo: self.quoteImageView.widthAnchor).isActive = true
+        } else {
+            quoteMessageText.rightAnchor.constraint(equalTo: self.quoteImageView.leftAnchor, constant: -10.0).isActive = true
+            quoteAuthorName.rightAnchor.constraint(equalTo: self.quoteImageView.leftAnchor, constant: -10.0).isActive = true
+            quoteImageView.rightAnchor.constraint(equalTo: self.quoteLine.leftAnchor, constant: -8.0).isActive = true
+            quoteImageView.heightAnchor.constraint(equalTo: self.quoteImageView.widthAnchor).isActive = true
+        }
     }
 
     private func adjustConfig(for mode: WMQuoteViewMode) {

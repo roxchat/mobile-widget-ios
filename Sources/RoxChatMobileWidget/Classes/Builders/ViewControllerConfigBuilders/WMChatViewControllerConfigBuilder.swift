@@ -47,6 +47,8 @@ public class WMChatViewControllerConfigBuilder: WMViewControllerConfigBuilder {
     var quoteViewConfig: WMHelperInputViewConfig?
     var editBarConfig: WMHelperInputViewConfig?
     var surveyViewConfig: WMSurveyViewConfig?
+    var infoCellConfig: WMAbstractCellConfig?
+    var emptyChatTitle: String?
 
     /**
      - returns:
@@ -71,6 +73,8 @@ public class WMChatViewControllerConfigBuilder: WMViewControllerConfigBuilder {
         chatConfig.quoteViewConfig = quoteViewConfig
         chatConfig.editBarConfig = editBarConfig
         chatConfig.surveyViewConfig = surveyViewConfig
+        chatConfig.infoCellConfig = infoCellConfig
+        chatConfig.emptyChatTitle = emptyChatTitle
         return chatConfig
     }
     
@@ -204,6 +208,21 @@ public class WMChatViewControllerConfigBuilder: WMViewControllerConfigBuilder {
         self.botButtonsConfig = botButtonsConfig
         return self
     }
+    
+    /**
+     Sets info cells config.
+     - parameter infoCellConfig:
+     Bot buttons config.
+     - returns:
+     `WMChatViewControllerConfigBuilder` object with  info cells config set.
+     - copyright:
+     2024 Roxchat
+     */
+    public func set(infoCellConfig: WMAbstractCellConfig) -> Self {
+        self.infoCellConfig = infoCellConfig
+        return self
+    }
+
 
     // MARK: Toolbar
     /**
@@ -291,6 +310,20 @@ public class WMChatViewControllerConfigBuilder: WMViewControllerConfigBuilder {
      */
     public func set(surveyViewConfig: WMSurveyViewConfig) -> Self {
         self.surveyViewConfig = surveyViewConfig
+        return self
+    }
+    
+    /**
+     Sets empty chat title.
+     - parameter emptyChatTitle:
+     Survey view config.
+     - returns:
+     `WMChatViewControllerConfigBuilder` object with empty chat title set.
+     - copyright:
+     2024 Rox.Chat
+     */
+    public func set(emptyChatTitle: String) -> Self {
+        self.emptyChatTitle = emptyChatTitle
         return self
     }
 }

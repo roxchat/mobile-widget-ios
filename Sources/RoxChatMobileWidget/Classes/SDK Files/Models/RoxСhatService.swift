@@ -302,6 +302,60 @@ final class RoxchatService {
         }
     }
     
+    func send(files: [FileToSend],
+              completionHandler: SendFileCompletionHandler
+    ) {
+        if messageStream == nil {
+            setMessageStream()
+        }
+        
+        if shouldShowDepartmentSelection(),
+           let departments = messageStream?.getDepartmentList() {
+            departmentListHandlerDelegate?.showDepartmentsList(
+                departments,
+                action: { [weak self] departmentKey in
+                    self?.startChat(
+                        departmentKey: departmentKey,
+                        message: nil
+                    )
+                    self?.sendFiles(files: files,
+                                    completionHandler: completionHandler
+                    )
+                }
+            )
+        } else {
+            self.sendFiles(files: files,
+                           completionHandler: completionHandler
+            )
+        }
+    }
+    
+    func send(images: [ImageToSend],
+              completionHandler: SendFileCompletionHandler
+    ) {
+        if messageStream == nil {
+            setMessageStream()
+        }
+        
+        if shouldShowDepartmentSelection(),
+           let departments = messageStream?.getDepartmentList() {
+            departmentListHandlerDelegate?.showDepartmentsList(
+                departments,
+                action: { [weak self] departmentKey in
+                    self?.startChat(
+                        departmentKey: departmentKey,
+                        message: nil
+                    )
+                    self?.sendImages(images: images,
+                                     completionHandler: completionHandler
+                    )
+                }
+            )
+        } else {
+            self.sendImages(images: images, completionHandler: completionHandler)
+        }
+    }
+    
     func reply(
         message: String,
         repliedMessage: Message,
@@ -705,6 +759,87 @@ final class RoxchatService {
         } catch {
             self.printError(error: error, message: "Send file")
         }
+    }
+    
+    func sendFiles(
+        files: [FileToSend],
+        completionHandler: SendFileCompletionHandler
+    ) {
+        for file in files {
+            guard let fileToSend = file.file else { return }
+            let fileURL = file.url ?? URL(fileURLWithPath: "document.pdf")
+            let fileName = fileURL.lastPathComponent
+            do {
+                _ = try messageStream?.send(
+                    file: fileToSend,
+                    filename: fileName,
+                    mimeType: MimeType(url: fileURL).value,
+                    completionHandler: completionHandler
+                )  // Returned message ID ignored.
+            } catch {
+                self.printError(error: error, message: "Send file")
+            }
+        }
+    }
+    
+    func sendImages(
+        images: [ImageToSend],
+        completionHandler: SendFileCompletionHandler
+    ) {
+        for image in images {
+            guard let imageToSend = image.image else { return }
+            var imageData = Data()
+            let imageURL = image.url
+            var imageName = String()
+            var mimeType = MimeType()
+            
+            if let imageURL = imageURL {
+                mimeType = MimeType(url: imageURL as URL)
+                imageName = imageURL.lastPathComponent
+                
+                let imageExtension = imageURL.pathExtension.lowercased()
+                
+                switch imageExtension {
+                case "jpg", "jpeg":
+                    guard let unwrappedData = imageToSend.jpegData(compressionQuality: 1.0)
+                    else { return }
+                    imageData = unwrappedData
+                    
+                case "heic", "heif":
+                    guard let unwrappedData = imageToSend.jpegData(compressionQuality: 0.5)
+                    else { return }
+                    imageData = unwrappedData
+                    
+                    var components = imageName.components(separatedBy: ".")
+                    if components.count > 1 {
+                        components.removeLast()
+                        imageName = components.joined(separator: ".")
+                    }
+                    imageName += ".jpeg"
+                    
+                default:
+                    guard let unwrappedData = imageToSend.pngData()
+                    else { return }
+                    imageData = unwrappedData
+                }
+            } else {
+                guard let unwrappedData = imageToSend.jpegData(compressionQuality: 1.0)
+                else { return }
+                imageData = unwrappedData
+                imageName = "photo.jpeg"
+            }
+            do {
+                _ = try messageStream?.send(
+                    file: imageData,
+                    filename: imageName,
+                    mimeType: mimeType.value,
+                    completionHandler: completionHandler
+                )  // Returned message ID ignored.
+            } catch {
+                self.printError(error: error, message: "Send file")
+            }
+        }
+        
     }
     
     private func editMessage(

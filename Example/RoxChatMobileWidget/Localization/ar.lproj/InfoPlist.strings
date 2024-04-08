@@ -1,0 +1,17 @@
+/* 
+  InfoPlist.strings
+  RoxchatClientLibrary
+
+  Created by Anna Frolova on 20.09.2022.
+  Copyright © 2022 Roxchat. All rights reserved.
+*/
+
+"NSPhotoLibraryAddUsageDescription" = "يحتاج Rox.Chat إلى إذن للوصول إلى مكتبة الصور الخاصة بك حتى تتمكن من حفظ الصور من الدردشة.";
+
+"NSCameraUsageDescription" = "يحتاج Rox.Chat إلى إذن للوصول إلى الكاميرا الخاصة بك حتى تتمكن من إرسال الصور للدردشة.";
+
+"NSFileProviderDomainUsageDescription" = "يحتاج Rox.Chat إلى إذن للوصول إلى مجلد المستندات الخاص بك حتى تتمكن من إرسال الملفات للدردشة.";
+
+"NSFileProviderPresenceUsageDescription" = "يحتاج Rox.Chat إلى إذن للوصول إلى مجلد المستندات الخاص بك حتى تتمكن من إرسال الملفات للدردشة.";
+
+"NSPhotoLibraryUsageDescription" = "يحتاج Rox.Chat إلى إذن للوصول إلى مكتبة الصور الخاصة بك حتى تتمكن من إرسال الصور للدردشة.";
